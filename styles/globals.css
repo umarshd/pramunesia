@@ -1,16 +1,63 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
+  top: 0;
+  left: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+:root {
+  --clr-firefly: #112B3C;
+  --clr-chatams: #205375;
+  --clr-pumpkin: #F66B0E;
+  --clr-soft-peace: #EFEFEF;
+}
+
+.bg-firefly {
+  background-color: var(--clr-firefly);
+}
+
+.btn-orange {
+  background-color: var(--clr-pumpkin);
+  padding: .5rem 1.5rem;
+  border-radius: .25rem;
+  border: 1px solid var(--clr-pumpkin);
+  transition: all 80ms ease-in-out;
+  touch-action: manipulation;
+}
+
+.btn-orange:focus {
+  outline: 0;
+}
+
+.btn-orange:active {
+  background-color: var(--clr-pumpkin);
+  border-color: var(--clr-pumpkin);
+}
+
+.btn-abu {
+  padding: .5rem 1.5rem;
+  border-radius: .25rem;
+  border-right-color: var(--clr-soft-peace);
+  border: 1px solid var(--clr-soft-peace);
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.shadow-card {
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  border-radius: 16px;
+  background: linear-gradient(45deg, #ff720f, #dd600d);
+  transition: all 0.2s ease;
+  cursor: pointer
+}
+
+.shadow-card:hover{
+  transform: scale(1.025);
 }
