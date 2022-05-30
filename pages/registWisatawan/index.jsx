@@ -14,7 +14,7 @@ function RegistWisatawan() {
         <div className="d-flex justify-content-center align-items-center">
           <div className="content text-white">
             <div className="text-center">
-              <h6>Registrasi Pemandu Wisata</h6>
+              <h6>Registrasi Wisatawan</h6>
               <h3 className="my-4">Buat Akunmu!</h3>
               <p>
                 Untuk mendapatkan
@@ -52,6 +52,19 @@ function RegistWisatawan() {
                   <button type="submit" className="btn-orange">Registrasi</button>
                 </div>
               </form>
+            </div>
+            <div className="text-center">
+              <p>
+                Dengan menekan tombol Registrasi, Anda setuju
+                {' '}
+                <br />
+                {' '}
+                dengan
+                {' '}
+                <span><a href="/">Syarat & Ketentuan</a></span>
+                {' '}
+                kami
+              </p>
             </div>
           </div>
         </div>

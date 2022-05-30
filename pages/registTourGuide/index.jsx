@@ -71,6 +71,19 @@ function RegistTourGuide({ data }) {
                 </div>
               </form>
             </div>
+            <div className="text-center">
+              <p>
+                Dengan menekan tombol Registrasi, Anda setuju
+                {' '}
+                <br />
+                {' '}
+                dengan
+                {' '}
+                <span><a href="/">Syarat & Ketentuan</a></span>
+                {' '}
+                kami
+              </p>
+            </div>
           </div>
         </div>
       </div>
