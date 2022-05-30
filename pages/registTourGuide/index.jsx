@@ -5,7 +5,7 @@ import Logobig from '../../public/images/logo-big.png';
 
 function RegistTourGuide({ data }) {
   return (
-    <div className="row vh-100 w-100">
+    <div className="row vh-100 vw-100">
       <div className="col-lg-6 ">
         <div className="d-flex justify-content-center align-items-center h-100">
           <Image src={Logobig} width={500} height={450} alt="logo big" />
@@ -48,7 +48,7 @@ function RegistTourGuide({ data }) {
                 <div className="mb-3">
                   <label htmlFor="provinsi" className="form-label">Provinsi</label>
                   <select className="form-select" aria-label="Default select example" id="provinsi" defaultValue="DEFAULT">
-                    <option value="DEFAULT" disabled style={{ color: 'red' }}>Masukan Provinsi</option>
+                    <option value="DEFAULT" disabled text-muted>Masukan Provinsi</option>
                     {data.map((prov) => (
                       <option key={prov.id}>{prov.nama}</option>
                     ))}
