@@ -1,9 +1,19 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Navlogo from '../../public/nav-brand.png';
 
 function Header() {
+  const router = useRouter();
+  const pramuClickHandler = () => {
+    router.push('/registTourGuide');
+  };
+  const wisatawanClickHandler = () => {
+    router.push('/registWisatawan');
+  };
+  const loginUserHandler = () => {
+    router.push('/loginWisatawan');
+  };
   return (
     <div className="container-fluid">
       <nav className="navbar navbar-expand-md">
@@ -18,7 +28,7 @@ function Header() {
             <Image src={Navlogo} width={65} height={60} alt="navbar logo" />
           </a>
           <div className="collapse navbar-collapse align-items-center" id="navToggler">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link href="/">
                   <a className="nav-link active" aria-current="page">Beranda</a>
@@ -39,15 +49,15 @@ function Header() {
                   </div>
                   <div className="modal-body">
                     <div className="d-block">
-                      <div className="card shadow-card mb-3">
+                      <div className="card shadow-card mb-3" onClick={wisatawanClickHandler} data-bs-dismiss="modal">
                         <div className="card-body">
-                          <h5 className="card-title">Wisatawan</h5>
+                          <h5 className="card-title h1">Wisatawan</h5>
                           <p className="card-text">Untuk Wisatawan</p>
                         </div>
                       </div>
-                      <div className="card shadow-card">
+                      <div className="card shadow-card" onClick={pramuClickHandler} data-bs-dismiss="modal">
                         <div className="card-body">
-                          <h5 className="card-title">Pemandu Wisata</h5>
+                          <h5 className="card-title h1">Pemandu Wisata</h5>
                           <p className="card-text">Untuk Pemandu Wisata</p>
                         </div>
                       </div>
@@ -60,8 +70,8 @@ function Header() {
               </div>
             </div>
             <div className="d-flex">
-              <button className="btn-abu me-3" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Registrasi</button>
-              <button className="btn-orange" type="submit">Masuk</button>
+              <button className="btn-abu me-3" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-backdrop="false">Registrasi</button>
+              <button className="btn-orange" type="submit" onClick={loginUserHandler}>Masuk</button>
             </div>
           </div>
         </div>
