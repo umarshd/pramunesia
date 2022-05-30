@@ -61,3 +61,7 @@ body {
 .shadow-card:hover{
   transform: scale(1.025);
 }
+span>a{
+  text-decoration: none;
+  color: var(--clr-pumpkin);
+}
