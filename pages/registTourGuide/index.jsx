@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Logobig from '../../public/images/logo-big.png';
 
 function RegistTourGuide({ data }) {
@@ -23,7 +24,11 @@ function RegistTourGuide({ data }) {
               <p className="mb-3">
                 Sudah punya akun?
                 {' '}
-                <span><a href="/">Masuk sekarang</a></span>
+                <span>
+                  <Link href="/loginTourGuide">
+                    Masuk sekarang
+                  </Link>
+                </span>
               </p>
             </div>
             <div className="row px-1">
@@ -42,8 +47,8 @@ function RegistTourGuide({ data }) {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="provinsi" className="form-label">Provinsi</label>
-                  <select className="form-select" aria-label="Default select example" id="provinsi">
-                    <option value="" selected disabled style={{ color: 'red' }}>Masukan Provinsi</option>
+                  <select className="form-select" aria-label="Default select example" id="provinsi" defaultValue="DEFAULT">
+                    <option value="DEFAULT" disabled style={{ color: 'red' }}>Masukan Provinsi</option>
                     {data.map((prov) => (
                       <option key={prov.id}>{prov.nama}</option>
                     ))}
@@ -51,8 +56,8 @@ function RegistTourGuide({ data }) {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="kota" className="form-label">Kota</label>
-                  <select className="form-select" aria-label="Default select example" id="kota">
-                    <option value="" selected disabled style={{ color: 'red' }}>Masukan Kota</option>
+                  <select className="form-select" aria-label="Default select example" id="kota" defaultValue="DEFAULT">
+                    <option value="DEFAULT" disabled style={{ color: 'red' }}>Masukan Kota</option>
                     {data.map((prov) => (
                       <option key={prov.id}>{prov.nama}</option>
                     ))}

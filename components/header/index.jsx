@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -15,7 +12,7 @@ function Header() {
     router.push('/registWisatawan');
   };
   const loginUserHandler = () => {
-    router.push('/masuk');
+    router.push('/loginWisatawan');
   };
   return (
     <div className="container-fluid">

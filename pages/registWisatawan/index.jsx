@@ -1,11 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Logobig from '../../public/images/logo-big.png';
 
 function RegistWisatawan() {
   return (
     <div className="row vh-100 w-100">
-      <div className="col-lg-6 ">
+      <div className="col-lg-6 d-none d-xl-block d-xxl-none d-md-block">
         <div className="d-flex justify-content-center align-items-center h-100">
           <Image src={Logobig} width={500} height={450} alt="logo big" />
         </div>
@@ -23,7 +24,11 @@ function RegistWisatawan() {
               <p className="mb-3">
                 Sudah punya akun?
                 {' '}
-                <span><a href="/">Masuk sekarang</a></span>
+                <span>
+                  <Link href="/loginWisatawan">
+                    Masuk sekarang
+                  </Link>
+                </span>
               </p>
             </div>
             <div className="row px-1">
