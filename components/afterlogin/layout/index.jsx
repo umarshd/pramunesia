@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
-import Footer from '../footer';
-import Header from '../header';
+import Footer from '../../footer';
+import Navigation from '../navbar';
 
 function Layout({ children, pageTitle }) {
   return (
@@ -15,8 +15,8 @@ function Layout({ children, pageTitle }) {
         </title>
       </Head>
 
-      <div className="container d-flex flex-column vh-100">
-        <Header />
+      <div className="container d-flex flex-column">
+        <Navigation />
         {children}
         <Footer />
       </div>

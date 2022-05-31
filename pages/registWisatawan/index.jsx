@@ -31,7 +31,7 @@ function RegistWisatawan() {
                 </span>
               </p>
             </div>
-            <div className="row px-1">
+            <div className="row">
               <form>
                 <div className="mb-3">
                   <label htmlFor="namaLengkap" className="form-label">Nama Lengkap</label>
