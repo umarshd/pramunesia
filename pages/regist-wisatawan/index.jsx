@@ -25,7 +25,7 @@ function RegistWisatawan() {
                 Sudah punya akun?
                 {' '}
                 <span>
-                  <Link href="/loginWisatawan">
+                  <Link href="/login-wisatawan">
                     Masuk sekarang
                   </Link>
                 </span>

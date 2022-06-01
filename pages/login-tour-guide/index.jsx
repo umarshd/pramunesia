@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Logobig from '../../public/images/logo-big.png';
 
-function LoginWisatawan() {
+function LoginTouGuide() {
   return (
     <div className="row vh-100 w-100">
       <div className="col-lg-6">
@@ -15,7 +15,7 @@ function LoginWisatawan() {
         <div className="d-flex justify-content-center align-items-center">
           <div className="content text-white">
             <div className="text-center">
-              <h6>Masuk</h6>
+              <h6>Masuk sebagai Pemandu Wisata</h6>
               <h3 className="my-4">Selamat Datang</h3>
               <p>
                 Masuk Sekarang dan
@@ -40,18 +40,19 @@ function LoginWisatawan() {
             <div className="text-center">
               <p>
                 <span>
-                  <Link href="/loginTourGuide">
-                    Masuk sebagai Pemandu Wisata
+                  <Link href="/login-wisatawan">
+                    Masuk sebagai Wisatawan
                   </Link>
                 </span>
               </p>
               <p>Belum punya akun?</p>
               <p>
                 <span>
-                  <Link href="/registWisatawan">
-                    Registrasi Sekarang
+                  <Link href="/regist-tour-guide">
+                    Registrasi Sekarang!
                   </Link>
                 </span>
+
               </p>
             </div>
           </div>
@@ -61,4 +62,4 @@ function LoginWisatawan() {
   );
 }
 
-export default LoginWisatawan;
+export default LoginTouGuide;

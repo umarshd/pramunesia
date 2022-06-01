@@ -25,7 +25,7 @@ function RegistTourGuide({ data }) {
                 Sudah punya akun?
                 {' '}
                 <span>
-                  <Link href="/loginTourGuide">
+                  <Link href="/login-tour-guide">
                     Masuk sekarang
                   </Link>
                 </span>
