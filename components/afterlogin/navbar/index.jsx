@@ -49,7 +49,7 @@ function Navigation() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="/tentangkami">
+            <Link href="/tentang-kami">
               <a className="nav-link">Tentang Kami</a>
             </Link>
           </li>
