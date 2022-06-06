@@ -69,20 +69,58 @@ span>a{
   color: var(--clr-pumpkin);
 }
 
-.home-container {
-  scroll-snap-type: x mandatory;
-  overflow-x: scroll;
-  display: flex;
-  height: 100%;
+.slider {
   width: 100%;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
 }
-.home-inner{
-  flex : none;
+
+.slides {
   display: flex;
-  scroll-snap-align: center;
-  height: 100vh;
-  width: 100vw;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
-.to-guide{
-  max-width: 100%;
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.slides::-webkit-scrollbar-thumb {
+  display: none;
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+.slides > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 100%;
+  height: 40%;
+  margin-right: 50px;
+  border-radius: 10px;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-button {
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  border: none;
+  font-size: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }

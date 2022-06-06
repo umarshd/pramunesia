@@ -15,7 +15,7 @@ function Layout({ children, pageTitle }) {
         </title>
       </Head>
 
-      <div className="container d-flex flex-column vh-100">
+      <div className="container d-flex flex-column">
         <Header />
         {children}
         <Footer />
