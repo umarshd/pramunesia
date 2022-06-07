@@ -120,11 +120,6 @@ h1.h1.text-uppercase.me-auto{
   font-weight: bolder;
 }
 
-h1.h1.text-uppercase {
-  color: var(--clr-pumpkin);
-  font-weight: bolder;
-}
-
 /* Carousel */
 .carousel-button {
   width: 100%;
