@@ -11,10 +11,10 @@ function LoginWisatawan() {
           <Image src={Logobig} width={500} height={450} alt="logo big" />
         </div>
       </div>
-      <div className="col-lg-6 bg-firefly py-4">
+      <div className="col-lg-6 bg-firefly py-4 px-5">
         <div className="d-flex justify-content-center align-items-center">
           <div className="content text-white">
-            <div className="text-center">
+            <div className="text-center mb-5">
               <h6>Masuk</h6>
               <h3 className="my-4">Selamat Datang</h3>
               <p>
@@ -32,7 +32,7 @@ function LoginWisatawan() {
                   <label htmlFor="password" className="form-label">Password</label>
                   <input type="password" className="form-control" id="password" placeholder="Masukan Password" />
                 </div>
-                <div className="mb-3 d-flex justify-content-center">
+                <div className="mb-3 mt-5 d-flex justify-content-center">
                   <button type="submit" className="btn-orange">Masuk</button>
                 </div>
               </form>

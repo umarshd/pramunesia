@@ -21,6 +21,7 @@ body {
   background-color: var(--clr-firefly);
 }
 
+/* Button */
 .btn-orange {
   background-color: var(--clr-pumpkin);
   padding: .5rem 1.5rem;
@@ -28,6 +29,8 @@ body {
   border: 1px solid var(--clr-pumpkin);
   transition: all 80ms ease-in-out;
   touch-action: manipulation;
+  color: white;
+  font-weight: 400;
 }
 
 .btn-orange:focus {
@@ -106,12 +109,23 @@ span>a{
   transform: scale(1);
   transition: transform 0.5s;
   position: relative;
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* logo-title */
+h1.h1.text-uppercase.me-auto{
+  color: var(--clr-pumpkin);
+  font-weight: bolder;
+}
+
+h1.h1.text-uppercase {
+  color: var(--clr-pumpkin);
+  font-weight: bolder;
+}
+
+/* Carousel */
 .carousel-button {
   width: 100%;
   position: absolute;
@@ -136,3 +150,8 @@ span>a{
   top: 15rem;
   left: 19rem;
 }
+h1 .title{
+  color: red;
+}
+
+
