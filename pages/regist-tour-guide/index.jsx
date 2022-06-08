@@ -34,6 +34,10 @@ function RegistTourGuide({ data }) {
             <div className="row px-1">
               <form>
                 <div className="mb-3">
+                  <label htmlFor="lisensi" className="form-label">No. KTA/Lisensi </label>
+                  <input type="text" className="form-control" id="lisensi" placeholder="Masukan No. KTA/Lisensi" />
+                </div>
+                <div className="mb-3">
                   <label htmlFor="namaLengkap" className="form-label">Nama Lengkap</label>
                   <input type="text" className="form-control" id="namaLengkap" placeholder="Masukan Nama Lengkap" />
                 </div>
@@ -44,6 +48,10 @@ function RegistTourGuide({ data }) {
                 <div className="mb-3">
                   <label htmlFor="noTelepon" className="form-label">No Telepon</label>
                   <input type="text" className="form-control" id="noTelepon" placeholder="Masukan No Telepon" />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="alamat" className="form-label">Alamat</label>
+                  <input type="text" className="form-control" id="alamat" placeholder="Masukan Alamat" />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="provinsi" className="form-label">Provinsi</label>
