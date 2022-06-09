@@ -14,6 +14,12 @@
   margin: 0 !important;
 }
 
+*,
+::after,
+::before {
+  margin: 0 !important;
+}
+
 body {
   font-family: "Rubik", sans-serif;
 }
@@ -128,6 +134,9 @@ h1.h1.text-uppercase.me-auto {
   font-weight: bolder;
 }
 
+.home-inner {
+  flex: none;
+
 /* Carousel */
 .carousel-button {
   width: 100%;
@@ -141,6 +150,10 @@ h1.h1.text-uppercase.me-auto {
   display: flex;
   justify-content: space-between;
 }
+
+.to-guide {
+  max-width: 100%;
+
 
 .carousel-control-prev {
   position: absolute;
