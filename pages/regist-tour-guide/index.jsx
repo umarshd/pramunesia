@@ -11,10 +11,10 @@ function RegistTourGuide({ data }) {
           <Image src={Logobig} width={500} height={450} alt="logo big" />
         </div>
       </div>
-      <div className="col-lg-6 bg-firefly py-4 px-5">
+      <div className="col-lg-6 bg-firefly py-4">
         <div className="d-flex justify-content-center align-items-center">
           <div className="content text-white">
-            <div className="text-center mb-5">
+            <div className="text-center">
               <h6>Registrasi Pemandu Wisata</h6>
               <h3 className="my-4">Buat Akunmu!</h3>
               <p>
@@ -34,10 +34,6 @@ function RegistTourGuide({ data }) {
             <div className="row px-1">
               <form>
                 <div className="mb-3">
-                  <label htmlFor="lisensi" className="form-label">No. KTA/Lisensi </label>
-                  <input type="text" className="form-control" id="lisensi" placeholder="Masukan No. KTA/Lisensi" />
-                </div>
-                <div className="mb-3">
                   <label htmlFor="namaLengkap" className="form-label">Nama Lengkap</label>
                   <input type="text" className="form-control" id="namaLengkap" placeholder="Masukan Nama Lengkap" />
                 </div>
@@ -48,10 +44,6 @@ function RegistTourGuide({ data }) {
                 <div className="mb-3">
                   <label htmlFor="noTelepon" className="form-label">No Telepon</label>
                   <input type="text" className="form-control" id="noTelepon" placeholder="Masukan No Telepon" />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="alamat" className="form-label">Alamat</label>
-                  <input type="text" className="form-control" id="alamat" placeholder="Masukan Alamat" />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="provinsi" className="form-label">Provinsi</label>
@@ -79,7 +71,7 @@ function RegistTourGuide({ data }) {
                   <label htmlFor="password" className="form-label">Password</label>
                   <input type="password" className="form-control" id="password" placeholder="Masukan Email" />
                 </div>
-                <div className="mb-3 mt-5 d-flex justify-content-center">
+                <div className="mb-3 d-flex justify-content-center">
                   <button type="submit" className="btn-orange">Registrasi</button>
                 </div>
               </form>

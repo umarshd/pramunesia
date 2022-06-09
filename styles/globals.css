@@ -4,14 +4,6 @@
   top: 0;
   left: 0;
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-*,
-::after,
-::before {
-  margin: 0 !important;
 }
 
 *,
@@ -35,7 +27,6 @@ body {
   background-color: var(--clr-firefly);
 }
 
-/* Button */
 .btn-orange {
   background-color: var(--clr-pumpkin);
   padding: 0.5rem 1.5rem;
@@ -43,8 +34,6 @@ body {
   border: 1px solid var(--clr-pumpkin);
   transition: all 80ms ease-in-out;
   touch-action: manipulation;
-  color: white;
-  font-weight: 400;
 }
 
 .btn-orange:focus {
@@ -86,9 +75,29 @@ span > a {
   color: var(--clr-pumpkin);
 }
 
+<<<<<<< HEAD
 .each-fade img{
   height: 500px;
   border-radius: 10px;
   width: 100%
 }
 
+=======
+.home-container {
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.home-inner {
+  flex: none;
+  display: flex;
+  scroll-snap-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+.to-guide {
+  max-width: 100%;
+}
+>>>>>>> parent of 512c825 (Merge branch 'main' into development)

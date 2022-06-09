@@ -4,7 +4,7 @@ import Layout from '../../components/afterlogin/layout';
 
 function UserChoosePage() {
   return (
-    <Layout pageTitle="Welcome">
+    <Layout pageTitle="Home">
       <div className="" style={{ height: '56vh !important' }}>
         <Jumbotron />
       </div>
