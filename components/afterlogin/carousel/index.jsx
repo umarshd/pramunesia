@@ -10,7 +10,7 @@ const fadeImages = [
 
 export default function Carousel() {
   return (
-    <div className="slide-container">
+    <div className="slide">
       <Fade>
         <div className="each-fade">
           <img src={fadeImages[0]} alt="" />
