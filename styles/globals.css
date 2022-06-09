@@ -4,6 +4,20 @@
   top: 0;
   left: 0;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+*,
+::after,
+::before {
+  margin: 0 !important;
+}
+
+*,
+::after,
+::before {
+  margin: 0 !important;
 }
 
 *,
@@ -27,6 +41,7 @@ body {
   background-color: var(--clr-firefly);
 }
 
+/* Button */
 .btn-orange {
   background-color: var(--clr-pumpkin);
   padding: 0.5rem 1.5rem;
@@ -34,6 +49,8 @@ body {
   border: 1px solid var(--clr-pumpkin);
   transition: all 80ms ease-in-out;
   touch-action: manipulation;
+  color: white;
+  font-weight: 400;
 }
 
 .btn-orange:focus {
@@ -75,7 +92,6 @@ span > a {
   color: var(--clr-pumpkin);
 }
 
-<<<<<<< HEAD
 .home-container {
   scroll-snap-type: x mandatory;
   overflow-x: scroll;
@@ -92,11 +108,88 @@ span > a {
 }
 .to-guide {
   max-width: 100%;
-=======
-.each-fade img{
+}
+.each-fade img {
   height: 500px;
   border-radius: 10px;
-  width: 100%
->>>>>>> 77b0ff537dd74b1e5f0c79d6027dc8c144cfa6e8
+  width: 100%;
+}
+.slider {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
 }
 
+.slides {
+  display: flex;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.slides::-webkit-scrollbar-thumb {
+  display: none;
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+.slides > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 100%;
+  height: 40%;
+  margin-right: 50px;
+  border-radius: 10px;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* logo-title */
+h1.h1.text-uppercase.me-auto {
+  color: var(--clr-pumpkin);
+  font-weight: bolder;
+}
+
+.home-inner {
+  flex: none;
+}
+/* Carousel */
+.carousel-button {
+  width: 100%;
+  position: absolute;
+  /* z-index: 2; */
+  border: none;
+  font-size: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.to-guide {
+  max-width: 100%;
+}
+.carousel-control-prev {
+  position: absolute;
+  top: 15rem;
+  left: -2rem;
+}
+
+.carousel-control-next {
+  position: absolute;
+  top: 15rem;
+  left: 19rem;
+}
