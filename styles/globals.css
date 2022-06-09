@@ -20,6 +20,12 @@
   margin: 0 !important;
 }
 
+*,
+::after,
+::before {
+  margin: 0 !important;
+}
+
 body {
   font-family: "Rubik", sans-serif;
 }
@@ -85,6 +91,12 @@ span > a {
   text-decoration: none;
   color: var(--clr-pumpkin);
 }
+
+
+.each-fade img{
+  height: 500px;
+  border-radius: 10px;
+  width: 100%
 
 .slider {
   width: 100%;
@@ -166,3 +178,4 @@ h1.h1.text-uppercase.me-auto {
   top: 15rem;
   left: 19rem;
 }
+

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,11 +5,6 @@ import Logobig from "../../public/images/logo-big.png";
 import Head from "next/head";
 import axios from "axios";
 import Router from "next/router";
-=======
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import Logobig from "../../public/images/logo-big.png";
 
 function RegistWisatawan() {
   const [dataWisata, setDataWisatawan] = useState(false);
@@ -71,7 +65,6 @@ function RegistWisatawan() {
             <Image src={Logobig} width={500} height={450} alt="logo big" />
           </div>
         </div>
-
         <div className="col-lg-6 bg-firefly py-4">
           <div className="d-flex justify-content-center align-items-center">
             <div className="content text-white">

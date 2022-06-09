@@ -1,11 +1,20 @@
-import Image from 'next/image';
 import React from 'react';
+import Carousel from '../../components/afterlogin/carousel';
 import Card from '../../components/afterlogin/home-card';
 import Layout from '../../components/afterlogin/layout';
 
-function UserHomePage({ data }) {
+function UserHomePage() {
   return (
     <Layout pageTitle="user-home">
+
+      <Carousel />
+      <div className="mt-5">
+        <h3 className="mb-4 text-center">Pilih sesuai kebutuhanmu</h3>
+        <div className="mt-3 d-flex d-flex justify-content-center align-items-center">
+          <div className="card shadow-card my-4 to-guide">
+            <div className="card-body to-guide">
+              <h5 className="card-title h1">Wisatawan</h5>
+              <p className="card-text">Untuk Wisatawan</p>
       <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
           {data.map((pic) => (
@@ -43,18 +52,6 @@ function UserHomePage({ data }) {
       </div>
     </Layout>
   );
-}
-
-const API_KEY = '27591509-67fde677ea61701e69579415e';
-export async function getServerSideProps() {
-  const res = await fetch(`https://pixabay.com/api/?key=${API_KEY}&q=yellow+flowers&image_type=photo&pretty=true`);
-  const data = await res.json();
-
-  return {
-    props: {
-      data: data.hits,
-    },
-  };
 }
 
 export default UserHomePage;
