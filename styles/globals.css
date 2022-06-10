@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
 
 * {
-  top: 0;
-  left: 0;
   box-sizing: border-box;
   padding: 0;
   margin: 0 !important;
@@ -18,6 +16,12 @@ body {
   --clr-pumpkin: #f66b0e;
   --clr-soft-peace: #efefef;
 }
+
+/* Sweet alert2 custom */
+.swal2-icon {
+  margin: 2.5em auto 0.6em !important;
+}
+/* end sweet alert2 */
 
 .bg-firefly {
   background-color: var(--clr-firefly);
