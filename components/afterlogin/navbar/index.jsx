@@ -23,7 +23,7 @@ function Navigation() {
               <a className="dropdown-item">
                 <FiUserPlus size={24} />
                 {' '}
-                Akun 1
+                Akun
               </a>
             </Link>
           </li>
