@@ -1,9 +1,11 @@
 import {
   Body,
+  ConflictException,
   Controller,
   Delete,
   Get,
   HttpStatus,
+  InternalServerErrorException,
   Param,
   Patch,
   Post,
@@ -31,12 +33,21 @@ export class UsersController {
     const salt = await bcrypt.genSalt();
     const hashPasswod = await bcrypt.hash(data.password, salt);
     data.password = hashPasswod;
-    const user = await this.usersService.create(data);
-    return {
-      statusCode: HttpStatus.OK,
-      message: 'User created sucessfully',
-      user,
-    };
+
+    try {
+      const user = await this.usersService.create(data);
+      return {
+        statusCode: HttpStatus.OK,
+        message: 'User created sucessfully',
+        user,
+      };
+    } catch (error) {
+      if (error.errno == 1062) {
+        throw new ConflictException(`Email ${data.email} already used`);
+      } else {
+        throw new InternalServerErrorException(error);
+      }
+    }
   }
 
   @Get('/:id')
