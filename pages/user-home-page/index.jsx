@@ -1,12 +1,11 @@
-import React from 'react';
-import Carousel from '../../components/afterlogin/carousel';
-import Card from '../../components/afterlogin/home-card';
-import Layout from '../../components/afterlogin/layout';
+import React from "react";
+import Carousel from "../../components/afterlogin/carousel";
+import Card from "../../components/afterlogin/home-card";
+import Layout from "../../components/afterlogin/layout";
 
 function UserHomePage() {
   return (
     <Layout pageTitle="user-home">
-
       <Carousel />
       <div className="mt-5">
         <h3 className="mb-4 text-center">Pilih sesuai kebutuhanmu</h3>
@@ -15,28 +14,35 @@ function UserHomePage() {
             <div className="card-body to-guide">
               <h5 className="card-title h1">Wisatawan</h5>
               <p className="card-text">Untuk Wisatawan</p>
-      <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
-        <div className="carousel-inner">
-          {data.map((pic) => (
-            <div className="carousel-item active" key={pic.id}>
-              <Image
-                src={pic.largeImageURL}
-                width={1200}
-                height={500}
-                alt={pic.tags}
-              />
             </div>
-          ))}
+          </div>
         </div>
-        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      </div>
+      {/* <div
+        id="carouselExampleControls"
+        className="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div className="carousel-inner"></div>
+        <button
+          className="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev"
+        >
           <span className="carousel-control-prev-icon" aria-hidden="true" />
           <span className="sr-only visually-hidden">Previous</span>
         </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <button
+          className="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="next"
+        >
           <span className="carousel-control-next-icon" aria-hidden="true" />
           <span className="sr-only visually-hidden">Next</span>
         </button>
-      </div>
+      </div> */}
       <div className="my-5">
         <h3 className="h3 my-3">Pilih sesuai kebutuhanmu</h3>
         <div className="row my-3">

@@ -32,8 +32,6 @@ function RegistWisatawan() {
 
   const handleRegisterWisatawan = async (e) => {
     e.preventDefault();
-
-    console.log(input);
     const api = `http://localhost:3010/users`;
 
     try {
@@ -48,12 +46,19 @@ function RegistWisatawan() {
           password: input.password,
         },
       });
+      MySwal.fire({
+        position: "center",
+        icon: "success",
+        title: `User has been created successfully`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
       Router.push("/");
     } catch (error) {
       MySwal.fire({
         position: "center",
-        icon: "success",
-        title: "Your work has been saved",
+        icon: "error",
+        title: `${error.response.data.message}`,
         showConfirmButton: false,
         timer: 1500,
       });
