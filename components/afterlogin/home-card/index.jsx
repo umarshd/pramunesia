@@ -1,16 +1,14 @@
 import React from 'react';
-import { FiUsers } from 'react-icons/fi';
+// import { FiUsers, FiCalendar, FiBookOpen, FiStar } from 'react-icons/fi';
+// import { icons } from 'react-icons/lib';
 
-export default function Card({ title, desc }) {
+export default function Card({ icons, title, desc }) {
   return (
     <div>
-      <div className="card  shadow-card" style={{ maxWidth: '25rem' }}>
+      <div className="card  shadow-card" style={{ maxWidth: '25rem'}}>
         <div className="row">
           <div className="col-2">
-            <FiUsers
-              size="4rem"
-              color="white"
-            />
+            {icons}
           </div>
           <div className="col-10">
             <div className="card-body">
@@ -19,6 +17,7 @@ export default function Card({ title, desc }) {
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   );
