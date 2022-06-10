@@ -5,8 +5,11 @@ import Logobig from "../../public/images/logo-big.png";
 import Head from "next/head";
 import axios from "axios";
 import Router from "next/router";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 function RegistWisatawan() {
+  const MySwal = withReactContent(Swal);
   const [dataWisata, setDataWisatawan] = useState(false);
   const [input, setInput] = useState(false);
 
@@ -47,7 +50,13 @@ function RegistWisatawan() {
       });
       Router.push("/");
     } catch (error) {
-      console.log(error);
+      MySwal.fire({
+        position: "center",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
   };
 
