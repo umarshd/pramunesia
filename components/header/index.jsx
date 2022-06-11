@@ -83,8 +83,8 @@ function Header() {
                         data-bs-dismiss="modal"
                       >
                         <div className="card-body">
-                          <h5 className="card-title h1">Wisatawan</h5>
-                          <p className="card-text">Untuk Wisatawan</p>
+                          <h5 className="card-title h1 text-light mb-2">Wisatawan</h5>
+                          <p className="card-text text-light">Untuk Wisatawan</p>
                         </div>
                       </div>
                       <div
@@ -93,8 +93,8 @@ function Header() {
                         data-bs-dismiss="modal"
                       >
                         <div className="card-body">
-                          <h5 className="card-title h1">Pemandu Wisata</h5>
-                          <p className="card-text">Untuk Pemandu Wisata</p>
+                          <h5 className="card-title h1 text-light mb-2">Pemandu Wisata</h5>
+                          <p className="card-text text-light">Untuk Pemandu Wisata</p>
                         </div>
                       </div>
                     </div>
