@@ -26,6 +26,9 @@ body {
 .bg-firefly {
   background-color: var(--clr-firefly);
 }
+.bg-soft-peace{
+  background-color: var(--clr-soft-peace);
+}
 
 /* Button */
 .btn-orange {
@@ -100,11 +103,16 @@ h1.h1.text-uppercase.me-auto {
 .h-60{
   height: 60vh;
 }
-.profile{
-  background-color: var(--clr-soft-peace);
+
+.btn-circle.btn-sm {
+  width: 30px;
+  height: 30px;
+  padding: 0.4rem;
+  border: 1px solid var(--clr-pumpkin);
+  border-radius: 50%;
+  background-color: var(--clr-pumpkin);
 }
-.hr{
-  color: black;
-  border-color: black;
-  border-width: 1.5px;
+
+.btn-circle.btn-sm:focus{
+  outline : 0;
 }
