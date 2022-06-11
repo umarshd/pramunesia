@@ -42,9 +42,9 @@ function UserProfile() {
                       </h4>
                       <button
                         type="button"
-                        className="btn-circle btn-sm"
+                        className="btn-circle btn-sm d-flex align-items-center"
                       >
-                        <FiChevronRight size="1.25rem" color="white" />
+                        <FiChevronRight size="1.25rem" color="white"/>
 
                       </button>
                     </div>
@@ -61,9 +61,9 @@ function UserProfile() {
                       </h4>
                       <button
                         type="button"
-                        className="btn-circle btn-sm"
+                        className="btn-circle btn-sm d-flex align-items-center "
                       >
-                        <FiChevronRight size="1.25rem" color="white" />
+                        <FiChevronRight size="1.25rem" color="white"/>
 
                       </button>
                     </div>
