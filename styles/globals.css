@@ -100,3 +100,11 @@ h1.h1.text-uppercase.me-auto {
 .h-60{
   height: 60vh;
 }
+.profile{
+  background-color: var(--clr-soft-peace);
+}
+.hr{
+  color: black;
+  border-color: black;
+  border-width: 1.5px;
+}
