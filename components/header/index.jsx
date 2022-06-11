@@ -1,18 +1,18 @@
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import Navlogo from "../../public/nav-brand.png";
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Navlogo from '../../public/nav-brand.png';
 
 function Header() {
   const router = useRouter();
   const pramuClickHandler = () => {
-    router.push("/regist-tour-guide");
+    router.push('/regist-tour-guide');
   };
   const wisatawanClickHandler = () => {
-    router.push("/regist-wisatawan");
+    router.push('/regist-wisatawan');
   };
   const loginUserHandler = () => {
-    router.push("/login-wisatawan");
+    router.push('/login-wisatawan');
   };
   return (
     <div className="container-fluid">
