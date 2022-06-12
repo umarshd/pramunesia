@@ -1,85 +1,44 @@
 import {
-  Body,
-  ConflictException,
   Controller,
-  Delete,
   Get,
-  HttpStatus,
-  InternalServerErrorException,
-  Param,
-  Patch,
   Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
 } from '@nestjs/common';
-import { UsersDto } from './users.dto';
 import { UsersService } from './users.service';
-import * as bcrypt from 'bcrypt';
+import { CreateUsersDto } from './dto/create-users.dto';
+import { UpdateUsersDto } from './dto/update-users.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Users')
 @Controller('users')
 export class UsersController {
-  constructor(private usersService: UsersService) {}
-
-  @Get()
-  async showAllUsers() {
-    const users = await this.usersService.showAll();
-    return {
-      statusCode: HttpStatus.OK,
-      message: 'User fetched successfully',
-      users,
-    };
-  }
+  constructor(private readonly usersService: UsersService) {}
 
   @Post()
-  async createUsers(@Body() data: UsersDto) {
-    const salt = await bcrypt.genSalt();
-    const hashPasswod = await bcrypt.hash(data.password, salt);
-    data.password = hashPasswod;
-
-    try {
-      const user = await this.usersService.create(data);
-      return {
-        statusCode: HttpStatus.OK,
-        message: 'User created sucessfully',
-        user,
-      };
-    } catch (error) {
-      if (error.errno == 1062) {
-        throw new ConflictException(`Email ${data.email} already used`);
-      } else {
-        throw new InternalServerErrorException(error);
-      }
-    }
+  create(@Body() createUserDto: CreateUsersDto) {
+    return this.usersService.create(createUserDto);
   }
 
-  @Get('/:id')
-  async readUser(@Param('id') id: string) {
-    const user = await this.usersService.read(id);
-    return {
-      statusCode: HttpStatus.OK,
-      message: 'User fetched successfully',
-      user,
-    };
+  @Get()
+  findAll() {
+    return this.usersService.findAll();
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.usersService.findOne(id);
   }
 
   @Patch(':id')
-  async updateUser(@Param('id') id: string, @Body() data: Partial<UsersDto>) {
-    const salt = await bcrypt.genSalt();
-    const hashPasswod = await bcrypt.hash(data.password, salt);
-    data.password = hashPasswod;
-
-    await this.usersService.update(id, data);
-    return {
-      statusCode: HttpStatus.OK,
-      message: 'User updated successfully',
-    };
+  update(@Param('id') id: string, @Body() updateUsersDto: UpdateUsersDto) {
+    return this.usersService.update(id, updateUsersDto);
   }
 
   @Delete(':id')
-  async deleteUser(@Param('id') id: string) {
-    await this.usersService.destroy(id);
-
-    return {
-      statusCode: HttpStatus.OK,
-      message: 'User delete successfully',
-    };
+  remove(@Param('id') id: string) {
+    return this.usersService.remove(id);
   }
 }
