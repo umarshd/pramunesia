@@ -44,7 +44,7 @@ function GuideProfile() {
                         type="button"
                         className="btn-circle btn-sm d-flex align-items-center"
                       >
-                        <FiChevronRight size="1.25rem" color="white"/>
+                        <FiChevronRight size="1.25rem" color="white" />
 
                       </button>
                     </div>
@@ -63,7 +63,7 @@ function GuideProfile() {
                         type="button"
                         className="btn-circle btn-sm d-flex align-items-center "
                       >
-                        <FiChevronRight size="1.25rem" color="white"/>
+                        <FiChevronRight size="1.25rem" color="white" />
 
                       </button>
                     </div>
@@ -82,12 +82,29 @@ function GuideProfile() {
                         type="button"
                         className="btn-circle btn-sm d-flex align-items-center "
                       >
-                        <FiChevronRight size="1.25rem" color="white"/>
+                        <FiChevronRight size="1.25rem" color="white" />
                       </button>
                     </div>
                   </Link>
                 </div>
               </div>
+              <h4 className="d-flex justify-content-center align-items-center my-4 text-dark font-weight-bold">Halo, Pemandu Wisata</h4>
+              <div className="text-center">
+                <h5>
+                  <span>
+                    <a href="/">Lihat Profil</a>
+                  </span>
+                </h5>
+              </div>
+            </div>
+            <div className="col-6 text-white bg-white">
+              <h6 className="d-flex justify-content-center align-items-center my-4 text-dark font-weight-bold">Akun</h6>
+              <p className="d-flex align-items-center my-4 mx-4 text-dark font-weight-bold">Sertifikat</p>
+              <hr className="hr" />
+              <p className="d-flex align-items-center my-4 mx-4 text-dark font-weight-bold">Pelatihan</p>
+              <hr className="hr" />
+              <p className="d-flex align-items-center my-4 mx-4 text-dark font-weight-bold">Tamu yang Dibawa</p>
+              <hr className="hr" />
             </div>
           </div>
         </div>
