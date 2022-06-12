@@ -1,47 +1,99 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FiChevronRight } from 'react-icons/fi';
 import Navigation from '../../components/afterlogin/navbar';
 
-function UserProfile() {
+function GuideProfile() {
   return (
     <div className="container mx-auto">
       <Navigation />
-      <div className="bg-firefly p-5 rounded h-75 w-100 ">
-        <div className="d-flex align-items-center justify-content-center bg-secondary rounded h-60">
-          <div className="row h-60 w-100">
-            <div className="col-6 text-white profile">
-              <div className="d-flex justify-content-center align-items-center">
-                <div className="rounded-circle border-5 overflow-hidden mt-5 d-flex align-items-center justify-content-center">
-                  <Image
-                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                    width="150"
-                    height="150"
-                  />
+      <div className="bg-firefly p-4 rounded">
+        <div className="row h-60">
+          <div className="col-lg-6 col-md-6 col-sm-12 bg-soft-peace">
+            <div className="d-flex flex-column justify-content-center align-items-center h-100">
+              <div className="rounded-circle overflow-hidden">
+                <Image
+                  src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                  width="100"
+                  height="100"
+                />
+              </div>
+              <h4>Halo, Pemandu Wisata</h4>
+              <span>
+                <Link href="/">
+                  Lihat Profil
+                </Link>
+              </span>
+            </div>
+          </div>
+          <div className="col-lg-6 col-md-6 col-sm-12 bg-white p-4">
+            <div className="">
+              <h3 className="text-center">Akun</h3>
+              <div className="mt-4">
+                <div className="border border-secondary border-start-0 border-end-0 p-4">
+                  <Link href="/">
+                    <div className="d-flex align-items-center justify-content-between">
+                      <h4>
+                        {' '}
+                        Sertifikat
+                        {' '}
+
+                      </h4>
+                      <button
+                        type="button"
+                        className="btn-circle btn-sm d-flex align-items-center"
+                      >
+                        <FiChevronRight size="1.25rem" color="white"/>
+
+                      </button>
+                    </div>
+                  </Link>
+                </div>
+                <div className="border border-secondary border-start-0 border-end-0 border-top-0 p-4">
+                  <Link href="/">
+                    <div className="d-flex align-items-center justify-content-between">
+                      <h4>
+                        {' '}
+                        Pelatihan
+                        {' '}
+
+                      </h4>
+                      <button
+                        type="button"
+                        className="btn-circle btn-sm d-flex align-items-center "
+                      >
+                        <FiChevronRight size="1.25rem" color="white"/>
+
+                      </button>
+                    </div>
+                  </Link>
+                </div>
+                <div className="border border-secondary border-start-0 border-end-0 border-top-0 p-4">
+                  <Link href="/">
+                    <div className="d-flex align-items-center justify-content-between">
+                      <h4>
+                        {' '}
+                        Tamu yang Dibawa
+                        {' '}
+
+                      </h4>
+                      <button
+                        type="button"
+                        className="btn-circle btn-sm d-flex align-items-center "
+                      >
+                        <FiChevronRight size="1.25rem" color="white"/>
+                      </button>
+                    </div>
+                  </Link>
                 </div>
               </div>
-              <h4 className="d-flex justify-content-center align-items-center my-4 text-dark font-weight-bold">Halo, Pemandu Wisata</h4>
-              <div className="text-center">
-                <h5>
-                  <span>
-                    <a href="/">Lihat Profil</a>
-                  </span>
-                </h5>
-              </div>
-            </div>
-            <div className="col-6 text-white bg-white">
-            <h6 className="d-flex justify-content-center align-items-center my-4 text-dark font-weight-bold">Akun</h6>            
-            <p className="d-flex align-items-center my-4 mx-4 text-dark font-weight-bold">Sertifikat</p>
-            <hr className="hr"/>
-            <p className="d-flex align-items-center my-4 mx-4 text-dark font-weight-bold">Pelatihan</p>
-            <hr className="hr"/>
-            <p className="d-flex align-items-center my-4 mx-4 text-dark font-weight-bold">Tamu yang Dibawa</p>
-            <hr className="hr"/>
             </div>
           </div>
         </div>
-        </div>
+      </div>
     </div>
   );
 }
 
-export default UserProfile;
+export default GuideProfile;
