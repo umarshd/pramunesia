@@ -41,6 +41,10 @@ export class UsersService {
     return await this.userRepository.findOne({ where: { id: id } });
   }
 
+  async findByEmail(email: string) {
+    return await this.userRepository.findOne({ where: { email: email } });
+  }
+
   async update(id: string, updateUsersDto: UpdateUsersDto) {
     return await this.userRepository.update(id, updateUsersDto);
   }
@@ -49,7 +53,7 @@ export class UsersService {
     return await this.userRepository.delete(id);
   }
 
-  async validatePassword(password, hashPassword) {
+  async validatePassword(password: string, hashPassword: string) {
     const passwordVerify = await bcrypt.compare(password, hashPassword);
     return passwordVerify;
   }

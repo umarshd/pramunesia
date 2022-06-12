@@ -16,6 +16,7 @@ async function bootstrap() {
     .setTitle('Pramunesia Indonesia Documentation')
     .setDescription('Documentation for API Pramunesia')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
 
   const configCustomSwagger: SwaggerCustomOptions = {
