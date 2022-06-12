@@ -5,7 +5,7 @@ import {
 import Layout from '../../components/afterlogin/layout';
 import Card from '../../components/afterlogin/home-card';
 
-function UserHomePage() {
+function GuideHomePage() {
   return (
     <Layout pageTitle="user-home-guide">
       <h2 className="mb-4 text-center">Selamat Datang!</h2>
@@ -51,4 +51,4 @@ function UserHomePage() {
   );
 }
 
-export default UserHomePage;
+export default GuideHomePage;
