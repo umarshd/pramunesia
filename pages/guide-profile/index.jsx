@@ -29,17 +29,17 @@ function UserProfile() {
               </div>
             </div>
             <div className="col-6 text-white bg-white">
-            <h6 className="d-flex justify-content-center align-items-center my-4 text-dark font-weight-bold">Akun</h6>            
-            <p className="d-flex align-items-center my-4 mx-4 text-dark font-weight-bold">Sertifikat</p>
-            <hr className="hr"/>
-            <p className="d-flex align-items-center my-4 mx-4 text-dark font-weight-bold">Pelatihan</p>
-            <hr className="hr"/>
-            <p className="d-flex align-items-center my-4 mx-4 text-dark font-weight-bold">Tamu yang Dibawa</p>
-            <hr className="hr"/>
+              <h6 className="d-flex justify-content-center align-items-center my-4 text-dark font-weight-bold">Akun</h6>
+              <p className="d-flex align-items-center my-4 mx-4 text-dark font-weight-bold">Sertifikat</p>
+              <hr className="hr" />
+              <p className="d-flex align-items-center my-4 mx-4 text-dark font-weight-bold">Pelatihan</p>
+              <hr className="hr" />
+              <p className="d-flex align-items-center my-4 mx-4 text-dark font-weight-bold">Tamu yang Dibawa</p>
+              <hr className="hr" />
             </div>
           </div>
         </div>
-        </div>
+      </div>
     </div>
   );
 }
