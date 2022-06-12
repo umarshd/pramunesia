@@ -21,11 +21,6 @@ function SertifTamuGuide() {
         <p>Laki-Laki</p>
         <p>221234567891</p>
         <p>Bandung, Jawa Barat 089678564320</p>
-        <div className="mt-3">
-          <button type="button" className="btn-orange">
-            Pesan
-          </button>
-        </div>
       </div>
       <div className="row gap-0 mt-5">
         <div className="col-lg-3 col-md-3 col-sm-12 p-0 mb-3">
