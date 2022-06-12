@@ -54,11 +54,11 @@ function Navigation() {
             </Link>
           </li>
           <div className="d-none d-sm-none d-md-block d-flex justify-content-center align-items-center py-auto">
-            <li className="nav-item dropdown">
+            <li className="nav-item dropdown-center">
               <a className="nav-link dropdown-toggle" id="dropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <FiUser size={24} />
               </a>
-              <ul className="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" aria-labelledby="dropdownMenu">
+              <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu">
                 <li>
                   <Link href="/useChoosePage">
                     <a className="dropdown-item">
