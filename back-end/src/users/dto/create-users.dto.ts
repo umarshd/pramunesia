@@ -1,10 +1,7 @@
 import { IsEmail, IsNotEmpty } from 'class-validator';
 import { PrimaryGeneratedColumn } from 'typeorm';
 
-export class UsersDto {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class CreateUsersDto {
   @IsNotEmpty()
   name: string;
 
