@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Logobig from "../../public/images/logo-big.png";
+import Logobig from "../../../public/images/logo-big.png";
 import Head from "next/head";
 import Cookies from "js-cookie";
 import axios from "axios";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { useRouter } from "next/router";
 
-function LoginWisatawan() {
+export default function index() {
+  const MySwal = withReactContent(Swal);
+  const router = useRouter();
   const [input, setInput] = useState(false);
 
   const handleChange = async (e) => {
@@ -26,18 +31,31 @@ function LoginWisatawan() {
           password: input.password,
         },
       });
-      console.log(response.data);
       await Cookies.set("pramunesiaAppToken", response.data.token);
       await Cookies.set("pramunesiaIdUser", response.data.id);
       await Cookies.set("pramunesiaRole", "wisatawan");
-      console.log(Cookies.get("pramunesiaIdUser"));
+
+      MySwal.fire({
+        position: "center",
+        icon: "success",
+        title: `${"Login successfully"}`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      router.replace("/user/choose-destination");
     } catch (error) {
       console.log(error);
+      MySwal.fire({
+        position: "center",
+        icon: "error",
+        title: `${error.response.data.message}`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
   };
 
   console.log(input);
-
   return (
     <>
       <Head>
@@ -112,5 +130,3 @@ function LoginWisatawan() {
     </>
   );
 }
-
-export default LoginWisatawan;
