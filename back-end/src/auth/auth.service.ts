@@ -25,6 +25,6 @@ export class AuthService {
   generetaToken(user: any) {
     let dataToken = { id: user.id };
     let token = this.jwtService.sign(dataToken);
-    return { token: token };
+    return { token: token, id: dataToken.id };
   }
 }
