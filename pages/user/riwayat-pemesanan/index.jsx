@@ -24,7 +24,7 @@ export default function BookingHistory() {
                 <p className="text-center text-white">Nama Pemandu Wisata</p>
               </div>
               <div className="mb-5 text-white">
-                <p>Destinasi : Bandung</p>
+                <p>Kota Tujuan : Bandung</p>
                 <p>Tanggal Pemesanan : 15 Juni 2022</p>
                 <p>Tanggal Keberangkatan : 22 Juni 2022</p>
               </div>
