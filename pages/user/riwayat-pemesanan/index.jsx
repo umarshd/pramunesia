@@ -6,7 +6,7 @@ export default function BookingHistory() {
   return (
     <div className="container mx-auto">
       <Navigation />
-      <h3 className="mb-5">Pesanan Saya</h3>
+      <h3 className="mb-5">Pemesanan Saya</h3>
       <div className="row">
         <div className="col-lg6 col-md-6 col-sm-12">
           <div className="bg-firefly p-4 shadow-custom-2 rounded">
@@ -21,7 +21,7 @@ export default function BookingHistory() {
                     />
                   </div>
                 </div>
-                <p className="text-center text-white">Nama Pemandu Wisata</p>
+                <h6 className="font-weight-bold text-center text-white mb-3">Nama Pemandu Wisata</h6>
               </div>
               <div className="mb-5 text-white">
                 <p>Kota Tujuan : Bandung</p>
