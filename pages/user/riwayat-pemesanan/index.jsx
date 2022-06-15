@@ -1,0 +1,41 @@
+import React from 'react';
+import Image from 'next/image';
+import Navigation from '../../../components/afterlogin/navbar';
+
+export default function BookingHistory() {
+  return (
+    <div className="container mx-auto">
+      <Navigation />
+      <h3 className="mb-5">Pesanan Saya</h3>
+      <div className="row">
+        <div className="col-lg6 col-md-6 col-sm-12">
+          <div className="bg-firefly p-4 shadow-custom-2 rounded">
+            <div className="">
+              <div className="mb-3">
+                <div className="d-flex justify-content-center rounded-circle">
+                  <div className="rounded-circle overflow-hidden">
+                    <Image
+                      src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                      width="100"
+                      height="100"
+                    />
+                  </div>
+                </div>
+                <p className="text-center text-white">Nama Pemandu Wisata</p>
+              </div>
+              <div className="mb-5 text-white">
+                <p>Destinasi : Bandung</p>
+                <p>Tanggal Pemesanan : 15 Juni 2022</p>
+                <p>Tanggal Keberangkatan : 22 Juni 2022</p>
+              </div>
+              <div className="d-flex justify-content-end mt-2">
+                <button type="button" className="btn-abu fw-bold me-2">Beri Ulasan</button>
+                <button type="button" className="btn-orange fw-bold">Cetak Tiket</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

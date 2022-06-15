@@ -40,7 +40,7 @@ function LoginTouGuide() {
             <div className="text-center">
               <p>
                 <span>
-                  <Link href="/login-wisatawan">
+                  <Link href="/user/login">
                     Masuk sebagai Wisatawan
                   </Link>
                 </span>

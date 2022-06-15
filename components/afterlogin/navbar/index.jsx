@@ -1,9 +1,9 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { FiUser, FiUserPlus, FiLogOut } from "react-icons/fi";
-import Navlogo from "../../../public/nav-brand.png";
-import logoutUser from "../../../pages/auth/logoutUser";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { FiUser, FiUserPlus, FiLogOut } from 'react-icons/fi';
+import Navlogo from '../../../public/nav-brand.png';
+import logoutUser from '../../../pages/auth/logoutUser';
 
 function Navigation() {
   return (
@@ -39,13 +39,17 @@ function Navigation() {
           <li>
             <Link href="/useChoosePage">
               <a className="dropdown-item">
-                <FiUserPlus size={24} /> Akun
+                <FiUserPlus size={24} />
+                {' '}
+                Akun
               </a>
             </Link>
           </li>
           <li>
             <a className="dropdown-item text-danger" onClick={logoutUser}>
-              <FiLogOut size={24} /> Keluar
+              <FiLogOut size={24} />
+              {' '}
+              Keluar
             </a>
           </li>
         </ul>
@@ -88,16 +92,21 @@ function Navigation() {
                 <li>
                   <Link href="/useChoosePage">
                     <a className="dropdown-item">
-                      <FiUserPlus size={24} /> Akun
+                      <FiUserPlus size={24} />
+                      {' '}
+                      Akun
                     </a>
                   </Link>
                 </li>
                 <li>
                   <button
+                    type="button"
                     className="dropdown-item text-danger"
                     onClick={logoutUser}
                   >
-                    <FiLogOut size={24} /> Keluar
+                    <FiLogOut size={24} />
+                    {' '}
+                    Keluar
                   </button>
                 </li>
               </ul>
