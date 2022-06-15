@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import Head from 'next/head';
-import axios from 'axios';
-import Router from 'next/router';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
-import Logobig from '../../public/images/logo-big.png';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Head from "next/head";
+import axios from "axios";
+import Router from "next/router";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import Logobig from "../../public/images/logo-big.png";
 
 function RegistWisatawan() {
   const MySwal = withReactContent(Swal);
@@ -14,11 +14,11 @@ function RegistWisatawan() {
   const [input, setInput] = useState(false);
 
   const getDataWisatawan = async () => {
-    const api = 'http://localhost:3010/users';
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/users`;
     try {
       const respnse = await axios({
         url: api,
-        method: 'GET',
+        method: "GET",
       });
       console.log(respnse);
     } catch (error) {
@@ -32,12 +32,12 @@ function RegistWisatawan() {
 
   const handleRegisterWisatawan = async (e) => {
     e.preventDefault();
-    const api = 'http://localhost:3010/users';
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/users`;
 
     try {
       const response = await axios({
         url: api,
-        method: 'POST',
+        method: "POST",
         data: {
           name: input.name,
           email: input.email,
@@ -47,17 +47,17 @@ function RegistWisatawan() {
         },
       });
       MySwal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'User has been created successfully',
+        position: "center",
+        icon: "success",
+        title: "User has been created successfully",
         showConfirmButton: false,
         timer: 1500,
       });
-      Router.push('/');
+      Router.push("/");
     } catch (error) {
       MySwal.fire({
-        position: 'center',
-        icon: 'error',
+        position: "center",
+        icon: "error",
         title: `${error.response.data.message}`,
         showConfirmButton: false,
         timer: 1500,
@@ -87,8 +87,7 @@ function RegistWisatawan() {
                 <h3 className="my-4">Buat Akunmu!</h3>
                 <p>Untuk mendapatkan pengalaman terbaik di Pramunesia</p>
                 <p className="mb-3">
-                  Sudah punya akun?
-                  {' '}
+                  Sudah punya akun?{" "}
                   <span>
                     <Link href="/user/login">Masuk sekarang</Link>
                   </span>
@@ -170,16 +169,10 @@ function RegistWisatawan() {
               </div>
               <div className="text-center">
                 <p>
-                  Dengan menekan tombol Registrasi, Anda setuju
-                  {' '}
-                  <br />
-                  {' '}
-                  dengan
-                  {' '}
+                  Dengan menekan tombol Registrasi, Anda setuju <br /> dengan{" "}
                   <span>
                     <a href="/">Syarat & Ketentuan</a>
-                  </span>
-                  {' '}
+                  </span>{" "}
                   kami
                 </p>
               </div>
