@@ -7,8 +7,9 @@ module.exports = {
       "cdn.pixabay.com",
     ],
   },
-  env: {
-    NEXT_PUBLIC_ENDPOINT:
-      "https://back-end-pramunesia-production.up.railway.app/",
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
   },
 };
