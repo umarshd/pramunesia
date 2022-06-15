@@ -10,6 +10,7 @@ import withReactContent from "sweetalert2-react-content";
 import { useRouter } from "next/router";
 
 export default function index() {
+  console.log(process.env.NEXT_PUBLIC_ENDPOINT);
   const MySwal = withReactContent(Swal);
   const router = useRouter();
   const [input, setInput] = useState(false);
@@ -20,7 +21,7 @@ export default function index() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const api = "http://localhost:3010/auth";
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/auth`;
 
     try {
       const response = await axios({
