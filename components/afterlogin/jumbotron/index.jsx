@@ -1,6 +1,7 @@
-import React from 'react';
-import Image from 'next/image';
-import Heroimg from '../../../public/images/heropic.png';
+import React from "react";
+import Image from "next/image";
+import Heroimg from "../../../public/images/heropic.png";
+import Link from "next/link";
 
 function Jumbotron() {
   return (
@@ -13,7 +14,11 @@ function Jumbotron() {
           <h1 className="h1 text-center my-2">Mau Pergi Kemana?</h1>
           <div className="d-block justifi-content-center-align-items-center">
             <div className="mb-3">
-              <select className="form-select" aria-label="Default select example" defaultValue="DEFAULT">
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                defaultValue="DEFAULT"
+              >
                 <option value="DEFAULT">Pilih kota tujuan</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
@@ -21,7 +26,11 @@ function Jumbotron() {
               </select>
             </div>
             <div className="d-flex justify-content-center">
-              <button type="submit" className="btn-orange">Simpan</button>
+              <Link href={"/user/home"}>
+                <button type="button" className="btn-orange">
+                  Simpan
+                </button>
+              </Link>
             </div>
           </div>
         </div>
