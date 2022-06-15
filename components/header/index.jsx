@@ -12,7 +12,7 @@ function Header() {
     router.push('/regist-wisatawan');
   };
   const loginUserHandler = () => {
-    router.push('/login-wisatawan');
+    router.push('/user/login');
   };
   return (
     <div className="container-fluid">
