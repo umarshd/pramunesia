@@ -7,4 +7,8 @@ module.exports = {
       "cdn.pixabay.com",
     ],
   },
+  env: {
+    NEXT_PUBLIC_ENDPOINT:
+      "https://back-end-pramunesia-production.up.railway.app/",
+  },
 };
