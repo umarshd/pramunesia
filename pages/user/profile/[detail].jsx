@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import Image from 'next/image';
-import Link from 'next/link';
-import axios from 'axios';
-import Cookies from 'js-cookie';
-import Navigation from '../../../components/afterlogin/navbar';
-import sessionUserLogin from '../../auth/sessionUserLogin';
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import Link from "next/link";
+import axios from "axios";
+import Cookies from "js-cookie";
+import Navigation from "../../../components/afterlogin/navbar";
+import sessionUserLogin from "../../auth/sessionUserLogin";
 
 export default function detail() {
   sessionUserLogin();
@@ -15,14 +15,14 @@ export default function detail() {
   const [user, setUser] = useState(false);
 
   const getUser = async (e) => {
-    const api = await `http://localhost:3010/users/${detail}`;
+    const api = await `${process.env.NEXT_PUBLIC_ENDPOINT}/users/${detail}`;
 
     try {
       const response = await axios({
-        method: 'GET',
+        method: "GET",
         url: api,
         headers: {
-          authorization: `Bearer ${Cookies.get('pramunesiaAppToken')}`,
+          authorization: `Bearer ${Cookies.get("pramunesiaAppToken")}`,
         },
       });
       await setUser(response.data);
@@ -48,7 +48,7 @@ export default function detail() {
                 height="100"
               />
             </div>
-            <h4>{user ? user.name : ''}</h4>
+            <h4>{user ? user.name : ""}</h4>
             <span>
               <Link href="/">Ubah Foto Profil</Link>
             </span>
@@ -67,7 +67,7 @@ export default function detail() {
                   id="namaLengkap"
                   placeholder="Nama Lengkap"
                   name="name"
-                  defaultValue={user ? user.name : ''}
+                  defaultValue={user ? user.name : ""}
                 />
               </div>
               <div className="mb-3">
@@ -80,7 +80,7 @@ export default function detail() {
                   id="email"
                   placeholder="Email"
                   name="email"
-                  defaultValue={user ? user.email : ''}
+                  defaultValue={user ? user.email : ""}
                 />
               </div>
               <div className="mb-3">
@@ -93,7 +93,7 @@ export default function detail() {
                   id="alamat"
                   placeholder="Alamat"
                   name="address"
-                  defaultValue={user ? user.address : ''}
+                  defaultValue={user ? user.address : ""}
                 />
               </div>
               <div className="mb-3">
@@ -106,7 +106,7 @@ export default function detail() {
                   id="noTelepon"
                   placeholder="No Telepon"
                   name="telp"
-                  defaultValue={user ? user.telp : ''}
+                  defaultValue={user ? user.telp : ""}
                 />
               </div>
               <div className="mb-3">
