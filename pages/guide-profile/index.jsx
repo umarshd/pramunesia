@@ -11,7 +11,7 @@ function GuideProfile() {
       <div className="bg-firefly p-4 rounded">
         <div className="row h-60">
           <div className="col-lg-6 col-md-6 col-sm-12 bg-soft-peace">
-            <div className="d-flex flex-column justify-content-center align-items-center h-100">
+            <div className="d-flex flex-column justify-content-center align-items-center h-100 p-4">
               <div className="rounded-circle overflow-hidden">
                 <Image
                   src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
@@ -88,23 +88,6 @@ function GuideProfile() {
                   </Link>
                 </div>
               </div>
-              <h4 className="d-flex justify-content-center align-items-center my-4 text-dark font-weight-bold">Halo, Pemandu Wisata</h4>
-              <div className="text-center">
-                <h5>
-                  <span>
-                    <a href="/">Lihat Profil</a>
-                  </span>
-                </h5>
-              </div>
-            </div>
-            <div className="col-6 text-white bg-white">
-              <h6 className="d-flex justify-content-center align-items-center my-4 text-dark font-weight-bold">Akun</h6>
-              <p className="d-flex align-items-center my-4 mx-4 text-dark font-weight-bold">Sertifikat</p>
-              <hr className="hr" />
-              <p className="d-flex align-items-center my-4 mx-4 text-dark font-weight-bold">Pelatihan</p>
-              <hr className="hr" />
-              <p className="d-flex align-items-center my-4 mx-4 text-dark font-weight-bold">Tamu yang Dibawa</p>
-              <hr className="hr" />
             </div>
           </div>
         </div>
