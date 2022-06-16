@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { FiChevronRight } from "react-icons/fi";
-import Head from "next/head";
-import Cookies from "js-cookie";
-import axios from "axios";
-import sessionUserLogin from "../../auth/sessionUserLogin";
-import Navigation from "../../../components/afterlogin/navbar";
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FiChevronRight } from 'react-icons/fi';
+import Head from 'next/head';
+import Cookies from 'js-cookie';
+import axios from 'axios';
+import sessionUserLogin from '../../auth/sessionUserLogin';
+import Navigation from '../../../components/afterlogin/navbar';
 
 export default function index() {
   sessionUserLogin();
@@ -14,16 +14,16 @@ export default function index() {
 
   const getDataUser = async (e) => {
     const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/users/${Cookies.get(
-      "pramunesiaIdUser"
+      'pramunesiaIdUser',
     )}`;
 
     try {
       const response = await axios({
         headers: {
-          authorization: `Bearer ${Cookies.get("pramunesiaAppToken")}`,
+          authorization: `Bearer ${Cookies.get('pramunesiaAppToken')}`,
         },
         url: api,
-        method: "GET",
+        method: 'GET',
       });
       return await setUser(response.data);
     } catch (error) {
@@ -55,10 +55,14 @@ export default function index() {
                     height="100"
                   />
                 </div>
-                <h4>Halo, {user ? user.name : "User"}</h4>
+                <h4>
+                  Halo,
+                  {' '}
+                  {user ? user.name : 'User'}
+                </h4>
                 <span>
                   <Link
-                    href={user ? `/user/profile/${user.id}` : "/user/profile"}
+                    href={user ? `/user/profile/${user.id}` : '/user/profile'}
                   >
                     Lihat Profil
                   </Link>
