@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-// import Link from 'next/link';
-import Logobig from '../../public/images/logo-big.png';
+import Link from 'next/link';
+import Logobig from '../../../public/images/logo-big.png';
 
-function LoginAdmin() {
+function LoginTouGuide() {
   return (
     <div className="row vh-100 w-100">
       <div className="col-lg-6">
@@ -15,8 +15,12 @@ function LoginAdmin() {
         <div className="d-flex justify-content-center align-items-center">
           <div className="content text-white">
             <div className="text-center mb-5">
-              <h6>Masuk sebagai Admin</h6>
-              <h3 className="my-5">Selamat Datang, Admin!</h3>
+              <h6>Masuk sebagai Pemandu Wisata</h6>
+              <h3 className="my-4">Selamat Datang</h3>
+              <p>
+                Masuk Sekarang dan
+                Mulai perjalanan Anda bersama kami
+              </p>
             </div>
             <div className="row px-1">
               <form>
@@ -33,23 +37,24 @@ function LoginAdmin() {
                 </div>
               </form>
             </div>
-            {/* <div className="text-center my-5">
+            <div className="text-center">
               <p>
                 <span>
-                  <Link href="/login-wisatawan">
+                  <Link href="/user/login">
                     Masuk sebagai Wisatawan
                   </Link>
                 </span>
               </p>
-              <p>atau</p>
+              <p>Belum punya akun?</p>
               <p>
                 <span>
                   <Link href="/regist-tour-guide">
-                    Masuk Sebagai Pemandu Wisata
+                    Registrasi Sekarang!
                   </Link>
                 </span>
+
               </p>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
@@ -57,4 +62,4 @@ function LoginAdmin() {
   );
 }
 
-export default LoginAdmin;
+export default LoginTouGuide;

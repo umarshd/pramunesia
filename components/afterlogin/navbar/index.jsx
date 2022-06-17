@@ -37,7 +37,7 @@ function Navigation() {
           aria-labelledby="dropdownMenu"
         >
           <li>
-            <Link href="/useChoosePage">
+            <Link href="/user/profile">
               <a className="dropdown-item">
                 <FiUserPlus size={24} />
                 {' '}
@@ -90,7 +90,7 @@ function Navigation() {
                 aria-labelledby="dropdownMenu"
               >
                 <li>
-                  <Link href="/useChoosePage">
+                  <Link href="/user/detail">
                     <a className="dropdown-item">
                       <FiUserPlus size={24} />
                       {' '}

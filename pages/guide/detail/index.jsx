@@ -1,32 +1,7 @@
-import React from 'react';
 import Image from 'next/image';
-import Navigation from '../../components/afterlogin/navbar';
+import Navigation from '../../../components/afterlogin/navbar';
 
-export async function getStaticPaths() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/users');
-  const dataUsers = await res.json();
-
-  const paths = dataUsers.map((user) => ({
-    params: { id: `${user.id}` },
-  }));
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps(context) {
-  const { id } = context.params;
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
-  const guide = await res.json();
-  return {
-    props: {
-      guide,
-    },
-  };
-}
-
-function DetailTourGuide({ guide }) {
+function SertifTamuGuide() {
   return (
     <div className="container mx-auto">
       <Navigation />
@@ -39,31 +14,36 @@ function DetailTourGuide({ guide }) {
           />
         </div>
         <h4 className="text-center">
-          {guide.name}
+          Leanne Graham
           {' '}
-          <span className="fw-light">{guide.email}</span>
+          <span className="fw-light">Sincere@april.biz</span>
         </h4>
         <p>Laki-Laki</p>
         <p>221234567891</p>
         <p>Bandung, Jawa Barat 089678564320</p>
-        <div className="mt-3">
-          <button type="button" className="btn-orange">
-            Pesan
-          </button>
-        </div>
       </div>
       <div className="row gap-0 mt-5">
         <div className="col-lg-3 col-md-3 col-sm-12 p-0 mb-3">
           <div className=" d-flex justify-content-center flex-column align-items-center bg-soft-peace soft-shadow rounded h-100 p-4">
             <h4 className="mb-2">Sertifikat</h4>
-            <div className="d-flex justify-content-center flex-md-column align-items-center gap-2 h-100 w-100">
+            <div className="d-flex justify-content-center flex-md-column align-items-center gap-2 h-100 w-100 mb-3">
               <div className="col bg-dark-grey d-flex justify-content-center align-items-center p-1 w-100 rounded mh-12rm">Sertifikat 1</div>
               <div className="col bg-dark-grey d-flex justify-content-center align-items-center p-1 w-100 rounded mh-12rm">Sertifikat 2</div>
             </div>
+            <button type="button" className="btn-orange">Unggah</button>
           </div>
         </div>
         <div className="col-lg-8 col-md-8 col-sm-12 p-0 ms-auto">
           <div className="d-flex flex-column">
+            <div className="bg-white">
+              <div className="form-floating mb-3">
+                <textarea className="form-control" placeholder="Leave a comment here" id="inputUlasan" />
+                <label htmlFor="inputUlasan" className="text-muted">Ceritakan pengalamanmu.....</label>
+              </div>
+              <div className="mb-3 d-flex justify-content-end">
+                <button type="submit" className="btn-orange">Kirim</button>
+              </div>
+            </div>
             <div className="col bg-soft-peace p-3 soft-shadow rounded">
               <div className="d-flex flex-column">
                 <div className="col">
@@ -74,7 +54,7 @@ function DetailTourGuide({ guide }) {
                       height="30"
                     />
                     <div className="">
-                      <h5>{guide.name}</h5>
+                      <h5> Leanne Graham</h5>
                       <p>Lokasi wisata bersama @wisatawan</p>
                     </div>
                   </div>
@@ -101,7 +81,7 @@ function DetailTourGuide({ guide }) {
                       height="30"
                     />
                     <div className="">
-                      <h5>{guide.name}</h5>
+                      <h5> Leanne Graham</h5>
                       <p>Lokasi wisata bersama @wisatawan</p>
                     </div>
                   </div>
@@ -125,4 +105,4 @@ function DetailTourGuide({ guide }) {
   );
 }
 
-export default DetailTourGuide;
+export default SertifTamuGuide;
