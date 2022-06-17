@@ -1,5 +1,5 @@
-import React from "react";
-import Navigation from "../../../components/afterlogin/navbar";
+import React from 'react';
+import Navigation from '../../../components/afterlogin/navbar';
 
 export default function BeriUlasan() {
   return (
@@ -22,11 +22,11 @@ export default function BeriUlasan() {
             </div> */}
 
             <textarea
-              style={{ resize: "none" }}
+              style={{ resize: 'none' }}
               className="form-control border-0 form-ulasan shadow-none mt-3"
               rows="9"
               placeholder="Ceritakan Pengalamanmu..."
-            ></textarea>
+            />
             <div className="text-end p-4">
               <button type="submit" className="btn-orange mr-4">
                 Kirim

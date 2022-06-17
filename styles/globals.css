@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -17,17 +18,20 @@ body {
   --clr-chatams: #205375;
   --clr-pumpkin: #f66b0e;
   --clr-soft-peace: #efefef;
+  --clr-dark-grey: #d9d9d9;
 }
 
 /* Sweet alert2 custom */
 .swal2-icon {
   margin: 2.5em auto 0.6em !important;
 }
+
 /* end sweet alert2 */
 
 .bg-firefly {
   background-color: var(--clr-firefly);
 }
+
 .bg-soft-peace {
   background-color: var(--clr-soft-peace);
 }
@@ -52,6 +56,7 @@ body {
   background-color: var(--clr-pumpkin);
   border-color: var(--clr-pumpkin);
 }
+
 .btn-orange:hover {
   background-color: #e46e1f;
 }
@@ -76,9 +81,10 @@ body {
 }
 
 .shadow-card:hover {
-  transform: scale(1.025);
+  transform: scale(1.01);
 }
-span > a {
+
+span>a {
   text-decoration: none;
   color: var(--clr-pumpkin);
 }
@@ -102,6 +108,7 @@ h1.h1.text-uppercase.me-auto {
 .h-75 {
   height: 75vh;
 }
+
 .h-60 {
   height: 60vh;
 }
@@ -118,13 +125,16 @@ h1.h1.text-uppercase.me-auto {
 .btn-circle.btn-sm:focus {
   outline: 0;
 }
+
 .soft-shadow {
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
+
 .bg-dark-grey {
-  background-color: #d9d9d9;
+  background-color: var(--clr-dark-grey);
 }
+
 .mh-12rm {
   min-height: 12rem;
 }
@@ -135,4 +145,21 @@ h1.h1.text-uppercase.me-auto {
 
 .border-radius-20-bottom {
   border-radius: 0px 0px 20px 20px !important;
+}
+
+.paragraph {
+  width: 80%;
+}
+
+.smooth-shadow {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+
+.smooth-shadow:hover {
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  cursor: pointer;
+}
+
+.h15 {
+  height: 15rem;
 }
