@@ -6,7 +6,7 @@ import axios from 'axios';
 import Router from 'next/router';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import Logobig from '../../public/images/logo-big.png';
+import Logobig from '../../../public/images/logo-big.png';
 
 function RegistWisatawan() {
   const MySwal = withReactContent(Swal);

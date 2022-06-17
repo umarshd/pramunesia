@@ -6,10 +6,10 @@ import Navlogo from '../../public/nav-brand.png';
 function Header() {
   const router = useRouter();
   const pramuClickHandler = () => {
-    router.push('/regist-tour-guide');
+    router.push('/guide/registrasi');
   };
   const wisatawanClickHandler = () => {
-    router.push('/regist-wisatawan');
+    router.push('/user/registrasi');
   };
   const loginUserHandler = () => {
     router.push('/user/login');

@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Logobig from '../../public/images/logo-big.png';
+import Logobig from '../../../public/images/logo-big.png';
 
 function RegistTourGuide({ data }) {
   return (

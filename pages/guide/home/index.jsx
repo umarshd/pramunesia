@@ -2,8 +2,8 @@ import React from 'react';
 import {
   FiCalendar, FiDollarSign, FiBookOpen, FiStar,
 } from 'react-icons/fi';
-import Layout from '../../components/afterlogin/layout';
-import Card from '../../components/afterlogin/home-card';
+import Layout from '../../../components/afterlogin/layout';
+import Card from '../../../components/afterlogin/home-card';
 
 function GuideHomePage() {
   return (
