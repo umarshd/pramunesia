@@ -5,7 +5,7 @@ import Logobig from '../../../public/images/logo-big.png';
 
 function RegistTourGuide({ data }) {
   return (
-    <div className="row vh-100 vw-100">
+    <div className="row vh-100">
       <div className="col-lg-6 ">
         <div className="d-flex justify-content-center align-items-center h-100">
           <Image src={Logobig} width={500} height={450} alt="logo big" />
@@ -25,7 +25,7 @@ function RegistTourGuide({ data }) {
                 Sudah punya akun?
                 {' '}
                 <span>
-                  <Link href="/login-tour-guide">
+                  <Link href="/guide/login">
                     Masuk sekarang
                   </Link>
                 </span>
