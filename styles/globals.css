@@ -132,3 +132,7 @@ h1.h1.text-uppercase.me-auto {
 .shadow-custom-2 {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+.border-radius-20-bottom {
+  border-radius: 0px 0px 20px 20px !important;
+}
