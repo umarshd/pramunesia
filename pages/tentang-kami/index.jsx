@@ -89,7 +89,7 @@ export default function TentangKami() {
             </div>
           </div>
         </div>
-        <div className="help d-flex flex-column justify-content-center align-items-center">
+        <div className="help d-flex flex-column justify-content-center align-items-center text-white py-4 rounded my-5">
           <h2 className="mb-4">Butuh Bantuan?</h2>
           <div className="row">
             <div className="col-md-4 col-sm-12">
