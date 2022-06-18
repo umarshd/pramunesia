@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   FiMenu,
   FiHome,
@@ -6,20 +6,21 @@ import {
   FiUsers,
   FiLogOut,
   FiChevronDown,
+  FiChevronUp,
   FiPlus,
   FiEdit,
   FiTrash2,
-} from "react-icons/fi";
-import Image from "next/image";
-import BlankUser from "../../../../public/images/blank-user.png";
-import axios from "axios";
-import Cookies from "js-cookie";
-import { useEffect } from "react";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-import { useRouter } from "next/router";
+} from 'react-icons/fi';
+import Image from 'next/image';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
-export default function index() {
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import { useRouter } from 'next/router';
+import BlankUser from '../../../../public/images/blank-user.png';
+
+export default function Index() {
   const MySwal = withReactContent(Swal);
   const router = useRouter();
 
@@ -30,10 +31,10 @@ export default function index() {
 
     try {
       const response = await axios({
-        method: "GET",
+        method: 'GET',
         url: api,
         headers: {
-          authorization: `Bearer ${Cookies.get("pramunesiaAppToken")}`,
+          authorization: `Bearer ${Cookies.get('pramunesiaAppToken')}`,
         },
       });
 
@@ -49,24 +50,24 @@ export default function index() {
 
     try {
       const result = await Swal.fire({
-        title: "Are you sure?",
+        title: 'Are you sure?',
         text: "You won't be able to revert this!",
-        icon: "warning",
+        icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
       });
       if (result.isConfirmed) {
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
         const response = await axios({
           url: api,
-          method: "DELETE",
+          method: 'DELETE',
           headers: {
-            authorization: `Bearer ${Cookies.get("pramunesiaAppToken")}`,
+            authorization: `Bearer ${Cookies.get('pramunesiaAppToken')}`,
           },
         });
-        window.location.href = "/admin/management-user/wisatawan";
+        window.location.href = '/admin/management-user/wisatawan';
       }
     } catch (error) {}
   };
@@ -126,18 +127,20 @@ export default function index() {
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
                 onClick={hadlerToggle}
               >
-                <FiChevronDown size="24" />
+                {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -200,18 +203,20 @@ export default function index() {
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
                 onClick={hadlerToggle}
               >
-                <FiChevronDown size="24" />
+                {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -251,30 +256,30 @@ export default function index() {
                   </thead>
                   <tbody>
                     {wisatawan
-                      ? wisatawan.map((wtn, index) => {
-                          return (
-                            <tr key={index.toString()}>
-                              <td>{index + 1}</td>
-                              <td>{wtn.name}</td>
-                              <td>{wtn.email}</td>
-                              <td>
-                                <button
-                                  className="btn btn-primary mx-1"
-                                  data-title="Edit"
-                                >
-                                  <FiEdit size="12" />
-                                </button>
-                                <button
-                                  className="btn btn-danger"
-                                  data-title="Delete"
-                                  onClick={(e) => deleteWisatawan(wtn.id)}
-                                >
-                                  <FiTrash2 size="12" />
-                                </button>
-                              </td>
-                            </tr>
-                          );
-                        })
+                      ? wisatawan.map((wtn, index) => (
+                        <tr key={index.toString()}>
+                          <td>{index + 1}</td>
+                          <td>{wtn.name}</td>
+                          <td>{wtn.email}</td>
+                          <td>
+                            <button
+                              type="button"
+                              className="btn btn-primary mx-1"
+                              data-title="Edit"
+                            >
+                              <FiEdit size="12" />
+                            </button>
+                            <button
+                              type="button"
+                              className="btn btn-danger"
+                              data-title="Delete"
+                              onClick={(e) => deleteWisatawan(wtn.id)}
+                            >
+                              <FiTrash2 size="12" />
+                            </button>
+                          </td>
+                        </tr>
+                      ))
                       : null}
                   </tbody>
                 </table>

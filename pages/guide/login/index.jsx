@@ -38,17 +38,17 @@ function LoginTouGuide() {
               </form>
             </div>
             <div className="text-center">
-              <p>
+              <p className='my-3'>
                 <span>
                   <Link href="/user/login">
                     Masuk sebagai Wisatawan
                   </Link>
                 </span>
               </p>
-              <p>Belum punya akun?</p>
+              <p className='mt-4'>Belum punya akun?</p>
               <p>
                 <span>
-                  <Link href="/regist-tour-guide">
+                  <Link href="/guide/registrasi">
                     Registrasi Sekarang!
                   </Link>
                 </span>

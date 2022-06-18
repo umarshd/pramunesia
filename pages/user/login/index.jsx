@@ -110,17 +110,17 @@ export default function index() {
                 </form>
               </div>
               <div className="text-center">
-                <p>
+                <p className="my-3">
                   <span>
-                    <Link href="/login-tour-guide">
+                    <Link href="/guide/login">
                       Masuk sebagai Pemandu Wisata
                     </Link>
                   </span>
                 </p>
-                <p>Belum punya akun?</p>
+                <p className="mt-4">Belum punya akun?</p>
                 <p>
                   <span>
-                    <Link href="/regist-wisatawan">Registrasi Sekarang</Link>
+                    <Link href="/user/registrasi">Registrasi Sekarang</Link>
                   </span>
                 </p>
               </div>
