@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
-  FiMenu, FiHome, FiDatabase, FiUsers, FiLogOut, FiChevronDown, FiPlus,
-} from 'react-icons/fi';
-import Image from 'next/image';
-import BlankUser from '../../../public/images/blank-user.png';
-import Card from '../../../components/afterlogin/admin-card';
+  FiMenu,
+  FiHome,
+  FiDatabase,
+  FiUsers,
+  FiLogOut,
+  FiChevronDown,
+  FiPlus,
+} from "react-icons/fi";
+import Image from "next/image";
+import BlankUser from "../../../public/images/blank-user.png";
+import Card from "../../../components/afterlogin/admin-card";
 
-export default function Dashboard() {
+export default function index() {
   const [toggle, setToggle] = useState(false);
   const hadlerToggle = () => {
     setToggle(!toggle);
@@ -17,7 +23,11 @@ export default function Dashboard() {
       <div className="offcanvas offcanvas-start w-75" id="menu">
         <div className="offcanvas-header">
           <div className="d-flex justify-content-start align-items-center">
-            <button type="button" className="menu-button" data-bs-dismiss="offcanvas">
+            <button
+              type="button"
+              className="menu-button"
+              data-bs-dismiss="offcanvas"
+            >
               <FiMenu size="34" />
             </button>
             <h3 className="ms-2 text-orange brand">PRAMUNESIA</h3>
@@ -25,11 +35,7 @@ export default function Dashboard() {
         </div>
         <div className="offcanvas-body">
           <div className="mt-4 admin-profile">
-            <Image
-              src={BlankUser}
-              width={60}
-              height={60}
-            />
+            <Image src={BlankUser} width={60} height={60} />
           </div>
           <div className="mt-2">
             <h6>Halo, Admin</h6>
@@ -44,28 +50,33 @@ export default function Dashboard() {
             <div className="d-flex align-items-center justify-content-start mb-3">
               <FiDatabase size="24" />
               <h6 className="ms-2">Data Pemesanan</h6>
-              <button type="button" className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow">
+              <button
+                type="button"
+                className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
+              >
                 <FiPlus size="24" />
               </button>
             </div>
             <div className="d-flex align-items-center justify-content-start mb-3">
               <FiUsers size="24" />
               <h6 className="ms-2">Manajemen User</h6>
-              <button type="button" className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow" onClick={hadlerToggle}>
+              <button
+                type="button"
+                className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
+                onClick={hadlerToggle}
+              >
                 <FiChevronDown size="24" />
               </button>
             </div>
-            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
               <ul>
                 <li>
-                  {' '}
-                  <a href="/">Wisatawan</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Wisatawan</a>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <a href="/">Pemandu Wisata</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Pemandu Wisata</a>{" "}
                 </li>
               </ul>
             </div>
@@ -73,13 +84,17 @@ export default function Dashboard() {
               <FiLogOut size="24" />
               <h6 className="ms-2">Keluar</h6>
             </div>
-
           </div>
         </div>
       </div>
 
       <div className="d-flex justify-content-start align-items-center d-block d-sm-none p-3">
-        <button type="button" className="menu-button" data-bs-toggle="offcanvas" data-bs-target="#menu">
+        <button
+          type="button"
+          className="menu-button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#menu"
+        >
           <FiMenu size="34" />
         </button>
         <h3 className="m-auto text-orange brand">PRAMUNESIA</h3>
@@ -94,11 +109,7 @@ export default function Dashboard() {
             <h3 className="ms-2 text-orange brand">PRAMUNESIA</h3>
           </div>
           <div className="mt-4">
-            <Image
-              src={BlankUser}
-              width={60}
-              height={60}
-            />
+            <Image src={BlankUser} width={60} height={60} />
           </div>
           <div className="mt-2">
             <h6>Halo, Admin</h6>
@@ -113,28 +124,33 @@ export default function Dashboard() {
             <div className="d-flex align-items-center justify-content-start mb-3">
               <FiDatabase size="24" />
               <h6 className="ms-2">Data Pemesanan</h6>
-              <button type="button" className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow">
+              <button
+                type="button"
+                className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
+              >
                 <FiPlus size="24" />
               </button>
             </div>
             <div className="d-flex align-items-center justify-content-start mb-3">
               <FiUsers size="24" />
               <h6 className="ms-2">Manajemen User</h6>
-              <button type="button" className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow" onClick={hadlerToggle}>
+              <button
+                type="button"
+                className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
+                onClick={hadlerToggle}
+              >
                 <FiChevronDown size="24" />
               </button>
             </div>
-            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
               <ul>
                 <li>
-                  {' '}
-                  <a href="/">Wisatawan</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Wisatawan</a>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <a href="/">Pemandu Wisata</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Pemandu Wisata</a>{" "}
                 </li>
               </ul>
             </div>
@@ -142,7 +158,6 @@ export default function Dashboard() {
               <FiLogOut size="24" />
               <h6 className="ms-2">Keluar</h6>
             </div>
-
           </div>
         </div>
 
@@ -152,22 +167,13 @@ export default function Dashboard() {
             <div className="">
               <div className="row">
                 <div className="col-sm-12 col-md-4 col-lg-4 text-white mb-3">
-                  <Card
-                    jumlah="2.567"
-                    title="wisatawan"
-                  />
+                  <Card jumlah="2.567" title="wisatawan" />
                 </div>
                 <div className="col-sm-12 col-md-4 col-lg-4 text-white mb-3">
-                  <Card
-                    jumlah="2.567"
-                    title="pemandu wisata"
-                  />
+                  <Card jumlah="2.567" title="pemandu wisata" />
                 </div>
                 <div className="col-sm-12 col-md-4 col-lg-4 text-white mb-3">
-                  <Card
-                    jumlah="2.567"
-                    title="pemesanan"
-                  />
+                  <Card jumlah="2.567" title="pemesanan" />
                 </div>
               </div>
             </div>
@@ -206,7 +212,6 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );
