@@ -163,3 +163,15 @@ h1.h1.text-uppercase.me-auto {
 .h15 {
   height: 15rem;
 }
+
+.help {
+  background-color: var(--clr-pumpkin);
+}
+
+.text-pumpkin{
+  color: var(--clr-pumpkin) !important;
+}
+
+.shadow-custom-3 {
+  box-shadow: var(--clr-pumpkin) 0px 5px;
+}
