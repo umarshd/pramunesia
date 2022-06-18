@@ -90,7 +90,7 @@ function Navigation() {
                 aria-labelledby="dropdownMenu"
               >
                 <li>
-                  <Link href="/user/detail">
+                  <Link href="/user/profile">
                     <a className="dropdown-item">
                       <FiUserPlus size={24} />
                       {' '}
