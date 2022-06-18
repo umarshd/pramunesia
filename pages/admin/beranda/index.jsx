@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   FiMenu,
   FiHome,
@@ -6,11 +6,12 @@ import {
   FiUsers,
   FiLogOut,
   FiChevronDown,
+  FiChevronUp,
   FiPlus,
-} from "react-icons/fi";
-import Image from "next/image";
-import BlankUser from "../../../public/images/blank-user.png";
-import Card from "../../../components/afterlogin/admin-card";
+} from 'react-icons/fi';
+import Image from 'next/image';
+import BlankUser from '../../../public/images/blank-user.png';
+import Card from '../../../components/afterlogin/admin-card';
 
 export default function index() {
   const [toggle, setToggle] = useState(false);
@@ -65,18 +66,20 @@ export default function index() {
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
                 onClick={hadlerToggle}
               >
-                <FiChevronDown size="24" />
+                {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -139,18 +142,20 @@ export default function index() {
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
                 onClick={hadlerToggle}
               >
-                <FiChevronDown size="24" />
+                {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>
