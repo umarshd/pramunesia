@@ -167,3 +167,33 @@ h1.h1.text-uppercase.me-auto {
 .help {
   background-color: var(--clr-pumpkin);
 }
+
+.text-orange {
+  color: var(--clr-pumpkin);
+}
+
+.button-shadow {
+  box-shadow: var(--clr-pumpkin) 0px 1px 2px 0px;
+}
+
+ul>li {
+  list-style: none;
+}
+
+ul>li>a {
+  text-decoration: none;
+  color: black;
+}
+
+.menu-button {
+  border: none;
+  background: none;
+}
+
+.menu-button:focus {
+  outline: none;
+}
+
+#menu {
+  background-color: var(--clr-soft-peace);
+}
