@@ -25,8 +25,8 @@ export default function TentangKami() {
         </section>
         <div className="soft-shadow bg-soft-peace  my-5 p-3 d-flex flex-column justify-content-center align-items-center rounded shadow-custom-3">
           <h2>Pramunesia!</h2>
-          <small className="text-pumpkin fw-600">#GuideYoutoAmazingJourney</small>
-          <div className="paragraph mt-3 text-left">
+          <small className="text-pumpkin fw-600 my-2">#GuideYoutoAmazingJourney</small>
+          <div className="paragraph mt-3">
             <p className="p mb-3 text-center">
               Merupakan sebuah platform penyedia layanan sewa pemandu wisata untuk
               memudahkan Anda dalam mengatur perjalanan selama liburan
@@ -90,8 +90,8 @@ export default function TentangKami() {
           </div>
         </div>
         <div className="help d-flex flex-column justify-content-center align-items-center text-white py-4 rounded my-5">
-          <h2 className="mb-4">Butuh Bantuan?</h2>
           <div className="row">
+          <h2 className="mb-4 text-center">Butuh Bantuan? Hubungi Kami</h2>
             <div className="col-md-4 col-sm-12">
               <div className="d-flex flex-column justify-content-center align-items-center p-3">
                 <FiMessageCircle size={80} />
