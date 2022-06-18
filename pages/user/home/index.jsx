@@ -19,7 +19,7 @@ function UserHomePage() {
               <Card
                 icons={<FiUsers size="4rem" color="white" />}
                 title="Cari Pemandu Wisata"
-                desc="Lihat transaksi pembayaran
+                desc="Temukan pemandu wisata andalanmu
                 disini!"
               />
             </Link>
