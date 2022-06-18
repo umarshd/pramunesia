@@ -23,20 +23,20 @@ export default function TentangKami() {
           </div>
           <h1 className="h1 text-center">Jelajahi Tempat Indah Bersama Kami!</h1>
         </section>
-        <div className="soft-shadow bg-soft-peace  my-5 p-3 d-flex flex-column justify-content-center align-items-center rounded">
+        <div className="soft-shadow bg-soft-peace  my-5 p-3 d-flex flex-column justify-content-center align-items-center rounded shadow-custom-3">
           <h2>Pramunesia!</h2>
-          <small>#GuideYoutoAmazingJourney</small>
+          <small className="text-pumpkin fw-600">#GuideYoutoAmazingJourney</small>
           <div className="paragraph mt-3 text-left">
-            <p className="p mb-3">
+            <p className="p mb-3 text-center">
               Merupakan sebuah platform penyedia layanan sewa pemandu wisata untuk
               memudahkan Anda dalam mengatur perjalanan selama liburan
               di destinasi wisata tujuan.
             </p>
-            <p className="p mb-3">
+            <p className="p mb-3 text-center ">
               Pramunesia sebagai penghubung antara pemandu wisata dan wisatawan
               untuk menghasilkan pengalaman terbaik selama berwisata
             </p>
-            <p className="p">
+            <p className="p mb-3 text-center">
               Memilki komitmen untuk menjadi teman terbaik perjalanan Anda dengan
               menyediakan berbagai layanan yang dapat memudahkan Anda
             </p>

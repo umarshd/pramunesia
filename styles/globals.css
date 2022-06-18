@@ -167,3 +167,11 @@ h1.h1.text-uppercase.me-auto {
 .help {
   background-color: var(--clr-pumpkin);
 }
+
+.text-pumpkin{
+  color: var(--clr-pumpkin) !important;
+}
+
+.shadow-custom-3 {
+  box-shadow: var(--clr-pumpkin) 0px 5px;
+}
