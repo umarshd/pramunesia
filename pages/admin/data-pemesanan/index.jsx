@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   FiMenu,
   FiHome,
@@ -6,12 +6,13 @@ import {
   FiUsers,
   FiLogOut,
   FiChevronDown,
+  FiChevronUp,
   FiPlus,
   FiEdit,
   FiTrash2,
-} from "react-icons/fi";
-import Image from "next/image";
-import BlankUser from "../../../public/images/blank-user.png";
+} from 'react-icons/fi';
+import Image from 'next/image';
+import BlankUser from '../../../public/images/blank-user.png';
 
 export default function index() {
   const [toggle, setToggle] = useState(false);
@@ -66,18 +67,20 @@ export default function index() {
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
                 onClick={hadlerToggle}
               >
-                <FiChevronDown size="24" />
+                {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -140,18 +143,20 @@ export default function index() {
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
                 onClick={hadlerToggle}
               >
-                <FiChevronDown size="24" />
+                {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -165,10 +170,10 @@ export default function index() {
         <div className="col-sm-12 col-md-8 col-lg-8">
           <div className="mx-auto">
             <div className="row">
-              <div className="col-lg-6">
+              <div className="col-10">
                 <h3 className="mt-2">Data Pemesanan</h3>
               </div>
-              <div className="col-lg-6">
+              <div className="col-2">
                 <button
                   type="button"
                   className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
@@ -198,12 +203,17 @@ export default function index() {
                       <td>Mark</td>
                       <td>
                         <button
+                          type="button"
                           className="btn btn-primary mx-1"
                           data-title="Edit"
                         >
                           <FiEdit size="12" />
                         </button>
-                        <button className="btn btn-danger" data-title="Edit">
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          data-title="Edit"
+                        >
                           <FiTrash2 size="12" />
                         </button>
                       </td>
@@ -215,12 +225,17 @@ export default function index() {
                       <td>Mark</td>
                       <td>
                         <button
+                          type="button"
                           className="btn btn-primary mx-1"
                           data-title="Edit"
                         >
                           <FiEdit size="12" />
                         </button>
-                        <button className="btn btn-danger" data-title="Edit">
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          data-title="Edit"
+                        >
                           <FiTrash2 size="12" />
                         </button>
                       </td>
@@ -232,12 +247,17 @@ export default function index() {
                       <td>Mark</td>
                       <td>
                         <button
+                          type="button"
                           className="btn btn-primary mx-1"
                           data-title="Edit"
                         >
                           <FiEdit size="12" />
                         </button>
-                        <button className="btn btn-danger" data-title="Edit">
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          data-title="Edit"
+                        >
                           <FiTrash2 size="12" />
                         </button>
                       </td>
