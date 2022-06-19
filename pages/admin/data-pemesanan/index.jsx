@@ -126,13 +126,33 @@ export default function index() {
           </div>
           <div className="d-flex align-items-center justify-content-start mb-3">
             <FiDatabase size="24" />
-            <h6 className="ms-2">Data Pemesanan</h6>
+            <h6 className="ms-2">Data Master</h6>
             <button
               type="button"
               className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
+              onClick={hadlerToggle}
             >
-              <FiPlus size="24" />
+              {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
             </button>
+          </div>
+          <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
+            <ul>
+              <li>
+                {' '}
+                <a href="/">Data Pemesanan</a>
+                {' '}
+              </li>
+              <li>
+                {' '}
+                <a href="/">Data Kota</a>
+                {' '}
+              </li>
+              <li>
+                {' '}
+                <a href="/">Data Destinasi</a>
+                {' '}
+              </li>
+            </ul>
           </div>
           <div className="d-flex align-items-center justify-content-start mb-3">
             <FiUsers size="24" />
