@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   FiMenu,
   FiHome,
@@ -10,10 +10,10 @@ import {
   FiPlus,
   FiEdit,
   FiTrash2,
-} from 'react-icons/fi';
-import Image from 'next/image';
-import Link from 'next/link';
-import BlankUser from '../../../public/images/blank-user.png';
+} from "react-icons/fi";
+import Image from "next/image";
+import Link from "next/link";
+import BlankUser from "../../../public/images/blank-user.png";
 
 export default function index() {
   const [toggle, setToggle] = useState(false);
@@ -62,25 +62,26 @@ export default function index() {
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
                 onClick={hadlerToggle2}
               >
-                {toggle2 ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
+                {toggle2 ? (
+                  <FiChevronUp size="24" />
+                ) : (
+                  <FiChevronDown size="24" />
+                )}
               </button>
             </div>
-            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
               <ul>
                 <li>
-                  {' '}
-                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
-                  {' '}
+                  {" "}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <Link href="/admin/data-kota">Data Kota</Link>
-                  {' '}
+                  {" "}
+                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
-                  {' '}
+                  {" "}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
                 </li>
               </ul>
             </div>
@@ -92,20 +93,22 @@ export default function index() {
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
                 onClick={hadlerToggle}
               >
-                {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
+                {toggle ? (
+                  <FiChevronUp size="24" />
+                ) : (
+                  <FiChevronDown size="24" />
+                )}
               </button>
             </div>
-            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
               <ul>
                 <li>
-                  {' '}
-                  <a href="/">Wisatawan</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Wisatawan</a>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <a href="/">Pemandu Wisata</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Pemandu Wisata</a>{" "}
                 </li>
               </ul>
             </div>
@@ -157,25 +160,26 @@ export default function index() {
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
                 onClick={hadlerToggle2}
               >
-                {toggle2 ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
+                {toggle2 ? (
+                  <FiChevronUp size="24" />
+                ) : (
+                  <FiChevronDown size="24" />
+                )}
               </button>
             </div>
-            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
               <ul>
                 <li>
-                  {' '}
-                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
-                  {' '}
+                  {" "}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <Link href="/admin/data-kota">Data Kota</Link>
-                  {' '}
+                  {" "}
+                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
-                  {' '}
+                  {" "}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
                 </li>
               </ul>
             </div>
@@ -187,20 +191,22 @@ export default function index() {
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
                 onClick={hadlerToggle}
               >
-                {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
+                {toggle ? (
+                  <FiChevronUp size="24" />
+                ) : (
+                  <FiChevronDown size="24" />
+                )}
               </button>
             </div>
-            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
               <ul>
                 <li>
-                  {' '}
-                  <a href="/">Wisatawan</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Wisatawan</a>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <a href="/">Pemandu Wisata</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Pemandu Wisata</a>{" "}
                 </li>
               </ul>
             </div>
@@ -302,13 +308,29 @@ export default function index() {
                   <nav aria-label="Page navigation">
                     <ul className="pagination justify-content-end">
                       <li className="page-item disabled">
-                        <a className="page-link" href="#" tabIndex="-1">Sebelumnya</a>
+                        <a className="page-link" href="#" tabIndex="-1">
+                          Sebelumnya
+                        </a>
                       </li>
-                      <li className="page-item"><a className="page-link" href="#">1</a></li>
-                      <li className="page-item"><a className="page-link" href="#">2</a></li>
-                      <li className="page-item"><a className="page-link" href="#">3</a></li>
                       <li className="page-item">
-                        <a className="page-link" href="#">Selanjutnya</a>
+                        <a className="page-link" href="#">
+                          1
+                        </a>
+                      </li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">
+                          2
+                        </a>
+                      </li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">
+                          3
+                        </a>
+                      </li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">
+                          Selanjutnya
+                        </a>
                       </li>
                     </ul>
                   </nav>

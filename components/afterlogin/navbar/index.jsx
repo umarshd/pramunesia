@@ -1,7 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FiUser, FiUserPlus, FiLogOut } from 'react-icons/fi';
+import {
+  FiUser, FiUserPlus, FiLogOut,
+} from 'react-icons/fi';
 import Navlogo from '../../../public/nav-brand.png';
 import logoutUser from '../../../pages/auth/logoutUser';
 

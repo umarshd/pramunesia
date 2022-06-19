@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   FiMenu,
   FiHome,
@@ -7,11 +7,10 @@ import {
   FiLogOut,
   FiChevronDown,
   FiChevronUp,
-  FiCalendar,
-} from "react-icons/fi";
-import Image from "next/image";
-import Link from "next/link";
-import BlankUser from "../../../public/images/blank-user.png";
+} from 'react-icons/fi';
+import Image from 'next/image';
+import Link from 'next/link';
+import BlankUser from '../../../public/images/blank-user.png';
 
 export default function editPemesanan() {
   const [toggle, setToggle] = useState(false);
@@ -67,19 +66,22 @@ export default function editPemesanan() {
                 )}
               </button>
             </div>
-            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-kota">Data Kota</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -98,15 +100,17 @@ export default function editPemesanan() {
                 )}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -165,19 +169,22 @@ export default function editPemesanan() {
                 )}
               </button>
             </div>
-            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-kota">Data Kota</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -196,15 +203,17 @@ export default function editPemesanan() {
                 )}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -220,41 +229,59 @@ export default function editPemesanan() {
               <div className="col-10 p-2">
                 <h3 className="mt-2">Edit Data Pemesanan</h3>
               </div>
-              <div className="card p-5 bg-light shadow p-3 mb-5 bg-white rounded">
+              <div className="card p-lg-5 bg-light shadow px-sm-1 mb-5 bg-white rounded">
                 <form>
                   <div className="col-12 p-2">
+<<<<<<< Updated upstream
                     <label for="inputNamaPemesan">Nama Pemesan</label>
+=======
+                    <label htmlFor="exampleInputEmail1">Nama Pemesan</label>
+>>>>>>> Stashed changes
                     <input
                       type="text"
                       className="form-control"
                       id="namaPemesan"
                       placeholder="Masukkan Nama Pemesan"
-                    ></input>
+                    />
                   </div>
                   <div className="col-12 p-2">
+<<<<<<< Updated upstream
                     <label for="InputNamaPemandu">Nama Pemandu Wisata</label>
+=======
+                    <label htmlFor="exampleInputPassword1">
+                      Nama Pemandu Wisata
+                    </label>
+>>>>>>> Stashed changes
                     <input
                       type="text"
                       className="form-control"
                       id="namaPemandu"
                       placeholder="Masukkan Nama Pemandu Wisata"
-                    ></input>
+                    />
                   </div>
                   <div className="col-12 p-2">
+<<<<<<< Updated upstream
                     <label for="selectKotaTujuan">Kota Tujuan</label>
                     <select
                       className="form-select"
                       aria-label="Pilih kota tujuan"
+=======
+                    <label htmlFor="exampleInputPassword1">Kota Tujuan</label>
+                    <select
+                      className="form-select"
+                      aria-label="Default select example"
+                      defaultValue="DEFAULT"
+>>>>>>> Stashed changes
                     >
-                      <option selected>Pilih Kota Tujuan</option>
+                      <option value="DEFAULT">Pilih Kota Tujuan</option>
                       <option value="1">Bandung</option>
                       <option value="2">Cirebon</option>
                       <option value="3">Yogyakarta</option>
                     </select>
                   </div>
                   <div className="col-12 p-2">
-                    <label className="control-label">Tanggal Pemesanan</label>
-                    <div className="input-group date">
+                    <label htmlFor="date" className="control-label">Tanggal Pemesanan</label>
+                    <div className="input-group date" id="date">
                       <input className="form-control" type="date" />
                     </div>
                   </div>
