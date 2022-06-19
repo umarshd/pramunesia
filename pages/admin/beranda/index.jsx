@@ -8,6 +8,9 @@ import {
   FiChevronDown,
   FiChevronUp,
   FiPlus,
+  FiEdit,
+  FiTrash2,
+
 } from 'react-icons/fi';
 import Image from 'next/image';
 import BlankUser from '../../../public/images/blank-user.png';
@@ -31,11 +34,11 @@ export default function index() {
             >
               <FiMenu size="34" />
             </button>
-            <h3 className="ms-2 text-orange brand">PRAMUNESIA</h3>
+            <h3 className="ms-2 text-orange brand fw-600">PRAMUNESIA</h3>
           </div>
         </div>
         <div className="offcanvas-body">
-          <div className="mt-4 admin-profile">
+          <div className="mt-1 admin-profile">
             <Image src={BlankUser} width={60} height={60} />
           </div>
           <div className="mt-2">
@@ -90,7 +93,6 @@ export default function index() {
           </div>
         </div>
       </div>
-
       <div className="d-flex justify-content-start align-items-center d-block d-sm-none p-3">
         <button
           type="button"
@@ -100,16 +102,16 @@ export default function index() {
         >
           <FiMenu size="34" />
         </button>
-        <h3 className="m-auto text-orange brand">PRAMUNESIA</h3>
+        <h3 className="m-auto text-orange brand fw-600">PRAMUNESIA</h3>
       </div>
-      {/* offcanvasmode */}
+      {/* offcanvasmode */} 
       <div className="row min-vh-100">
-        <div className="col-sm-12 col-md-4 col-lg-4 bg-soft-peace  d-none d-sm-block">
+        <div className="col-sm-12 col-md-4 col-lg-4 bg-soft-peace  d-none d-sm-block p-3">
           <div className="d-flex justify-content-start align-items-center">
             <button type="button" className="menu-button">
               <FiMenu size="34" />
             </button>
-            <h3 className="ms-2 text-orange brand">PRAMUNESIA</h3>
+            <h3 className="ms-2 text-orange brand fw-600">PRAMUNESIA</h3>
           </div>
           <div className="mt-4">
             <Image src={BlankUser} width={60} height={60} />
@@ -165,55 +167,120 @@ export default function index() {
             </div>
           </div>
         </div>
-
         <div className="col-sm-12 col-md-8 col-lg-8">
           <div className="mx-auto">
-            <h3 className="mb-3">Hello, Admin</h3>
+            <h3 className="mb-3 pt-3">Hello, Admin</h3>
             <div className="">
               <div className="row">
                 <div className="col-sm-12 col-md-4 col-lg-4 text-white mb-3">
-                  <Card jumlah="2.567" title="wisatawan" />
+                  <Card jumlah="2.567" title="Wisatawan" />
                 </div>
                 <div className="col-sm-12 col-md-4 col-lg-4 text-white mb-3">
-                  <Card jumlah="2.567" title="pemandu wisata" />
+                  <Card jumlah="2.567" title="Pemandu Wisata" />
                 </div>
                 <div className="col-sm-12 col-md-4 col-lg-4 text-white mb-3">
-                  <Card jumlah="2.567" title="pemesanan" />
+                  <Card jumlah="2.567" title="Pemesanan" />
                 </div>
               </div>
             </div>
             <h3 className="my-3">Pemesanan Terakhir</h3>
             <div className="mx-auto">
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th scope="col">First</th>
-                    <th scope="col">second</th>
-                    <th scope="col">third</th>
-                    <th scope="col">last</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>Mark</td>
-                  </tr>
-                  <tr>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Mark</td>
-                  </tr>
-                  <tr>
-                    <td>Larry</td>
-                    <td>Thornton</td>
-                    <td>@twitter</td>
-                    <td>Mark</td>
-                  </tr>
-                </tbody>
-              </table>
+              <div className="card border-0">
+                <table className="table table-responsive table-bordred table-striped border-2 text-center my-auto">
+                  <thead className="bg-secondary">
+                    <tr>
+                      <th scope="col">First</th>
+                      <th scope="col">second</th>
+                      <th scope="col">third</th>
+                      <th scope="col">last</th>
+                      <th scope="col">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Mark</td>
+                      <td>
+                        <button
+                          type="button"
+                          className="btn btn-primary mx-1"
+                          data-title="Edit"
+                        >
+                          <FiEdit size="12" />
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          data-title="Edit"
+                        >
+                          <FiTrash2 size="12" />
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                      <td>Mark</td>
+                      <td>
+                        <button
+                          type="button"
+                          className="btn btn-primary mx-1"
+                          data-title="Edit"
+                        >
+                          <FiEdit size="12" />
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          data-title="Edit"
+                        >
+                          <FiTrash2 size="12" />
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Larry</td>
+                      <td>Thornton</td>
+                      <td>@twitter</td>
+                      <td>Mark</td>
+                      <td>
+                        <button
+                          type="button"
+                          className="btn btn-primary mx-1"
+                          data-title="Edit"
+                        >
+                          <FiEdit size="12" />
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          data-title="Edit"
+                        >
+                          <FiTrash2 size="12" />
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div className='py-4'>
+                  <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-end">
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Sebelumnya</a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">Selanjutnya</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
             </div>
           </div>
         </div>
