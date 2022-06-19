@@ -218,7 +218,7 @@ export default function editKota() {
           <div className="mx-auto">
             <div className="row">
               <div className="col-10 p-2">
-                <h3 className="mt-2">Edit Data Pemesanan</h3>
+                <h3 className="mt-2">Edit Data Kota</h3>
               </div>
               <div className="card p-5 bg-light shadow p-3 mb-5 bg-white rounded">
                 <form>
