@@ -8,7 +8,7 @@ export default function BookingHistory() {
       <Navigation />
       <h3 className="mb-5">Pemesanan Saya</h3>
       <div className="row">
-        <div className="col-lg6 col-md-6 col-sm-12">
+        <div className="col-lg6 col-md-6 col-sm-12 p-0">
           <div className="bg-firefly p-4 shadow-custom-2 rounded">
             <div className="">
               <div className="mb-3">

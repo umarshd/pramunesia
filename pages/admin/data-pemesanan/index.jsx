@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   FiMenu,
   FiHome,
@@ -10,10 +10,10 @@ import {
   FiPlus,
   FiEdit,
   FiTrash2,
-} from "react-icons/fi";
-import Image from "next/image";
-import Link from "next/link";
-import BlankUser from "../../../public/images/blank-user.png";
+} from 'react-icons/fi';
+import Image from 'next/image';
+import Link from 'next/link';
+import BlankUser from '../../../public/images/blank-user.png';
 
 export default function index() {
   const [toggle, setToggle] = useState(false);
@@ -69,19 +69,22 @@ export default function index() {
                 )}
               </button>
             </div>
-            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-kota">Data Kota</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -100,15 +103,17 @@ export default function index() {
                 )}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -167,19 +172,22 @@ export default function index() {
                 )}
               </button>
             </div>
-            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-kota">Data Kota</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -198,15 +206,17 @@ export default function index() {
                 )}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>
