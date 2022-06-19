@@ -1,19 +1,43 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import Navlogo from '../../public/nav-brand.png';
+import Cookies from "js-cookie";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import Navlogo from "../../public/nav-brand.png";
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 
-function Header() {
+export default function Header() {
   const router = useRouter();
   const pramuClickHandler = () => {
-    router.push('/guide/registrasi');
+    router.push("/guide/registrasi");
   };
   const wisatawanClickHandler = () => {
-    router.push('/user/registrasi');
+    router.push("/user/registrasi");
   };
   const loginUserHandler = () => {
-    router.push('/user/login');
+    router.push("/user/login");
   };
+  const [isLogin, setIsLogin] = useState(false);
+
+  const hasBeenLogin = async () => {
+    try {
+      if (Cookies.get("pramunesiaAppToken")) {
+        await setIsLogin(true);
+      } else {
+        await setIsLogin(false);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  console.log(isLogin);
+
+  useEffect(() => {
+    if (Cookies.get("pramunesiaAppToken")) {
+      hasBeenLogin();
+    }
+  });
   return (
     <div className="container-fluid">
       <nav className="navbar navbar-expand-md">
@@ -83,8 +107,12 @@ function Header() {
                         data-bs-dismiss="modal"
                       >
                         <div className="card-body">
-                          <h5 className="card-title h1 text-light mb-2">Wisatawan</h5>
-                          <p className="card-text text-light">Untuk Wisatawan</p>
+                          <h5 className="card-title h1 text-light mb-2">
+                            Wisatawan
+                          </h5>
+                          <p className="card-text text-light">
+                            Untuk Wisatawan
+                          </p>
                         </div>
                       </div>
                       <div
@@ -93,8 +121,12 @@ function Header() {
                         data-bs-dismiss="modal"
                       >
                         <div className="card-body">
-                          <h5 className="card-title h1 text-light mb-2">Pemandu Wisata</h5>
-                          <p className="card-text text-light">Untuk Pemandu Wisata</p>
+                          <h5 className="card-title h1 text-light mb-2">
+                            Pemandu Wisata
+                          </h5>
+                          <p className="card-text text-light">
+                            Untuk Pemandu Wisata
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -102,28 +134,29 @@ function Header() {
                 </div>
               </div>
             </div>
-            <div className="d-flex">
-              <button
-                className="btn-abu me-3"
-                type="submit"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
-                data-backdrop="false"
-              >
-                Registrasi
-              </button>
-              <button
-                className="btn-orange"
-                type="submit"
-                onClick={loginUserHandler}
-              >
-                Masuk
-              </button>
-            </div>
+            {isLogin ? null : (
+              <div className="d-flex">
+                <button
+                  className="btn-abu me-3"
+                  type="submit"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  data-backdrop="false"
+                >
+                  Registrasi
+                </button>
+                <button
+                  className="btn-orange"
+                  type="submit"
+                  onClick={loginUserHandler}
+                >
+                  Masuk
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </nav>
     </div>
   );
 }
-export default Header;
