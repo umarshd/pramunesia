@@ -17,8 +17,12 @@ import BlankUser from '../../../public/images/blank-user.png';
 
 export default function index() {
   const [toggle, setToggle] = useState(false);
+  const [toggle2, setToggle2] = useState(false);
   const hadlerToggle = () => {
     setToggle(!toggle);
+  };
+  const hadlerToggle2 = () => {
+    setToggle2(!toggle2);
   };
   return (
     <div>
@@ -56,12 +60,12 @@ export default function index() {
               <button
                 type="button"
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
-                onClick={hadlerToggle}
+                onClick={hadlerToggle2}
               >
-                {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
+                {toggle2 ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
               </button>
             </div>
-            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
                   {' '}
@@ -151,12 +155,12 @@ export default function index() {
               <button
                 type="button"
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
-                onClick={hadlerToggle}
+                onClick={hadlerToggle2}
               >
-                {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
+                {toggle2 ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
               </button>
             </div>
-            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
                   {' '}
