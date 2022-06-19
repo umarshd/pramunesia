@@ -1,14 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 
-export default function GuideList({ namaPemandu, rating }) {
+export default function GuideList({ namaPemandu, picture, title }) {
   return (
     <div className="card mb-3 shadow-card">
       <div className="row d-flex align-items-center justify-content-center" style={{ height: '8rem' }}>
         <div className="col-4">
           <div className="rounded">
             <Image
-              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+              src={picture}
               width="100"
               height="100"
             />
@@ -20,7 +20,7 @@ export default function GuideList({ namaPemandu, rating }) {
             <p className="card-text">
               <small className="text-muted">
                 &#10030;
-                {rating}
+                {title}
               </small>
             </p>
           </div>

@@ -99,9 +99,6 @@ function Header() {
                       </div>
                     </div>
                   </div>
-                  <div className="modal-footer">
-                    <p>@pramunesia</p>
-                  </div>
                 </div>
               </div>
             </div>
