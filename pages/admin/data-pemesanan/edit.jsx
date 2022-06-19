@@ -223,19 +223,16 @@ export default function editPemesanan() {
               <div className="card p-5 bg-light shadow p-3 mb-5 bg-white rounded">
                 <form>
                   <div className="col-12 p-2">
-                    <label for="exampleInputEmail1">Nama Pemesan</label>
+                    <label for="inputNamaPemesan">Nama Pemesan</label>
                     <input
                       type="text"
                       className="form-control"
                       id="namaPemesan"
-                      aria-describedby="emailHelp"
                       placeholder="Masukkan Nama Pemesan"
                     ></input>
                   </div>
                   <div className="col-12 p-2">
-                    <label for="exampleInputPassword1">
-                      Nama Pemandu Wisata
-                    </label>
+                    <label for="InputNamaPemandu">Nama Pemandu Wisata</label>
                     <input
                       type="text"
                       className="form-control"
@@ -244,10 +241,10 @@ export default function editPemesanan() {
                     ></input>
                   </div>
                   <div className="col-12 p-2">
-                    <label for="exampleInputPassword1">Kota Tujuan</label>
+                    <label for="selectKotaTujuan">Kota Tujuan</label>
                     <select
                       className="form-select"
-                      aria-label="Default select example"
+                      aria-label="Pilih kota tujuan"
                     >
                       <option selected>Pilih Kota Tujuan</option>
                       <option value="1">Bandung</option>

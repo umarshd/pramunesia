@@ -223,10 +223,10 @@ export default function editKota() {
               <div className="card p-5 bg-light shadow p-3 mb-5 bg-white rounded">
                 <form>
                   <div className="col-12 p-2">
-                    <label for="exampleInputPassword1">Nama Kota</label>
+                    <label for="selectNamaKota">Nama Kota</label>
                     <select
                       className="form-select"
-                      aria-label="Default select example"
+                      aria-label="Pilih nama kota"
                     >
                       <option selected>Pilih Nama Kota</option>
                       <option value="1">Bandung</option>
