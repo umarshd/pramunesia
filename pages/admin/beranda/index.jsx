@@ -7,19 +7,23 @@ import {
   FiLogOut,
   FiChevronDown,
   FiChevronUp,
-  FiPlus,
   FiEdit,
   FiTrash2,
 
 } from 'react-icons/fi';
 import Image from 'next/image';
+import Link from 'next/link';
 import BlankUser from '../../../public/images/blank-user.png';
 import Card from '../../../components/afterlogin/admin-card';
 
 export default function index() {
   const [toggle, setToggle] = useState(false);
+  const [toggle2, setToggle2] = useState(false);
   const hadlerToggle = () => {
     setToggle(!toggle);
+  };
+  const hadlerToggle2 = () => {
+    setToggle2(!toggle2);
   };
   return (
     <div>
@@ -55,32 +59,32 @@ export default function index() {
               <FiDatabase size="24" />
               <h6 className="ms-2">Data Master</h6>
               <button
-              type="button"
-              className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
-              onClick={hadlerToggle}
-            >
-              {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
-            </button>
-          </div>
-          <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
-            <ul>
-              <li>
-                {' '}
-                <a href="/">Data Pemesanan</a>
-                {' '}
-              </li>
-              <li>
-                {' '}
-                <a href="/">Data Kota</a>
-                {' '}
-              </li>
-              <li>
-                {' '}
-                <a href="/">Data Destinasi</a>
-                {' '}
-              </li>
-            </ul>
-          </div>
+                type="button"
+                className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
+                onClick={hadlerToggle2}
+              >
+                {toggle2 ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
+              </button>
+            </div>
+            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
+              <ul>
+                <li>
+                  {' '}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
+                  {' '}
+                </li>
+                <li>
+                  {' '}
+                  <Link href="/admin/data-kota">Data Kota</Link>
+                  {' '}
+                </li>
+                <li>
+                  {' '}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
+                  {' '}
+                </li>
+              </ul>
+            </div>
             <div className="d-flex align-items-center justify-content-start mb-3">
               <FiUsers size="24" />
               <h6 className="ms-2">Manajemen User</h6>
@@ -124,7 +128,7 @@ export default function index() {
         </button>
         <h3 className="m-auto text-orange brand fw-600">PRAMUNESIA</h3>
       </div>
-      {/* offcanvasmode */} 
+      {/* offcanvasmode */}
       <div className="row min-vh-100">
         <div className="col-sm-12 col-md-4 col-lg-4 bg-soft-peace  d-none d-sm-block p-3">
           <div className="d-flex justify-content-start align-items-center">
@@ -150,32 +154,32 @@ export default function index() {
               <FiDatabase size="24" />
               <h6 className="ms-2">Data Master</h6>
               <button
-              type="button"
-              className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
-              onClick={hadlerToggle}
-            >
-              {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
-            </button>
-          </div>
-          <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
-            <ul>
-              <li>
-                {' '}
-                <a href="/">Data Pemesanan</a>
-                {' '}
-              </li>
-              <li>
-                {' '}
-                <a href="/">Data Kota</a>
-                {' '}
-              </li>
-              <li>
-                {' '}
-                <a href="/">Data Destinasi</a>
-                {' '}
-              </li>
-            </ul>
-          </div>
+                type="button"
+                className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
+                onClick={hadlerToggle2}
+              >
+                {toggle2 ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
+              </button>
+            </div>
+            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
+              <ul>
+                <li>
+                  {' '}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
+                  {' '}
+                </li>
+                <li>
+                  {' '}
+                  <Link href="/admin/data-kota">Data Kota</Link>
+                  {' '}
+                </li>
+                <li>
+                  {' '}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
+                  {' '}
+                </li>
+              </ul>
+            </div>
             <div className="d-flex align-items-center justify-content-start mb-3">
               <FiUsers size="24" />
               <h6 className="ms-2">Manajemen User</h6>
@@ -305,7 +309,7 @@ export default function index() {
                     </tr>
                   </tbody>
                 </table>
-                <div className='py-4'>
+                <div className="py-4">
                   <nav aria-label="Page navigation">
                     <ul className="pagination justify-content-end">
                       <li className="page-item disabled">
