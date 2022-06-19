@@ -7,15 +7,13 @@ import {
   FiLogOut,
   FiChevronDown,
   FiChevronUp,
-  FiPlus,
-  FiEdit,
-  FiTrash2,
+  FiCalendar,
 } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
 import BlankUser from "../../../public/images/blank-user.png";
 
-export default function index() {
+export default function editPemesanan() {
   const [toggle, setToggle] = useState(false);
   const [toggle2, setToggle2] = useState(false);
   const hadlerToggle = () => {
@@ -220,133 +218,58 @@ export default function index() {
           <div className="mx-auto">
             <div className="row">
               <div className="col-10 p-2">
-                <h3 className="mt-2">Data Pemesanan</h3>
+                <h3 className="mt-2">Edit Data Pemesanan</h3>
               </div>
-              <div className="col-2 p-3">
-                <button
-                  type="button"
-                  className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
-                >
-                  <FiPlus size="24" />
-                </button>
-              </div>
-            </div>
-            <div className="mx-auto">
-              <div className="card border-0">
-                <table className="table table-responsive table-bordred table-striped border-2 text-center my-auto">
-                  <thead className="bg-secondary">
-                    <tr>
-                      <th scope="col">No</th>
-                      <th scope="col">Nama Pemesan</th>
-                      <th scope="col">Nama Pemandu Wisata</th>
-                      <th scope="col">Kota Tujuan</th>
-                      <th scope="col">Tanggal Pemesanan</th>
-                      <th scope="col">Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Mark</td>
-                      <td>
-                        <button
-                          type="button"
-                          className="btn btn-primary mx-1"
-                          data-title="Edit"
-                        >
-                          <FiEdit size="12" />
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          data-title="Edit"
-                        >
-                          <FiTrash2 size="12" />
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>Mark</td>
-                      <td>Mark</td>
-                      <td>
-                        <button
-                          type="button"
-                          className="btn btn-primary mx-1"
-                          data-title="Edit"
-                        >
-                          <FiEdit size="12" />
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          data-title="Edit"
-                        >
-                          <FiTrash2 size="12" />
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Larry</td>
-                      <td>Thornton</td>
-                      <td>@twitter</td>
-                      <td>Mark</td>
-                      <td>Mark</td>
-                      <td>
-                        <button
-                          type="button"
-                          className="btn btn-primary mx-1"
-                          data-title="Edit"
-                        >
-                          <FiEdit size="12" />
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          data-title="Edit"
-                        >
-                          <FiTrash2 size="12" />
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div className="py-4">
-                  <nav aria-label="Page navigation">
-                    <ul className="pagination justify-content-end">
-                      <li className="page-item disabled">
-                        <a className="page-link" href="#" tabIndex="-1">
-                          Sebelumnya
-                        </a>
-                      </li>
-                      <li className="page-item">
-                        <a className="page-link" href="#">
-                          1
-                        </a>
-                      </li>
-                      <li className="page-item">
-                        <a className="page-link" href="#">
-                          2
-                        </a>
-                      </li>
-                      <li className="page-item">
-                        <a className="page-link" href="#">
-                          3
-                        </a>
-                      </li>
-                      <li className="page-item">
-                        <a className="page-link" href="#">
-                          Selanjutnya
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
+              <div className="card p-5 bg-light shadow p-3 mb-5 bg-white rounded">
+                <form>
+                  <div className="col-12 p-2">
+                    <label for="exampleInputEmail1">Nama Pemesan</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="namaPemesan"
+                      aria-describedby="emailHelp"
+                      placeholder="Masukkan Nama Pemesan"
+                    ></input>
+                  </div>
+                  <div className="col-12 p-2">
+                    <label for="exampleInputPassword1">
+                      Nama Pemandu Wisata
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="namaPemandu"
+                      placeholder="Masukkan Nama Pemandu Wisata"
+                    ></input>
+                  </div>
+                  <div className="col-12 p-2">
+                    <label for="exampleInputPassword1">Kota Tujuan</label>
+                    <select
+                      className="form-select"
+                      aria-label="Default select example"
+                    >
+                      <option selected>Pilih Kota Tujuan</option>
+                      <option value="1">Bandung</option>
+                      <option value="2">Cirebon</option>
+                      <option value="3">Yogyakarta</option>
+                    </select>
+                  </div>
+                  <div className="col-12 p-2">
+                    <label className="control-label">Tanggal Pemesanan</label>
+                    <div className="input-group date">
+                      <input className="form-control" type="date" />
+                    </div>
+                  </div>
+                  <div className="text-center p-4">
+                    <button type="submit" className="btn-abu me-2 mr-4">
+                      Batal
+                    </button>
+                    <button type="submit" className="btn-orange mr-4">
+                      Selesai
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
