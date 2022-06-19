@@ -13,8 +13,9 @@ function SearchUserGuide({ dataGuide }) {
         {dataGuide.map((guide) => (
           <div className="col-lg-6 col-md-6 col-sm-12" onClick={() => router.push(`/user/search-guide/${guide.id}`)} key={guide.id}>
             <GuideList
-              namaPemandu={guide.name}
-              rating={guide.id}
+              picture="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+              namaPemandu={guide.firstName}
+              title={guide.title}
             />
           </div>
         ))}
@@ -24,11 +25,17 @@ function SearchUserGuide({ dataGuide }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/users');
+  const res = await fetch('https://dummyapi.io/data/v1/user', {
+    headers: {
+      'Content-Type': 'application/json',
+      'app-id': '62aed33d9e68d01b5b186d7f',
+    },
+
+  });
   const dataGuide = await res.json();
   return {
     props: {
-      dataGuide,
+      dataGuide: dataGuide.data,
     },
   };
 }

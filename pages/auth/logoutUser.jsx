@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import Router, { useRouter } from 'next/router';
+import Router from 'next/router';
 
 const logoutUser = async () => {
   await Cookies.remove('pramunesiaAppToken');

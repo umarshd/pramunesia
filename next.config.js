@@ -5,6 +5,7 @@ module.exports = {
       'www.pexels.com',
       'images.pexels.com',
       'cdn.pixabay.com',
+      'randomuser.me',
     ],
   },
   eslint: {
