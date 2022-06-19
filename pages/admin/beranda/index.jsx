@@ -267,15 +267,15 @@ export default function index() {
                 </table>
                 <div className='py-4'>
                   <nav aria-label="Page navigation">
-                    <ul class="pagination justify-content-end">
-                      <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Sebelumnya</a>
+                    <ul className="pagination justify-content-end">
+                      <li className="page-item disabled">
+                        <a className="page-link" href="#" tabIndex="-1">Sebelumnya</a>
                       </li>
-                      <li class="page-item"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item">
-                        <a class="page-link" href="#">Selanjutnya</a>
+                      <li className="page-item"><a className="page-link" href="#">1</a></li>
+                      <li className="page-item"><a className="page-link" href="#">2</a></li>
+                      <li className="page-item"><a className="page-link" href="#">3</a></li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">Selanjutnya</a>
                       </li>
                     </ul>
                   </nav>
