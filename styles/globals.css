@@ -225,17 +225,20 @@ ul>li>a {
   border-radius: 10px;
 }
 
-@page {
-  size: A4 landscape;
-  margin-left: 5% !important;
-  margin-right: 5% !important;
-}
+
 
 @media print {
+  @page {
+    size: 127mm 76mm landscape;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+  }
+
   #printBtn {
     display: none;
   }
 }
+
 
 @media screen and (min-width: 768px) {
   .image-slide {
