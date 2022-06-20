@@ -30,7 +30,7 @@ export default function BookingHistory() {
               </div>
               <div className="d-flex justify-content-end mt-2">
                 <button type="button" className="btn-abu fw-bold me-2">Beri Ulasan</button>
-                <button type="button" className="btn-orange fw-bold">Cetak Tiket</button>
+                <button type="button" className="btn-orange fw-bold">Lihat Tiket</button>
               </div>
             </div>
           </div>

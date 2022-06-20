@@ -1,28 +1,27 @@
-import Cookies from "js-cookie";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import Navlogo from "../../public/nav-brand.png";
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import Cookies from 'js-cookie';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { useState, useEffect } from 'react';
+
+import Navlogo from '../../public/nav-brand.png';
 
 export default function Header() {
   const router = useRouter();
   const pramuClickHandler = () => {
-    router.push("/guide/registrasi");
+    router.push('/guide/registrasi');
   };
   const wisatawanClickHandler = () => {
-    router.push("/user/registrasi");
+    router.push('/user/registrasi');
   };
   const loginUserHandler = () => {
-    router.push("/user/login");
+    router.push('/user/login');
   };
   const [isLogin, setIsLogin] = useState(false);
 
   const hasBeenLogin = async () => {
     try {
-      if (Cookies.get("pramunesiaAppToken")) {
+      if (Cookies.get('pramunesiaAppToken')) {
         await setIsLogin(true);
       } else {
         await setIsLogin(false);
@@ -34,7 +33,7 @@ export default function Header() {
   console.log(isLogin);
 
   useEffect(() => {
-    if (Cookies.get("pramunesiaAppToken")) {
+    if (Cookies.get('pramunesiaAppToken')) {
       hasBeenLogin();
     }
   });

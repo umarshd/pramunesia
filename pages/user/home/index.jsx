@@ -1,17 +1,17 @@
-import React from "react";
-import { FiUsers } from "react-icons/fi";
-import { useRouter } from "next/router";
-import Carousel from "../../../components/afterlogin/carousel";
-import Card from "../../../components/afterlogin/home-card";
-import Layout from "../../../components/afterlogin/layout";
-import sessionUserLogin from "../../auth/sessionUserLogin";
+import React from 'react';
+import { FiUsers } from 'react-icons/fi';
+import { useRouter } from 'next/router';
+import Carousel from '../../../components/afterlogin/carousel';
+import Card from '../../../components/afterlogin/home-card';
+import Layout from '../../../components/afterlogin/layout';
+import sessionUserLogin from '../../auth/sessionUserLogin';
 
 function UserHomePage() {
   sessionUserLogin();
 
   const router = useRouter();
   const searchHandler = () => {
-    router.push("/user/search-guide");
+    router.push('/user/search-guide');
   };
 
   return (

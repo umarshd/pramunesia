@@ -232,11 +232,7 @@ export default function editPemesanan() {
               <div className="card p-lg-5 bg-light shadow px-sm-1 mb-5 bg-white rounded">
                 <form>
                   <div className="col-12 p-2">
-<<<<<<< Updated upstream
-                    <label for="inputNamaPemesan">Nama Pemesan</label>
-=======
-                    <label htmlFor="exampleInputEmail1">Nama Pemesan</label>
->>>>>>> Stashed changes
+                    <label htmlFor="inputNamaPemesan">Nama Pemesan</label>
                     <input
                       type="text"
                       className="form-control"
@@ -245,13 +241,7 @@ export default function editPemesanan() {
                     />
                   </div>
                   <div className="col-12 p-2">
-<<<<<<< Updated upstream
-                    <label for="InputNamaPemandu">Nama Pemandu Wisata</label>
-=======
-                    <label htmlFor="exampleInputPassword1">
-                      Nama Pemandu Wisata
-                    </label>
->>>>>>> Stashed changes
+                    <label htmlFor="InputNamaPemandu">Nama Pemandu Wisata</label>
                     <input
                       type="text"
                       className="form-control"
@@ -260,18 +250,10 @@ export default function editPemesanan() {
                     />
                   </div>
                   <div className="col-12 p-2">
-<<<<<<< Updated upstream
-                    <label for="selectKotaTujuan">Kota Tujuan</label>
+                    <label htmlFor="selectKotaTujuan">Kota Tujuan</label>
                     <select
                       className="form-select"
                       aria-label="Pilih kota tujuan"
-=======
-                    <label htmlFor="exampleInputPassword1">Kota Tujuan</label>
-                    <select
-                      className="form-select"
-                      aria-label="Default select example"
-                      defaultValue="DEFAULT"
->>>>>>> Stashed changes
                     >
                       <option value="DEFAULT">Pilih Kota Tujuan</option>
                       <option value="1">Bandung</option>
