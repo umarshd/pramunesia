@@ -3,7 +3,8 @@ import Image from "next/image";
 import Heroimg from "../../../public/images/heropic.png";
 import Link from "next/link";
 
-function Jumbotron() {
+function Jumbotron({ cities, handleChange, handleCity }) {
+  console.log(cities);
   return (
     <div className="container">
       <div className="row mt-3">
@@ -13,25 +14,31 @@ function Jumbotron() {
         <div className="col-lg-6 my-auto">
           <h1 className="h1 text-center my-2">Mau Pergi Kemana?</h1>
           <div className="d-block justifi-content-center-align-items-center">
-            <div className="mb-3">
-              <select
-                className="form-select"
-                aria-label="Default select example"
-                defaultValue="DEFAULT"
-              >
-                <option value="DEFAULT">Pilih kota tujuan</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-            </div>
-            <div className="d-flex justify-content-center">
-              <Link href={"/user/home"}>
-                <button type="button" className="btn-orange">
+            <form onSubmit={handleCity} method="post">
+              <div className="mb-3">
+                <select
+                  className="form-select"
+                  aria-label="Default select example"
+                  defaultValue="DEFAULT"
+                  name="city"
+                  onChange={handleChange}
+                >
+                  <option value="DEFAULT">Pilih kota tujuan</option>
+                  {cities
+                    ? cities.map((city, index) => (
+                        <option key={index} value={city.id}>
+                          {city.name}
+                        </option>
+                      ))
+                    : null}
+                </select>
+              </div>
+              <div className="d-flex justify-content-center">
+                <button type="submit" className="btn-orange">
                   Simpan
                 </button>
-              </Link>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import withReactContent from "sweetalert2-react-content";
 const sessionUserLogin = async () => {
   const MySwal = withReactContent(Swal);
   const userSession = await Cookies.get("pramunesiaAppToken");
+  const idCity = await Cookies.get("idCity");
 
   try {
     if (userSession) {
