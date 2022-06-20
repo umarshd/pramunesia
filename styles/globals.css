@@ -170,7 +170,7 @@ h1.h1.text-uppercase.me-auto {
 }
 
 .text-orange {
-  color: var(--clr-pumpkin);
+  color: var(--clr-pumpkin) !important;
 }
 
 .button-shadow {
@@ -213,6 +213,28 @@ ul>li>a {
 
 .image-slide {
   width: 100%;
+}
+
+.info-ticket {
+  border-top: 3px solid var(--clr-pumpkin) !important;
+  border-bottom: 3px solid var(--clr-pumpkin) !important;
+}
+
+.dashed {
+  border: 2px dashed var(--clr-pumpkin) !important;
+  border-radius: 10px;
+}
+
+@page {
+  size: A4 landscape;
+  margin-left: 5% !important;
+  margin-right: 5% !important;
+}
+
+@media print {
+  #printBtn {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
