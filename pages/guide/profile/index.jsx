@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiChevronRight } from 'react-icons/fi';
-import Navigation from '../../components/afterlogin/navbar';
+import Navigation from '../../../components/afterlogin/navbar';
 
 function GuideProfile() {
   return (
