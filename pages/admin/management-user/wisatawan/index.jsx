@@ -79,8 +79,55 @@ export default function Index() {
   useEffect(() => {
     getDataWisatawan();
   }, []);
+  const logoutHandler = () => {
+    router.push('/');
+  };
   return (
     <div>
+      {/* logout-modal */}
+      <div id="myModal2" className="modal fade" role="dialog">
+        <div className="modal-dialog modal-dialog-centered mx-auto">
+
+          <div className="modal-content">
+            <div className="modal-body">
+              <div className="mb-4">
+                <h4 className="text-center">
+                  Apakah Kamu Yakin
+                  Ingin Keluar?
+                </h4>
+              </div>
+              <div className="d-flex justify-content-center">
+                <button type="button" className="btn-abu me-3" data-bs-dismiss="modal">Tidak</button>
+                <button type="button" className="btn-orange" data-bs-dismiss="modal" onClick={logoutHandler}>Ya</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      {/* logout-modal */}
+      {/* logout-modal */}
+      <div id="myModal2" className="modal fade" role="dialog">
+        <div className="modal-dialog modal-dialog-centered mx-auto">
+
+          <div className="modal-content">
+            <div className="modal-body">
+              <div className="mb-4">
+                <h4 className="text-center">
+                  Apakah Kamu Yakin
+                  Ingin Keluar?
+                </h4>
+              </div>
+              <div className="d-flex justify-content-center">
+                <button type="button" className="btn-abu me-3" data-bs-dismiss="modal">Tidak</button>
+                <button type="button" className="btn-orange" data-bs-dismiss="modal" onClick={logoutHandler}>Ya</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      {/* logout-modal */}
       {/* offcanvasmode */}
       <div className="offcanvas offcanvas-start w-75" id="menu">
         <div className="offcanvas-header">
@@ -113,32 +160,32 @@ export default function Index() {
               <FiDatabase size="24" />
               <h6 className="ms-2">Data Master</h6>
               <button
-              type="button"
-              className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
-              onClick={hadlerToggle}
-            >
-              {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
-            </button>
-          </div>
-          <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
-            <ul>
-              <li>
-                {' '}
-                <a href="/">Data Pemesanan</a>
-                {' '}
-              </li>
-              <li>
-                {' '}
-                <a href="/">Data Kota</a>
-                {' '}
-              </li>
-              <li>
-                {' '}
-                <a href="/">Data Destinasi</a>
-                {' '}
-              </li>
-            </ul>
-          </div>
+                type="button"
+                className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
+                onClick={hadlerToggle}
+              >
+                {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
+              </button>
+            </div>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
+              <ul>
+                <li>
+                  {' '}
+                  <a href="/">Data Pemesanan</a>
+                  {' '}
+                </li>
+                <li>
+                  {' '}
+                  <a href="/">Data Kota</a>
+                  {' '}
+                </li>
+                <li>
+                  {' '}
+                  <a href="/">Data Destinasi</a>
+                  {' '}
+                </li>
+              </ul>
+            </div>
             <div className="d-flex align-items-center justify-content-start mb-3">
               <FiUsers size="24" />
               <h6 className="ms-2">Manajemen User</h6>
@@ -166,7 +213,9 @@ export default function Index() {
             </div>
             <div className="d-flex align-items-center justify-content-start mb-3">
               <FiLogOut size="24" />
-              <h6 className="ms-2">Keluar</h6>
+              <a role="button" className="ms-2 h6" data-bs-toggle="modal" data-bs-target="#myModal2">
+                Keluar
+              </a>
             </div>
           </div>
         </div>
@@ -209,32 +258,32 @@ export default function Index() {
               <FiDatabase size="24" />
               <h6 className="ms-2">Data Master</h6>
               <button
-              type="button"
-              className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
-              onClick={hadlerToggle}
-            >
-              {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
-            </button>
-          </div>
-          <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
-            <ul>
-              <li>
-                {' '}
-                <a href="/">Data Pemesanan</a>
-                {' '}
-              </li>
-              <li>
-                {' '}
-                <a href="/">Data Kota</a>
-                {' '}
-              </li>
-              <li>
-                {' '}
-                <a href="/">Data Destinasi</a>
-                {' '}
-              </li>
-            </ul>
-          </div>
+                type="button"
+                className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
+                onClick={hadlerToggle}
+              >
+                {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
+              </button>
+            </div>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
+              <ul>
+                <li>
+                  {' '}
+                  <a href="/">Data Pemesanan</a>
+                  {' '}
+                </li>
+                <li>
+                  {' '}
+                  <a href="/">Data Kota</a>
+                  {' '}
+                </li>
+                <li>
+                  {' '}
+                  <a href="/">Data Destinasi</a>
+                  {' '}
+                </li>
+              </ul>
+            </div>
             <div className="d-flex align-items-center justify-content-start mb-3">
               <FiUsers size="24" />
               <h6 className="ms-2">Manajemen User</h6>
@@ -262,8 +311,32 @@ export default function Index() {
             </div>
             <div className="d-flex align-items-center justify-content-start mb-3">
               <FiLogOut size="24" />
-              <h6 className="ms-2">Keluar</h6>
+              <a role="button" className="ms-2 h6" data-bs-toggle="modal" data-bs-target="#myModal">
+                Keluar
+              </a>
             </div>
+            {/* logout-modal */}
+            <div id="myModal" className="modal fade" role="dialog">
+              <div className="modal-dialog modal-dialog-centered mx-auto">
+
+                <div className="modal-content">
+                  <div className="modal-body">
+                    <div className="mb-4">
+                      <h4 className="text-center">
+                        Apakah Kamu Yakin
+                        Ingin Keluar?
+                      </h4>
+                    </div>
+                    <div className="d-flex justify-content-center">
+                      <button type="button" className="btn-abu me-3" data-bs-dismiss="modal">Tidak</button>
+                      <button type="button" className="btn-orange" data-bs-dismiss="modal" onClick={logoutHandler}>Ya</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            {/* logout-modal */}
           </div>
         </div>
 
@@ -323,7 +396,7 @@ export default function Index() {
                       : null}
                   </tbody>
                 </table>
-                <div className='py-4'>
+                <div className="py-4">
                   <nav aria-label="Page navigation">
                     <ul className="pagination justify-content-end">
                       <li className="page-item disabled">
