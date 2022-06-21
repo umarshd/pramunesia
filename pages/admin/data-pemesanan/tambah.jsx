@@ -26,6 +26,9 @@ export default function tambahPemesanan() {
   const logoutHandler = () => {
     router.push("/");
   };
+  const batalHandler = () => {
+    router.push("/admin/data-pemesanan");
+  };
   return (
     <div>
       {/* logout-modal */}
@@ -343,7 +346,11 @@ export default function tambahPemesanan() {
                     </div>
                   </div>
                   <div className="text-center p-4">
-                    <button type="submit" className="btn-abu me-2 mr-4">
+                    <button
+                      type="submit"
+                      className="btn-abu me-2 mr-4"
+                      onClick={batalHandler}
+                    >
                       Batal
                     </button>
                     <button type="submit" className="btn-orange mr-4">

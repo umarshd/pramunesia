@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   FiMenu,
   FiHome,
@@ -7,11 +7,11 @@ import {
   FiLogOut,
   FiChevronDown,
   FiChevronUp,
-} from 'react-icons/fi';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import BlankUser from '../../../public/images/blank-user.png';
+} from "react-icons/fi";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import BlankUser from "../../../public/images/blank-user.png";
 
 export default function editDestinasi() {
   const [toggle, setToggle] = useState(false);
@@ -24,29 +24,40 @@ export default function editDestinasi() {
     setToggle2(!toggle2);
   };
   const logoutHandler = () => {
-    router.push('/');
+    router.push("/");
+  };
+  const batalHandler = () => {
+    router.push("/admin/data-destinasi");
   };
   return (
     <div>
       {/* logout-modal */}
       <div id="myModal2" className="modal fade" role="dialog">
         <div className="modal-dialog modal-dialog-centered mx-auto">
-
           <div className="modal-content">
             <div className="modal-body">
               <div className="mb-4">
-                <h4 className="text-center">
-                  Apakah Kamu Yakin
-                  Ingin Keluar?
-                </h4>
+                <h4 className="text-center">Apakah Kamu Yakin Ingin Keluar?</h4>
               </div>
               <div className="d-flex justify-content-center">
-                <button type="button" className="btn-abu me-3" data-bs-dismiss="modal">Tidak</button>
-                <button type="button" className="btn-orange" data-bs-dismiss="modal" onClick={logoutHandler}>Ya</button>
+                <button
+                  type="button"
+                  className="btn-abu me-3"
+                  data-bs-dismiss="modal"
+                >
+                  Tidak
+                </button>
+                <button
+                  type="button"
+                  className="btn-orange"
+                  data-bs-dismiss="modal"
+                  onClick={logoutHandler}
+                >
+                  Ya
+                </button>
               </div>
             </div>
           </div>
-
         </div>
       </div>
       {/* logout-modal */}
@@ -93,22 +104,19 @@ export default function editDestinasi() {
                 )}
               </button>
             </div>
-            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
               <ul>
                 <li>
-                  {' '}
-                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
-                  {' '}
+                  {" "}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <Link href="/admin/data-kota">Data Kota</Link>
-                  {' '}
+                  {" "}
+                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
-                  {' '}
+                  {" "}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
                 </li>
               </ul>
             </div>
@@ -127,23 +135,26 @@ export default function editDestinasi() {
                 )}
               </button>
             </div>
-            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
               <ul>
                 <li>
-                  {' '}
-                  <a href="/">Wisatawan</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Wisatawan</a>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <a href="/">Pemandu Wisata</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Pemandu Wisata</a>{" "}
                 </li>
               </ul>
             </div>
             <div className="d-flex align-items-center justify-content-start mb-3">
               <FiLogOut size="24" />
-              <a role="button" className="ms-2 h6" data-bs-toggle="modal" data-bs-target="#myModal2">
+              <a
+                role="button"
+                className="ms-2 h6"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal2"
+              >
                 Keluar
               </a>
             </div>
@@ -198,22 +209,19 @@ export default function editDestinasi() {
                 )}
               </button>
             </div>
-            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
               <ul>
                 <li>
-                  {' '}
-                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
-                  {' '}
+                  {" "}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <Link href="/admin/data-kota">Data Kota</Link>
-                  {' '}
+                  {" "}
+                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
-                  {' '}
+                  {" "}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
                 </li>
               </ul>
             </div>
@@ -232,45 +240,58 @@ export default function editDestinasi() {
                 )}
               </button>
             </div>
-            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
               <ul>
                 <li>
-                  {' '}
-                  <a href="/">Wisatawan</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Wisatawan</a>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <a href="/">Pemandu Wisata</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Pemandu Wisata</a>{" "}
                 </li>
               </ul>
             </div>
             <div className="d-flex align-items-center justify-content-start mb-3">
               <FiLogOut size="24" />
-              <a role="button" className="ms-2 h6" data-bs-toggle="modal" data-bs-target="#myModal">
+              <a
+                role="button"
+                className="ms-2 h6"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal"
+              >
                 Keluar
               </a>
             </div>
             {/* logout-modal */}
             <div id="myModal" className="modal fade" role="dialog">
               <div className="modal-dialog modal-dialog-centered mx-auto">
-
                 <div className="modal-content">
                   <div className="modal-body">
                     <div className="mb-4">
                       <h4 className="text-center">
-                        Apakah Kamu Yakin
-                        Ingin Keluar?
+                        Apakah Kamu Yakin Ingin Keluar?
                       </h4>
                     </div>
                     <div className="d-flex justify-content-center">
-                      <button type="button" className="btn-abu me-3" data-bs-dismiss="modal">Tidak</button>
-                      <button type="button" className="btn-orange" data-bs-dismiss="modal" onClick={logoutHandler}>Ya</button>
+                      <button
+                        type="button"
+                        className="btn-abu me-3"
+                        data-bs-dismiss="modal"
+                      >
+                        Tidak
+                      </button>
+                      <button
+                        type="button"
+                        className="btn-orange"
+                        data-bs-dismiss="modal"
+                        onClick={logoutHandler}
+                      >
+                        Ya
+                      </button>
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
             {/* logout-modal */}
@@ -314,7 +335,11 @@ export default function editDestinasi() {
                     </select>
                   </div>
                   <div className="text-center p-4">
-                    <button type="submit" className="btn-abu me-2 mr-4">
+                    <button
+                      type="submit"
+                      className="btn-abu me-2 mr-4"
+                      onClick={batalHandler}
+                    >
                       Batal
                     </button>
                     <button type="submit" className="btn-orange mr-4">
