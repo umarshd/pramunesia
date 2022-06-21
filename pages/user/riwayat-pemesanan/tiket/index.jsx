@@ -38,7 +38,7 @@ export default function Tiket() {
           <small className="ms-auto">**Pembatalan transaksi setelah e-ticket dicetak, dilakukan berdasarkan persetujuan kedua belah pihak</small>
         </div>
       </div>
-      <div className="d-flex align-items-center justify-content-end container">
+      <div className="d-flex align-items-center justify-content-center">
         <button type="button" id="printBtn" className="btn-orange fw-bold" onClick={() => window.print()}>Cetak Tiket</button>
       </div>
     </div>
