@@ -26,6 +26,9 @@ export default function tambahKota() {
   const logoutHandler = () => {
     router.push("/");
   };
+  const batalHandler = () => {
+    router.push("/admin/data-kota");
+  };
   return (
     <div>
       {/* logout-modal */}
@@ -316,7 +319,11 @@ export default function tambahKota() {
                   </div>
 
                   <div className="text-center p-4">
-                    <button type="submit" className="btn-abu me-2 mr-4">
+                    <button
+                      type="submit"
+                      className="btn-abu me-2 mr-4"
+                      onClick={batalHandler}
+                    >
                       Batal
                     </button>
                     <button type="submit" className="btn-orange mr-4">
