@@ -35,6 +35,56 @@ export default function index() {
   const tambahHandler = () => {
     router.push("/admin/data-destinasi/tambah");
   };
+
+  const [destinations, setDestinations] = useState(false);
+
+  const getDestinations = async () => {
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities`;
+
+    try {
+      const response = await axios({
+        url: api,
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+        },
+      });
+
+      await setCities(response.data);
+      console.log(await response.data);
+    } catch (error) {}
+  };
+
+  const deleteCity = async (id) => {
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${id}`;
+
+    try {
+      const result = await Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      });
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        const response = await axios({
+          url: api,
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+          },
+        });
+        window.location.href = "/admin/data-kota";
+      }
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    getCities();
+  }, []);
   return (
     <div>
       {/* logout-modal */}

@@ -11,6 +11,7 @@ import axios from "axios";
 import { useEffect } from "react";
 
 function UserHomePage() {
+  sessionUserLogin();
   const router = useRouter();
   const searchHandler = () => {
     router.push("/user/search-guide");
