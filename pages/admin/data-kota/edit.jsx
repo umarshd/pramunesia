@@ -299,37 +299,33 @@ export default function editKota() {
         </div>
         <div className="col-sm-12 col-md-8 col-lg-8">
           <div className="mx-auto">
-            <div className="row">
-              <div className="col-10 p-2">
-                <h3 className="mt-2">Edit Data Kota</h3>
-              </div>
-              <div className="card p-5 bg-light shadow p-3 mb-5 bg-white rounded">
-                <form>
-                  <div className="col-12 p-2">
-                    <label htmlFor="selectNamaKota">Nama Kota</label>
-                    <select
-                      className="form-select"
-                      aria-label="Pilih nama kota"
-                    >
-                      <option selected>Pilih Nama Kota</option>
-                      <option value="1">Bandung</option>
-                      <option value="2">Cirebon</option>
-                      <option value="3">Yogyakarta</option>
-                    </select>
-                  </div>
-                  <div className="text-center p-4">
-                    <button
-                      type="submit"
-                      className="btn-abu me-2 mr-4"
-                      onClick={batalHandler}
-                    >
-                      Batal
-                    </button>
-                    <button type="submit" className="btn-orange mr-4">
-                      Selesai
-                    </button>
-                  </div>
-                </form>
+            <div className="row pt-3 justify-content-center">
+              <h3 className="mt-2">Data Kota</h3>
+              <div className="col-6 p-2">
+                {/* <div className="card p-5 bg-light shadow p-3 my-5 bg-white rounded border-0"> */}
+                <div className="card p-3">
+                  <h5>Edit Data Kota</h5>
+                  <form>
+                    <div className="col-12 p-2">
+                      <label htmlFor="selectNamaKota">Nama Kota</label>
+                      <input type="text" className="form-control" />
+                    </div>
+                    <div className="text-center p-4">
+                      <button
+                        type="submit"
+                        className="btn-abu me-2 mr-4"
+                        onClick={batalHandler}
+                      >
+                        Batal
+                      </button>
+                      <button type="submit" className="btn-orange mr-4">
+                        Selesai
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                {/* </div>s */}
               </div>
             </div>
           </div>
