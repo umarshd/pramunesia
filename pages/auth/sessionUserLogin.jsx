@@ -22,9 +22,7 @@ const sessionUserLogin = async () => {
         timer: 1500,
       });
     }
-  } catch (error) {
-    console.log("Error", error.message);
-  }
+  } catch (error) {}
 
   return userSession;
 };
