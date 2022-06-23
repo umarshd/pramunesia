@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FiMenu,
   FiHome,
@@ -15,6 +15,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import BlankUser from "../../../public/images/blank-user.png";
+import axios from "axios";
+import Cookies from "js-cookie";
+
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 export default function index() {
   const [toggle, setToggle] = useState(false);
@@ -38,6 +43,56 @@ export default function index() {
   const batalHandler = () => {
     router.push("/admin/data-kota");
   };
+
+  const [cities, setCities] = useState(false);
+
+  const getCities = async () => {
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities`;
+
+    try {
+      const response = await axios({
+        url: api,
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+        },
+      });
+
+      await setCities(response.data);
+      console.log(await response.data);
+    } catch (error) {}
+  };
+
+  const deleteCity = async (id) => {
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${id}`;
+
+    try {
+      const result = await Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      });
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        const response = await axios({
+          url: api,
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+          },
+        });
+        window.location.href = "/admin/data-kota";
+      }
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    getCities();
+  }, []);
   return (
     <div>
       {/* logout-modal */}
@@ -333,69 +388,31 @@ export default function index() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>
-                        <button
-                          type="button"
-                          className="btn btn-primary mx-1"
-                          data-title="Edit"
-                          onClick={editHandler}
-                        >
-                          <FiEdit size="12" />
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          data-title="Hapus"
-                        >
-                          <FiTrash2 size="12" />
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>
-                        <button
-                          type="button"
-                          className="btn btn-primary mx-1"
-                          data-title="Edit"
-                          onClick={editHandler}
-                        >
-                          <FiEdit size="12" />
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          data-title="Hapus"
-                        >
-                          <FiTrash2 size="12" />
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Larry</td>
-                      <td>Thornton</td>
-                      <td>
-                        <button
-                          type="button"
-                          className="btn btn-primary mx-1"
-                          data-title="Edit"
-                          onClick={editHandler}
-                        >
-                          <FiEdit size="12" />
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          data-title="Hapus"
-                        >
-                          <FiTrash2 size="12" />
-                        </button>
-                      </td>
-                    </tr>
+                    {cities
+                      ? cities.map((city, index) => (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{city.name}</td>
+                            <td>
+                              <a
+                                href={`admin/data-kota/${city.id}`}
+                                className="btn btn-primary mx-1"
+                                data-title="Edit"
+                              >
+                                <FiEdit size="12" />
+                              </a>
+                              <button
+                                type="button"
+                                className="btn btn-danger"
+                                data-title="Hapus"
+                                onClick={(e) => deleteCity(city.id)}
+                              >
+                                <FiTrash2 size="12" />
+                              </button>
+                            </td>
+                          </tr>
+                        ))
+                      : null}
                   </tbody>
                 </table>
                 <div className="py-4">
