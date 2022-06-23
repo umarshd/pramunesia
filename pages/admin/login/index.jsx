@@ -30,7 +30,7 @@ export default function index() {
           password: input.password,
         },
       });
-      await Cookies.set("pramunesiaAppToken", response.data.token);
+      await Cookies.set("pramunesiaAppTokenAdmin", response.data.token);
       await Cookies.set("pramunesiaIdUser", response.data.id);
       await Cookies.set("pramunesiaRole", "admin");
 
