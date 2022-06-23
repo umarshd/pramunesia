@@ -3,17 +3,15 @@ import { useRouter } from "next/router";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const sessionUserLogin = async () => {
+const sessionAdminLogin = async () => {
   const MySwal = withReactContent(Swal);
-  const userSession = await Cookies.get("pramunesiaAppToken");
-  const idCity = await Cookies.get("idCity");
+  const adminSession = await Cookies.get("pramunesiaAppTokenAdmin");
 
   try {
-    if (userSession) {
+    if (adminSession) {
     } else {
       const router = useRouter();
-
-      router.replace("/user/login");
+      router.replace("/admin/login");
       MySwal.fire({
         position: "center",
         icon: "error",
@@ -22,9 +20,11 @@ const sessionUserLogin = async () => {
         timer: 1500,
       });
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log("Error", error.message);
+  }
 
-  return userSession;
+  return adminSession;
 };
 
-export default sessionUserLogin;
+export default sessionAdminLogin;
