@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FiMenu,
   FiHome,
@@ -12,11 +12,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import BlankUser from "../../../public/images/blank-user.png";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 export default function editKota() {
+  const router = useRouter();
+  const { edit } = router.query;
   const [toggle, setToggle] = useState(false);
   const [toggle2, setToggle2] = useState(false);
-  const router = useRouter();
   const hadlerToggle = () => {
     setToggle(!toggle);
   };
@@ -29,6 +32,57 @@ export default function editKota() {
   const batalHandler = () => {
     router.push("/admin/data-kota");
   };
+
+  const [city, setCity] = useState(false);
+  const [input, setInput] = useState(false);
+
+  const handleChange = async (e) => {
+    await setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  const getCity = async (e) => {
+    const api = await `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${edit}`;
+
+    try {
+      const response = await axios({
+        method: "GET",
+        url: api,
+        headers: {
+          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+        },
+      });
+
+      await setCity(response.data);
+    } catch (error) {}
+  };
+
+  const handleUpdateCity = async (e) => {
+    e.preventDefault();
+
+    const api = await `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${edit}`;
+
+    try {
+      const response = await axios({
+        method: "PATCH",
+        url: api,
+        headers: {
+          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+        },
+        data: {
+          name: input.name,
+        },
+      });
+      router.push("/admin/data-kota");
+    } catch (error) {}
+  };
+
+  console.log(input);
+
+  useEffect(() => {
+    if (edit) {
+      getCity();
+    }
+  }, [edit]);
   return (
     <div>
       {/* logout-modal */}
@@ -305,10 +359,16 @@ export default function editKota() {
                 {/* <div className="card p-5 bg-light shadow p-3 my-5 bg-white rounded border-0"> */}
                 <div className="card p-3">
                   <h5>Edit Data Kota</h5>
-                  <form>
+                  <form method="post" onSubmit={handleUpdateCity}>
                     <div className="col-12 p-2">
                       <label htmlFor="selectNamaKota">Nama Kota</label>
-                      <input type="text" className="form-control" />
+                      <input
+                        onChange={handleChange}
+                        type="text"
+                        className="form-control"
+                        name="name"
+                        defaultValue={city ? city.name : null}
+                      />
                     </div>
                     <div className="text-center p-4">
                       <button

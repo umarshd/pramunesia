@@ -395,7 +395,7 @@ export default function index() {
                             <td>{city.name}</td>
                             <td>
                               <a
-                                href={`admin/data-kota/${city.id}`}
+                                href={`/admin/data-kota/${city.id}`}
                                 className="btn btn-primary mx-1"
                                 data-title="Edit"
                               >
