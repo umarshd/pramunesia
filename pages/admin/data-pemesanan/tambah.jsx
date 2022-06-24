@@ -299,65 +299,68 @@ export default function tambahPemesanan() {
         </div>
         <div className="col-sm-12 col-md-8 col-lg-8">
           <div className="mx-auto">
-            <div className="row">
-              <div className="col-10 p-2">
-                <h3 className="mt-2">Tambah Data Pemesanan</h3>
-              </div>
-              <div className="card p-lg-5 bg-light shadow px-sm-1 mb-5 bg-white rounded">
-                <form>
-                  <div className="col-12 p-2">
-                    <label htmlFor="inputNamaPemesan">Nama Pemesan</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="namaPemesan"
-                      placeholder="Masukkan Nama Pemesan"
-                    />
-                  </div>
-                  <div className="col-12 p-2">
-                    <label htmlFor="InputNamaPemandu">
-                      Nama Pemandu Wisata
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="namaPemandu"
-                      placeholder="Masukkan Nama Pemandu Wisata"
-                    />
-                  </div>
-                  <div className="col-12 p-2">
-                    <label htmlFor="selectKotaTujuan">Kota Tujuan</label>
-                    <select
-                      className="form-select"
-                      aria-label="Pilih kota tujuan"
-                    >
-                      <option value="DEFAULT">Pilih Kota Tujuan</option>
-                      <option value="1">Bandung</option>
-                      <option value="2">Cirebon</option>
-                      <option value="3">Yogyakarta</option>
-                    </select>
-                  </div>
-                  <div className="col-12 p-2">
-                    <label htmlFor="date" className="control-label">
-                      Tanggal Pemesanan
-                    </label>
-                    <div className="input-group date" id="date">
-                      <input className="form-control" type="date" />
+            <div className="row pt-3 justify-content-center">
+              <h3 className="mt-2">Data Pemesanan</h3>
+              <div className="col-lg-6 p-2">
+                {/* <div className="card p-5 bg-light shadow p-3 my-5 bg-white rounded border-0"> */}
+                <div className="card p-3">
+                  <h5 className="text-center p-2">Tambah Data Pemesanan</h5>
+                  <form>
+                    <div className="col-12 p-2">
+                      <label htmlFor="inputNamaPemesan">Nama Pemesan</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="namaPemesan"
+                        placeholder="Masukkan Nama Pemesan"
+                      />
                     </div>
-                  </div>
-                  <div className="text-center p-4">
-                    <button
-                      type="submit"
-                      className="btn-abu me-2 mr-4"
-                      onClick={batalHandler}
-                    >
-                      Batal
-                    </button>
-                    <button type="submit" className="btn-orange mr-4">
-                      Selesai
-                    </button>
-                  </div>
-                </form>
+                    <div className="col-12 p-2">
+                      <label htmlFor="InputNamaPemandu">
+                        Nama Pemandu Wisata
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="namaPemandu"
+                        placeholder="Masukkan Nama Pemandu Wisata"
+                      />
+                    </div>
+                    <div className="col-12 p-2">
+                      <label htmlFor="selectKotaTujuan">Kota Tujuan</label>
+                      <select
+                        className="form-select"
+                        aria-label="Pilih kota tujuan"
+                      >
+                        <option value="DEFAULT">Pilih Kota Tujuan</option>
+                        <option value="1">Bandung</option>
+                        <option value="2">Cirebon</option>
+                        <option value="3">Yogyakarta</option>
+                      </select>
+                    </div>
+                    <div className="col-12 p-2">
+                      <label htmlFor="date" className="control-label">
+                        Tanggal Pemesanan
+                      </label>
+                      <div className="input-group date" id="date">
+                        <input className="form-control" type="date" />
+                      </div>
+                    </div>
+                    <div className="text-center p-4">
+                      <button
+                        type="submit"
+                        className="btn-abu me-2 mr-4"
+                        onClick={batalHandler}
+                      >
+                        Batal
+                      </button>
+                      <button type="submit" className="btn-orange mr-4">
+                        Selesai
+                      </button>
+                    </div>
+                  </form>
+                </div>
+                {/* </div>s */}
               </div>
             </div>
           </div>
