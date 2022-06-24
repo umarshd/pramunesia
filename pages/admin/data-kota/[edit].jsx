@@ -355,7 +355,7 @@ export default function editKota() {
           <div className="mx-auto">
             <div className="row pt-3 justify-content-center">
               <h3 className="mt-2">Data Kota</h3>
-              <div className="col-6 p-2">
+              <div className="col-lg-6 p-2">
                 {/* <div className="card p-5 bg-light shadow p-3 my-5 bg-white rounded border-0"> */}
                 <div className="card p-3">
                   <h5>Edit Data Kota</h5>
