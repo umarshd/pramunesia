@@ -7,13 +7,16 @@ import {
   FiLogOut,
   FiChevronDown,
   FiChevronUp,
+  FiPlus,
+  FiEdit,
+  FiTrash2,
 } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import BlankUser from "../../../public/images/blank-user.png";
 
-export default function tambahDestinasi() {
+export default function dataDestinasi() {
   const [toggle, setToggle] = useState(false);
   const [toggle2, setToggle2] = useState(false);
   const router = useRouter();
@@ -26,12 +29,62 @@ export default function tambahDestinasi() {
   const logoutHandler = () => {
     router.push("/");
   };
-  const simpanHandler = () => {
-    router.push("/admin/data-destinasi/data");
+  const editHandler = () => {
+    router.push("/admin/data-destinasi/edit");
   };
-  const batalHandler = () => {
-    router.push("/admin/data-destinasi");
+  const tambahHandler = () => {
+    router.push("/admin/data-destinasi/tambah");
   };
+
+  const [destinations, setDestinations] = useState(false);
+
+  const getDestinations = async () => {
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities`;
+
+    try {
+      const response = await axios({
+        url: api,
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+        },
+      });
+
+      await setCities(response.data);
+      console.log(await response.data);
+    } catch (error) {}
+  };
+
+  const deleteCity = async (id) => {
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${id}`;
+
+    try {
+      const result = await Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      });
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        const response = await axios({
+          url: api,
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+          },
+        });
+        window.location.href = "/admin/data-kota";
+      }
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    getCities();
+  }, []);
   return (
     <div>
       {/* logout-modal */}
@@ -304,56 +357,133 @@ export default function tambahDestinasi() {
           <div className="mx-auto">
             <div className="row">
               <div className="col-10 p-2">
-                <h3 className="mt-2">Tambah Data Destinasi</h3>
+                <h3 className="mt-2">Data Destinasi</h3>
               </div>
-              <div className="card p-5 bg-light shadow p-3 mb-5 bg-white rounded">
-                <form>
-                  <div className="col-12 p-2">
-                    <label htmlFor="InputNamaDestinasi">Nama Destinasi</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="namaDestinasi"
-                      placeholder="Masukkan Nama Destinasi"
-                    />
-                  </div>
-                  <div className="col-12 p-2">
-                    <label htmlFor="InputFoto">Foto</label>
-                    <input
-                      type="file"
-                      className="form-control"
-                      id="foto"
-                      placeholder="Unggah Foto"
-                    />
-                  </div>
-                  <div className="col-12 p-2">
-                    <label htmlFor="InputRekomendasi">Rekomendasi</label>
-                    <select
-                      className="form-select"
-                      aria-label="Pilih Opsi Rekomendasi"
-                    >
-                      <option selected>Select Option</option>
-                      <option value="1">Yes</option>
-                      <option value="2">No</option>
-                    </select>
-                  </div>
-                  <div className="text-center p-4">
-                    <button
-                      type="submit"
-                      className="btn-abu me-2 mr-4"
-                      onClick={batalHandler}
-                    >
-                      Batal
-                    </button>
-                    <button
-                      type="submit"
-                      className="btn-orange mr-4"
-                      onClick={simpanHandler}
-                    >
-                      Selesai
-                    </button>
-                  </div>
-                </form>
+              <div className="col-2 p-3">
+                <button
+                  type="button"
+                  className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
+                  onClick={tambahHandler}
+                >
+                  <FiPlus size="24" />
+                </button>
+              </div>
+            </div>
+            <div className="mx-auto">
+              <div className="card border-0">
+                <table className="table table-responsive table-bordred table-striped border-2 text-center my-auto">
+                  <thead className="bg-secondary">
+                    <tr>
+                      <th scope="col">No</th>
+                      <th scope="col">Nama Destinasi</th>
+                      <th scope="col">Foto</th>
+                      <th scope="col">Rekomendasi</th>
+                      <th scope="col">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>mdo</td>
+                      <td>
+                        <button
+                          type="button"
+                          className="btn btn-primary mx-1"
+                          data-title="Edit"
+                          onClick={editHandler}
+                        >
+                          <FiEdit size="12" />
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          data-title="Hapus"
+                        >
+                          <FiTrash2 size="12" />
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                      <td>fat</td>
+                      <td>
+                        <button
+                          type="button"
+                          className="btn btn-primary mx-1"
+                          data-title="Edit"
+                          onClick={editHandler}
+                        >
+                          <FiEdit size="12" />
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          data-title="Hapus"
+                        >
+                          <FiTrash2 size="12" />
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Larry</td>
+                      <td>Thornton</td>
+                      <td>@twitter</td>
+                      <td>twitter</td>
+                      <td>
+                        <button
+                          type="button"
+                          className="btn btn-primary mx-1"
+                          data-title="Edit"
+                          onClick={editHandler}
+                        >
+                          <FiEdit size="12" />
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          data-title="Hapus"
+                        >
+                          <FiTrash2 size="12" />
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div className="py-4">
+                  <nav aria-label="Page navigation">
+                    <ul className="pagination justify-content-end">
+                      <li className="page-item disabled">
+                        <a className="page-link" href="#" tabIndex="-1">
+                          Sebelumnya
+                        </a>
+                      </li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">
+                          1
+                        </a>
+                      </li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">
+                          2
+                        </a>
+                      </li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">
+                          3
+                        </a>
+                      </li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">
+                          Selanjutnya
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
               </div>
             </div>
           </div>
