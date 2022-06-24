@@ -12,8 +12,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import BlankUser from "../../../public/images/blank-user.png";
+import axios from "axios";
+import Cookies from "js-cookie";
 
-export default function index() {
+export default function tambahKota() {
   const [toggle, setToggle] = useState(false);
   const [toggle2, setToggle2] = useState(false);
   const router = useRouter();
@@ -26,8 +28,32 @@ export default function index() {
   const logoutHandler = () => {
     router.push("/");
   };
-  const pilihHandler = () => {
-    router.push("/admin/data-destinasi/data");
+  const batalHandler = () => {
+    router.push("/admin/data-kota");
+  };
+
+  const [input, setInput] = useState(false);
+
+  const handleChange = async (e) => {
+    await setInput({ ...input, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities`;
+
+    try {
+      const response = await axios({
+        url: api,
+        method: "POST",
+        headers: {
+          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+        },
+        data: {
+          name: input.name,
+        },
+      });
+      router.push("/admin/data-kota");
+    } catch (error) {}
   };
   return (
     <div>
@@ -299,35 +325,39 @@ export default function index() {
         </div>
         <div className="col-sm-12 col-md-8 col-lg-8">
           <div className="mx-auto">
-            <div className="row">
-              <div className="col-10 p-2">
-                <h3 className="mt-2">Pilih Destinasi</h3>
-              </div>
-              <div className="card p-5 bg-light shadow p-3 mb-5 bg-white rounded">
-                <form>
-                  <div className="col-12 p-2">
-                    <label htmlFor="InputRekomendasi">
-                      Pilih Tujuan Destinasi
-                    </label>
-                    <select
-                      className="form-select"
-                      aria-label="Pilih Tujuan Destinasi"
-                    >
-                      <option selected>Select Option</option>
-                      <option value="1">Yes</option>
-                      <option value="2">No</option>
-                    </select>
-                  </div>
-                  <div className="text-center p-4">
-                    <button
-                      type="submit"
-                      className="btn-orange mr-4"
-                      onClick={pilihHandler}
-                    >
-                      Pilih
-                    </button>
-                  </div>
-                </form>
+            <div className="row pt-3 justify-content-center">
+              <h3 className="mt-2">Data Destinasi</h3>
+              <div className="col-lg-6 p-2">
+                {/* <div className="card p-5 bg-light shadow p-3 my-5 bg-white rounded border-0"> */}
+                <div className="card p-3">
+                  <h5 className="text-center p-2">Pilih Data Kota</h5>
+                  <form method="post">
+                    <div className="col-12 p-2">
+                      <label htmlFor="selectKotaTujuan">Kota Tujuan</label>
+                      <select
+                        className="form-select"
+                        aria-label="Pilih kota tujuan"
+                      >
+                        <option value="DEFAULT">Pilih Kota Tujuan</option>
+                        <option value="1">Bandung</option>
+                        <option value="2">Cirebon</option>
+                        <option value="3">Yogyakarta</option>
+                      </select>
+                    </div>
+                    <div className="text-center p-4">
+                      <button
+                        type="submit"
+                        className="btn-abu me-2 mr-4"
+                        onClick={batalHandler}
+                      >
+                        Batal
+                      </button>
+                      <button type="submit" className="btn-orange mr-4">
+                        Selesai
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

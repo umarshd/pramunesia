@@ -302,58 +302,61 @@ export default function tambahDestinasi() {
         </div>
         <div className="col-sm-12 col-md-8 col-lg-8">
           <div className="mx-auto">
-            <div className="row">
-              <div className="col-10 p-2">
-                <h3 className="mt-2">Tambah Data Destinasi</h3>
-              </div>
-              <div className="card p-5 bg-light shadow p-3 mb-5 bg-white rounded">
-                <form>
-                  <div className="col-12 p-2">
-                    <label htmlFor="InputNamaDestinasi">Nama Destinasi</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="namaDestinasi"
-                      placeholder="Masukkan Nama Destinasi"
-                    />
-                  </div>
-                  <div className="col-12 p-2">
-                    <label htmlFor="InputFoto">Foto</label>
-                    <input
-                      type="file"
-                      className="form-control"
-                      id="foto"
-                      placeholder="Unggah Foto"
-                    />
-                  </div>
-                  <div className="col-12 p-2">
-                    <label htmlFor="InputRekomendasi">Rekomendasi</label>
-                    <select
-                      className="form-select"
-                      aria-label="Pilih Opsi Rekomendasi"
-                    >
-                      <option selected>Select Option</option>
-                      <option value="1">Yes</option>
-                      <option value="2">No</option>
-                    </select>
-                  </div>
-                  <div className="text-center p-4">
-                    <button
-                      type="submit"
-                      className="btn-abu me-2 mr-4"
-                      onClick={batalHandler}
-                    >
-                      Batal
-                    </button>
-                    <button
-                      type="submit"
-                      className="btn-orange mr-4"
-                      onClick={simpanHandler}
-                    >
-                      Selesai
-                    </button>
-                  </div>
-                </form>
+            <div className="row pt-3 justify-content-center">
+              <h3 className="mt-2">Data Destinasi</h3>
+              <div className="col-lg-6 p-2">
+                {/* <div className="card p-5 bg-light shadow p-3 my-5 bg-white rounded border-0"> */}
+                <div className="card p-3">
+                  <h5 className="text-center p-2">Tambah Data Destinasi</h5>
+                  <form>
+                    <div className="col-12 p-2">
+                      <label htmlFor="InputNamaDestinasi">Nama Destinasi</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="namaDestinasi"
+                        placeholder="Masukkan Nama Destinasi"
+                      />
+                    </div>
+                    <div className="col-12 p-2">
+                      <label htmlFor="InputFoto">Foto</label>
+                      <input
+                        type="file"
+                        className="form-control"
+                        id="foto"
+                        placeholder="Unggah Foto"
+                      />
+                    </div>
+                    <div className="col-12 p-2">
+                      <label htmlFor="InputRekomendasi">Rekomendasi</label>
+                      <select
+                        className="form-select"
+                        aria-label="Pilih Opsi Rekomendasi"
+                      >
+                        <option selected>Select Option</option>
+                        <option value="1">Yes</option>
+                        <option value="2">No</option>
+                      </select>
+                    </div>
+                    <div className="text-center p-4">
+                      <button
+                        type="submit"
+                        className="btn-abu me-2 mr-4"
+                        onClick={batalHandler}
+                      >
+                        Batal
+                      </button>
+                      <button
+                        type="submit"
+                        className="btn-orange mr-4"
+                        onClick={simpanHandler}
+                      >
+                        Selesai
+                      </button>
+                    </div>
+                  </form>
+                </div>
+                {/* </div>s */}
               </div>
             </div>
           </div>

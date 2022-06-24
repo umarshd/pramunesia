@@ -358,7 +358,7 @@ export default function editKota() {
               <div className="col-lg-6 p-2">
                 {/* <div className="card p-5 bg-light shadow p-3 my-5 bg-white rounded border-0"> */}
                 <div className="card p-3">
-                  <h5>Edit Data Kota</h5>
+                  <h5 className="text-center p-2">Edit Data Kota</h5>
                   <form method="post" onSubmit={handleUpdateCity}>
                     <div className="col-12 p-2">
                       <label htmlFor="selectNamaKota">Nama Kota</label>
