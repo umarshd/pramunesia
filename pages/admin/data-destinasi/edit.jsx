@@ -29,6 +29,9 @@ export default function editDestinasi() {
   const batalHandler = () => {
     router.push("/admin/data-destinasi");
   };
+  const simpanHandler = () => {
+    router.push("/admin/data-destinasi/data");
+  };
   return (
     <div>
       {/* logout-modal */}
@@ -342,7 +345,11 @@ export default function editDestinasi() {
                     >
                       Batal
                     </button>
-                    <button type="submit" className="btn-orange mr-4">
+                    <button
+                      type="submit"
+                      className="btn-orange mr-4"
+                      onClick={simpanHandler}
+                    >
                       Selesai
                     </button>
                   </div>
