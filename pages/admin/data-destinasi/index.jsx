@@ -54,7 +54,7 @@ export default function tambahKota() {
         timer: 1500,
       });
     } else {
-      console.log(input.city);
+      // console.log(input.city);
       Cookies.set("idCity", input.city);
       router.push("/admin/data-destinasi/data");
     }
