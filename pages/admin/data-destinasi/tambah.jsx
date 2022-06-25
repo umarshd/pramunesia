@@ -103,7 +103,6 @@ export default function tambahDestinasi() {
       await setCity(response.data);
     } catch (error) {}
   };
-  console.log(input);
 
   useEffect(() => {
     getCity();
@@ -428,8 +427,8 @@ export default function tambahDestinasi() {
                         onChange={(e) => setRecomendation(e.target.value)}
                       >
                         <option defaultValue>Select Option</option>
-                        <option defaultValue={"yes"}>Yes</option>
-                        <option defaultValue={"no"}>No</option>
+                        <option defaultValue={"Yes"}>Yes</option>
+                        <option defaultValue={"No"}>No</option>
                       </select>
                     </div>
                     <div className="text-center p-4">
