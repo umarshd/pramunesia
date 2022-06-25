@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Logobig from '../../../public/images/logo-big.png';
 
-function LoginTouGuide() {
+function LoginTourGuide() {
   return (
     <div className="row vh-100 w-100">
       <div className="col-lg-6">
@@ -62,4 +62,4 @@ function LoginTouGuide() {
   );
 }
 
-export default LoginTouGuide;
+export default LoginTourGuide;

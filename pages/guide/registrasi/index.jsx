@@ -1,9 +1,9 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import Logobig from "../../../public/images/logo-big.png";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import Logobig from '../../../public/images/logo-big.png';
 
-function RegistTourGuide({}) {
+function RegistTourGuide() {
   return (
     <div className="row vh-100">
       <div className="col-lg-6 ">
@@ -19,7 +19,8 @@ function RegistTourGuide({}) {
               <h3 className="my-4">Buat Akunmu!</h3>
               <p>Untuk mendapatkan pengalaman terbaik di Pramunesia</p>
               <p className="mb-3">
-                Sudah punya akun?{" "}
+                Sudah punya akun?
+                {' '}
                 <span>
                   <Link href="/guide/login">Masuk sekarang</Link>
                 </span>
@@ -29,7 +30,8 @@ function RegistTourGuide({}) {
               <form>
                 <div className="mb-3">
                   <label htmlFor="lisensi" className="form-label">
-                    No. KTA/Lisensi{" "}
+                    No. KTA/Lisensi
+                    {' '}
                   </label>
                   <input
                     type="text"
@@ -135,10 +137,16 @@ function RegistTourGuide({}) {
             </div>
             <div className="text-center">
               <p>
-                Dengan menekan tombol Registrasi, Anda setuju <br /> dengan{" "}
+                Dengan menekan tombol Registrasi, Anda setuju
+                {' '}
+                <br />
+                {' '}
+                dengan
+                {' '}
                 <span>
                   <a href="/">Syarat & Ketentuan</a>
-                </span>{" "}
+                </span>
+                {' '}
                 kami
               </p>
             </div>
