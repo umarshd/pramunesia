@@ -17,6 +17,7 @@ import { useRouter } from "next/router";
 import BlankUser from "../../../public/images/blank-user.png";
 import Cookies from "js-cookie";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function dataDestinasi() {
   const [toggle, setToggle] = useState(false);
@@ -61,8 +62,10 @@ export default function dataDestinasi() {
     }
   };
 
-  const deleteCity = async (id) => {
-    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${id}`;
+  const deleteDestination = async (id) => {
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${Cookies.get(
+      "idCity"
+    )}/destinations/${id}`;
 
     try {
       const result = await Swal.fire({
@@ -83,7 +86,7 @@ export default function dataDestinasi() {
             authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
           },
         });
-        window.location.href = "/admin/data-kota";
+        window.location.href = "/admin/data-destinasi/data";
       }
     } catch (error) {}
   };
@@ -424,6 +427,9 @@ export default function dataDestinasi() {
                                 type="button"
                                 className="btn btn-danger"
                                 data-title="Hapus"
+                                onClick={(e) =>
+                                  deleteDestination(destination.id)
+                                }
                               >
                                 <FiTrash2 size="12" />
                               </button>
