@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   FiMenu,
   FiHome,
@@ -10,15 +10,15 @@ import {
   FiPlus,
   FiEdit,
   FiTrash2,
-} from 'react-icons/fi';
-import Image from 'next/image';
-import axios from 'axios';
-import Cookies from 'js-cookie';
+} from "react-icons/fi";
+import Image from "next/image";
+import axios from "axios";
+import Cookies from "js-cookie";
 
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
-import { useRouter } from 'next/router';
-import BlankUser from '../../../../public/images/blank-user.png';
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { useRouter } from "next/router";
+import BlankUser from "../../../../public/images/blank-user.png";
 
 export default function Index() {
   const MySwal = withReactContent(Swal);
@@ -31,10 +31,10 @@ export default function Index() {
 
     try {
       const response = await axios({
-        method: 'GET',
+        method: "GET",
         url: api,
         headers: {
-          authorization: `Bearer ${Cookies.get('pramunesiaAppToken')}`,
+          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
         },
       });
 
@@ -50,24 +50,24 @@ export default function Index() {
 
     try {
       const result = await Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: "You won't be able to revert this!",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!',
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
       });
       if (result.isConfirmed) {
-        Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
         const response = await axios({
           url: api,
-          method: 'DELETE',
+          method: "DELETE",
           headers: {
-            authorization: `Bearer ${Cookies.get('pramunesiaAppToken')}`,
+            authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
           },
         });
-        window.location.href = '/admin/management-user/wisatawan';
+        window.location.href = "/admin/management-user/wisatawan";
       }
     } catch (error) {}
   };
@@ -84,51 +84,67 @@ export default function Index() {
     getDataWisatawan();
   }, []);
   const logoutHandler = () => {
-    router.push('/');
+    router.push("/");
   };
   return (
     <div>
       {/* logout-modal */}
       <div id="myModal2" className="modal fade" role="dialog">
         <div className="modal-dialog modal-dialog-centered mx-auto">
-
           <div className="modal-content">
             <div className="modal-body">
               <div className="mb-4">
-                <h4 className="text-center">
-                  Apakah Kamu Yakin
-                  Ingin Keluar?
-                </h4>
+                <h4 className="text-center">Apakah Kamu Yakin Ingin Keluar?</h4>
               </div>
               <div className="d-flex justify-content-center">
-                <button type="button" className="btn-abu me-3" data-bs-dismiss="modal">Tidak</button>
-                <button type="button" className="btn-orange" data-bs-dismiss="modal" onClick={logoutHandler}>Ya</button>
+                <button
+                  type="button"
+                  className="btn-abu me-3"
+                  data-bs-dismiss="modal"
+                >
+                  Tidak
+                </button>
+                <button
+                  type="button"
+                  className="btn-orange"
+                  data-bs-dismiss="modal"
+                  onClick={logoutHandler}
+                >
+                  Ya
+                </button>
               </div>
             </div>
           </div>
-
         </div>
       </div>
       {/* logout-modal */}
       {/* logout-modal */}
       <div id="myModal2" className="modal fade" role="dialog">
         <div className="modal-dialog modal-dialog-centered mx-auto">
-
           <div className="modal-content">
             <div className="modal-body">
               <div className="mb-4">
-                <h4 className="text-center">
-                  Apakah Kamu Yakin
-                  Ingin Keluar?
-                </h4>
+                <h4 className="text-center">Apakah Kamu Yakin Ingin Keluar?</h4>
               </div>
               <div className="d-flex justify-content-center">
-                <button type="button" className="btn-abu me-3" data-bs-dismiss="modal">Tidak</button>
-                <button type="button" className="btn-orange" data-bs-dismiss="modal" onClick={logoutHandler}>Ya</button>
+                <button
+                  type="button"
+                  className="btn-abu me-3"
+                  data-bs-dismiss="modal"
+                >
+                  Tidak
+                </button>
+                <button
+                  type="button"
+                  className="btn-orange"
+                  data-bs-dismiss="modal"
+                  onClick={logoutHandler}
+                >
+                  Ya
+                </button>
               </div>
             </div>
           </div>
-
         </div>
       </div>
       {/* logout-modal */}
@@ -168,25 +184,26 @@ export default function Index() {
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
                 onClick={hadlerToggle2}
               >
-                {toggle2 ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
+                {toggle2 ? (
+                  <FiChevronUp size="24" />
+                ) : (
+                  <FiChevronDown size="24" />
+                )}
               </button>
             </div>
-            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
               <ul>
                 <li>
-                  {' '}
-                  <a href="/">Data Pemesanan</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Data Pemesanan</a>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <a href="/">Data Kota</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Data Kota</a>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <a href="/">Data Destinasi</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Data Destinasi</a>{" "}
                 </li>
               </ul>
             </div>
@@ -198,26 +215,33 @@ export default function Index() {
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
                 onClick={hadlerToggle}
               >
-                {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
+                {toggle ? (
+                  <FiChevronUp size="24" />
+                ) : (
+                  <FiChevronDown size="24" />
+                )}
               </button>
             </div>
-            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
               <ul>
                 <li>
-                  {' '}
-                  <a href="/">Wisatawan</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Wisatawan</a>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <a href="/">Pemandu Wisata</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Pemandu Wisata</a>{" "}
                 </li>
               </ul>
             </div>
             <div className="d-flex align-items-center justify-content-start mb-3">
               <FiLogOut size="24" />
-              <a role="button" className="ms-2 h6" data-bs-toggle="modal" data-bs-target="#myModal2">
+              <a
+                role="button"
+                className="ms-2 h6"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal2"
+              >
                 Keluar
               </a>
             </div>
@@ -266,25 +290,26 @@ export default function Index() {
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
                 onClick={hadlerToggle2}
               >
-                {toggle2 ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
+                {toggle2 ? (
+                  <FiChevronUp size="24" />
+                ) : (
+                  <FiChevronDown size="24" />
+                )}
               </button>
             </div>
-            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
               <ul>
                 <li>
-                  {' '}
-                  <a href="/">Data Pemesanan</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Data Pemesanan</a>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <a href="/">Data Kota</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Data Kota</a>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <a href="/">Data Destinasi</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Data Destinasi</a>{" "}
                 </li>
               </ul>
             </div>
@@ -296,48 +321,65 @@ export default function Index() {
                 className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
                 onClick={hadlerToggle}
               >
-                {toggle ? <FiChevronUp size="24" /> : <FiChevronDown size="24" />}
+                {toggle ? (
+                  <FiChevronUp size="24" />
+                ) : (
+                  <FiChevronDown size="24" />
+                )}
               </button>
             </div>
-            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
+            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
               <ul>
                 <li>
-                  {' '}
-                  <a href="/">Wisatawan</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Wisatawan</a>{" "}
                 </li>
                 <li>
-                  {' '}
-                  <a href="/">Pemandu Wisata</a>
-                  {' '}
+                  {" "}
+                  <a href="/">Pemandu Wisata</a>{" "}
                 </li>
               </ul>
             </div>
             <div className="d-flex align-items-center justify-content-start mb-3">
               <FiLogOut size="24" />
-              <a role="button" className="ms-2 h6" data-bs-toggle="modal" data-bs-target="#myModal">
+              <a
+                role="button"
+                className="ms-2 h6"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal"
+              >
                 Keluar
               </a>
             </div>
             {/* logout-modal */}
             <div id="myModal" className="modal fade" role="dialog">
               <div className="modal-dialog modal-dialog-centered mx-auto">
-
                 <div className="modal-content">
                   <div className="modal-body">
                     <div className="mb-4">
                       <h4 className="text-center">
-                        Apakah Kamu Yakin
-                        Ingin Keluar?
+                        Apakah Kamu Yakin Ingin Keluar?
                       </h4>
                     </div>
                     <div className="d-flex justify-content-center">
-                      <button type="button" className="btn-abu me-3" data-bs-dismiss="modal">Tidak</button>
-                      <button type="button" className="btn-orange" data-bs-dismiss="modal" onClick={logoutHandler}>Ya</button>
+                      <button
+                        type="button"
+                        className="btn-abu me-3"
+                        data-bs-dismiss="modal"
+                      >
+                        Tidak
+                      </button>
+                      <button
+                        type="button"
+                        className="btn-orange"
+                        data-bs-dismiss="modal"
+                        onClick={logoutHandler}
+                      >
+                        Ya
+                      </button>
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
             {/* logout-modal */}
@@ -374,29 +416,29 @@ export default function Index() {
                   <tbody>
                     {wisatawan
                       ? wisatawan.map((wtn, index) => (
-                        <tr key={index.toString()}>
-                          <td>{index + 1}</td>
-                          <td>{wtn.name}</td>
-                          <td>{wtn.email}</td>
-                          <td>
-                            <button
-                              type="button"
-                              className="btn btn-primary mx-1"
-                              data-title="Edit"
-                            >
-                              <FiEdit size="12" />
-                            </button>
-                            <button
-                              type="button"
-                              className="btn btn-danger"
-                              data-title="Delete"
-                              onClick={(e) => deleteWisatawan(wtn.id)}
-                            >
-                              <FiTrash2 size="12" />
-                            </button>
-                          </td>
-                        </tr>
-                      ))
+                          <tr key={index.toString()}>
+                            <td>{index + 1}</td>
+                            <td>{wtn.name}</td>
+                            <td>{wtn.email}</td>
+                            <td>
+                              <button
+                                type="button"
+                                className="btn btn-primary mx-1"
+                                data-title="Edit"
+                              >
+                                <FiEdit size="12" />
+                              </button>
+                              <button
+                                type="button"
+                                className="btn btn-danger"
+                                data-title="Delete"
+                                onClick={(e) => deleteWisatawan(wtn.id)}
+                              >
+                                <FiTrash2 size="12" />
+                              </button>
+                            </td>
+                          </tr>
+                        ))
                       : null}
                   </tbody>
                 </table>
@@ -404,13 +446,29 @@ export default function Index() {
                   <nav aria-label="Page navigation">
                     <ul className="pagination justify-content-end">
                       <li className="page-item disabled">
-                        <a className="page-link" href="#" tabIndex="-1">Sebelumnya</a>
+                        <a className="page-link" href="#" tabIndex="-1">
+                          Sebelumnya
+                        </a>
                       </li>
-                      <li className="page-item"><a className="page-link" href="#">1</a></li>
-                      <li className="page-item"><a className="page-link" href="#">2</a></li>
-                      <li className="page-item"><a className="page-link" href="#">3</a></li>
                       <li className="page-item">
-                        <a className="page-link" href="#">Selanjutnya</a>
+                        <a className="page-link" href="#">
+                          1
+                        </a>
+                      </li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">
+                          2
+                        </a>
+                      </li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">
+                          3
+                        </a>
+                      </li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">
+                          Selanjutnya
+                        </a>
                       </li>
                     </ul>
                   </nav>
