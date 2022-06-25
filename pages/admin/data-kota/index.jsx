@@ -59,7 +59,7 @@ export default function index() {
       });
 
       await setCities(response.data);
-      console.log(await response.data);
+      // console.log(await response.data);
     } catch (error) {}
   };
 

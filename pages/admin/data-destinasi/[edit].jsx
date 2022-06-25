@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   FiMenu,
   FiHome,
@@ -7,27 +7,116 @@ import {
   FiLogOut,
   FiChevronDown,
   FiChevronUp,
-  FiPlus,
-  FiEdit,
-  FiTrash2,
 } from "react-icons/fi";
 import Image from "next/image";
-import axios from "axios";
-import Cookies from "js-cookie";
-
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import Link from "next/link";
 import { useRouter } from "next/router";
-import BlankUser from "../../../../public/images/blank-user.png";
+import BlankUser from "../../../public/images/blank-user.png";
+import Cookies from "js-cookie";
+import axios from "axios";
+import { useEffect } from "react";
 
-export default function Index() {
-  const MySwal = withReactContent(Swal);
+export default function edit() {
+  const [toggle, setToggle] = useState(false);
+  const [toggle2, setToggle2] = useState(false);
   const router = useRouter();
+  const { edit } = router.query;
+  const hadlerToggle = () => {
+    setToggle(!toggle);
+  };
+  const hadlerToggle2 = () => {
+    setToggle2(!toggle2);
+  };
+  const logoutHandler = () => {
+    router.push("/");
+  };
+  const batalHandler = () => {
+    router.push("/admin/data-destinasi");
+  };
+  const simpanHandler = () => {
+    router.push("/admin/data-destinasi/data");
+  };
 
-  const [wisatawan, setWisatawan] = useState(false);
+  const [city, setCity] = useState(false);
+  const [destination, setDestination] = useState(false);
+  const [input, setInput] = useState(false);
+  const [image, setImage] = useState(null);
+  const [imageInput, setImageInput] = useState(null);
+  const [name, setName] = useState(null);
+  const [recomendation, setRecomendation] = useState(null);
+  console.log(recomendation);
 
-  const getDataWisatawan = async () => {
-    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/users`;
+  const handleChange = async (e) => {
+    await setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  const getDestination = async (e) => {
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${Cookies.get(
+      "idCity"
+    )}/destinations/${edit}`;
+
+    try {
+      const response = await axios({
+        url: api,
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+        },
+      });
+
+      await setDestination(response.data);
+      await setName(response.data.name);
+      await setRecomendation(response.data.recomendation);
+      await setImageInput(response.data.image);
+    } catch (error) {}
+  };
+
+  const handleImage = (e) => {
+    const file = e.target.files[0];
+    setImageInput(file);
+    console.log(file.name);
+    const fileReader = new FileReader();
+    fileReader.onload = function (e) {
+      console.log(e.target.result);
+      setImage(e.target.result);
+    };
+    fileReader.readAsDataURL(file);
+  };
+
+  const hanleUpdateDestination = async (e) => {
+    e.preventDefault();
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${Cookies.get(
+      "idCity"
+    )}/destinations/${edit}`;
+
+    const form = new FormData();
+    if (imageInput == "") {
+      form.append("name", name);
+      form.append("recomendation", recomendation);
+      form.append("city", Cookies.get("idCity"));
+    } else {
+      form.append("name", name);
+      form.append("image", imageInput);
+      form.append("recomendation", recomendation);
+      form.append("city", Cookies.get("idCity"));
+    }
+
+    try {
+      const response = await axios.patch(api, form, {
+        headers: {
+          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+        },
+      });
+      console.log(await response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getCity = async () => {
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${Cookies.get(
+      "idCity"
+    )}`;
 
     try {
       const response = await axios({
@@ -38,86 +127,18 @@ export default function Index() {
         },
       });
 
-      await setWisatawan(response.data);
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const deleteWisatawan = async (id) => {
-    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/users/${id}`;
-
-    try {
-      const result = await Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      });
-      if (result.isConfirmed) {
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        const response = await axios({
-          url: api,
-          method: "DELETE",
-          headers: {
-            authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
-          },
-        });
-        window.location.href = "/admin/management-user/wisatawan";
-      }
+      await setCity(response.data);
     } catch (error) {}
-  };
-  const [toggle, setToggle] = useState(false);
-  const [toggle2, setToggle2] = useState(false);
-  const hadlerToggle = () => {
-    setToggle(!toggle);
-  };
-  const hadlerToggle2 = () => {
-    setToggle2(!toggle2);
   };
 
   useEffect(() => {
-    getDataWisatawan();
-  }, []);
-  const logoutHandler = () => {
-    router.push("/");
-  };
+    if (edit) {
+      getDestination();
+      getCity();
+    }
+  }, [edit]);
   return (
     <div>
-      {/* logout-modal */}
-      <div id="myModal2" className="modal fade" role="dialog">
-        <div className="modal-dialog modal-dialog-centered mx-auto">
-          <div className="modal-content">
-            <div className="modal-body">
-              <div className="mb-4">
-                <h4 className="text-center">Apakah Kamu Yakin Ingin Keluar?</h4>
-              </div>
-              <div className="d-flex justify-content-center">
-                <button
-                  type="button"
-                  className="btn-abu me-3"
-                  data-bs-dismiss="modal"
-                >
-                  Tidak
-                </button>
-                <button
-                  type="button"
-                  className="btn-orange"
-                  data-bs-dismiss="modal"
-                  onClick={logoutHandler}
-                >
-                  Ya
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* logout-modal */}
       {/* logout-modal */}
       <div id="myModal2" className="modal fade" role="dialog">
         <div className="modal-dialog modal-dialog-centered mx-auto">
@@ -195,15 +216,15 @@ export default function Index() {
               <ul>
                 <li>
                   {" "}
-                  <a href="/">Data Pemesanan</a>{" "}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
                 </li>
                 <li>
                   {" "}
-                  <a href="/">Data Kota</a>{" "}
+                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
                 </li>
                 <li>
                   {" "}
-                  <a href="/">Data Destinasi</a>{" "}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
                 </li>
               </ul>
             </div>
@@ -248,7 +269,6 @@ export default function Index() {
           </div>
         </div>
       </div>
-
       <div className="d-flex justify-content-start align-items-center d-block d-sm-none p-3">
         <button
           type="button"
@@ -301,15 +321,15 @@ export default function Index() {
               <ul>
                 <li>
                   {" "}
-                  <a href="/">Data Pemesanan</a>{" "}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
                 </li>
                 <li>
                   {" "}
-                  <a href="/">Data Kota</a>{" "}
+                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
                 </li>
                 <li>
                   {" "}
-                  <a href="/">Data Destinasi</a>{" "}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
                 </li>
               </ul>
             </div>
@@ -385,94 +405,75 @@ export default function Index() {
             {/* logout-modal */}
           </div>
         </div>
-
         <div className="col-sm-12 col-md-8 col-lg-8">
           <div className="mx-auto">
-            <div className="row">
-              <div className="col-10 p-2">
-                <h3 className="mt-2">Data Wisatawan</h3>
-              </div>
-              <div className="col-2 p-3">
-                <button
-                  type="button"
-                  className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
-                >
-                  <FiPlus size="24" />
-                </button>
-              </div>
-            </div>
+            <div className="row pt-3 justify-content-center">
+              <h3 className="mt-2">Data Destinasi</h3>
+              <div className="col-lg-6 p-2">
+                {/* <div className="card p-5 bg-light shadow p-3 my-5 bg-white rounded border-0"> */}
+                <div className="card p-3">
+                  <h5 className="text-center p-2">Edit Data Destinasi</h5>
+                  <form method="post" onSubmit={hanleUpdateDestination}>
+                    <div className="col-12 p-2">
+                      <label htmlFor="InputNamaDestinasi">Nama Kota</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        name="displayCity"
+                        defaultValue={city ? city.name : null}
+                        disabled
+                      />
+                    </div>
+                    <div className="col-12 p-2">
+                      <label htmlFor="InputNamaDestinasi">Nama Destinasi</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="namaDestinasi"
+                        placeholder="Masukkan Nama Destinasi"
+                        name="name"
+                        defaultValue={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </div>
+                    <div className="col-12 p-2">
+                      <label htmlFor="InputFoto">Foto</label>
+                      <input
+                        type="file"
+                        className="form-control"
+                        id="foto"
+                        placeholder="Unggah Foto"
+                        name="image"
+                        onChange={handleImage}
+                      />
+                    </div>
+                    <div className="col-12 p-2">
+                      <label htmlFor="InputRekomendasi">Rekomendasi</label>
+                      <select
+                        className="form-select"
+                        aria-label="Pilih Opsi Rekomendasi"
+                        name="recomendation"
+                        value={recomendation}
+                        onChange={(e) => setRecomendation(e.target.value)}
+                      >
+                        <option defaultValue={"Yes"}>Yes</option>
+                        <option defaultValue={"No"}>No</option>
+                      </select>
+                    </div>
+                    <div className="text-center p-4">
+                      <Link href={`/admin/data-destinasi/data`}>
+                        <button type="button" className="btn-abu me-2 mr-4">
+                          Batal
+                        </button>
+                      </Link>
 
-            <div className="mx-auto">
-              <div className="card border-0">
-                <table className="table table-responsive table-bordred table-striped border-2 text-center my-auto">
-                  <thead className="bg-secondary">
-                    <tr>
-                      <th scope="col">No</th>
-                      <th scope="col">Nama</th>
-                      <th scope="col">Email</th>
-                      <th scope="col">Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {wisatawan
-                      ? wisatawan.map((wtn, index) => (
-                          <tr key={index.toString()}>
-                            <td>{index + 1}</td>
-                            <td>{wtn.name}</td>
-                            <td>{wtn.email}</td>
-                            <td>
-                              <button
-                                type="button"
-                                className="btn btn-primary mx-1"
-                                data-title="Edit"
-                              >
-                                <FiEdit size="12" />
-                              </button>
-                              <button
-                                type="button"
-                                className="btn btn-danger"
-                                data-title="Delete"
-                                onClick={(e) => deleteWisatawan(wtn.id)}
-                              >
-                                <FiTrash2 size="12" />
-                              </button>
-                            </td>
-                          </tr>
-                        ))
-                      : null}
-                  </tbody>
-                </table>
-                <div className="py-4">
-                  <nav aria-label="Page navigation">
-                    <ul className="pagination justify-content-end">
-                      <li className="page-item disabled">
-                        <a className="page-link" href="#" tabIndex="-1">
-                          Sebelumnya
-                        </a>
-                      </li>
-                      <li className="page-item">
-                        <a className="page-link" href="#">
-                          1
-                        </a>
-                      </li>
-                      <li className="page-item">
-                        <a className="page-link" href="#">
-                          2
-                        </a>
-                      </li>
-                      <li className="page-item">
-                        <a className="page-link" href="#">
-                          3
-                        </a>
-                      </li>
-                      <li className="page-item">
-                        <a className="page-link" href="#">
-                          Selanjutnya
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
+                      <button type="submit" className="btn-orange mr-4">
+                        Update
+                      </button>
+                    </div>
+                  </form>
                 </div>
+                {/* </div>s */}
               </div>
             </div>
           </div>

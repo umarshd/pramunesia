@@ -13,7 +13,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import BlankUser from "../../../public/images/blank-user.png";
 
-export default function editDestinasi() {
+export default function e() {
   const [toggle, setToggle] = useState(false);
   const [toggle2, setToggle2] = useState(false);
   const router = useRouter();

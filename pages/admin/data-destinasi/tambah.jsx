@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FiMenu,
   FiHome,
@@ -12,6 +12,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import BlankUser from "../../../public/images/blank-user.png";
+import axios from "axios";
+import Cookies from "js-cookie";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 export default function tambahDestinasi() {
   const [toggle, setToggle] = useState(false);
@@ -32,6 +36,78 @@ export default function tambahDestinasi() {
   const batalHandler = () => {
     router.push("/admin/data-destinasi");
   };
+
+  const MySwal = withReactContent(Swal);
+  const [city, setCity] = useState(false);
+  const [input, setInput] = useState(false);
+
+  const [image, setImage] = useState(null);
+  const [imageInput, setImageInput] = useState(null);
+  const [name, setName] = useState("");
+  const [recomendation, setRecomendation] = useState("");
+
+  const handleChange = async (e) => {
+    await setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  const handleImage = (e) => {
+    const file = e.target.files[0];
+    setImageInput(file);
+    console.log(file.name);
+    const fileReader = new FileReader();
+    fileReader.onload = function (e) {
+      console.log(e.target.result);
+      setImage(e.target.result);
+    };
+    fileReader.readAsDataURL(file);
+  };
+
+  const hanleSubmit = async (e) => {
+    e.preventDefault();
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${Cookies.get(
+      "idCity"
+    )}/destinations`;
+
+    const form = new FormData();
+    form.append("name", name);
+    form.append("image", imageInput);
+    form.append("recomendation", recomendation);
+    form.append("city", Cookies.get("idCity"));
+
+    try {
+      const response = await axios.post(api, form, {
+        headers: {
+          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+        },
+      });
+      console.log(await response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getCity = async () => {
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${Cookies.get(
+      "idCity"
+    )}`;
+
+    try {
+      const response = await axios({
+        method: "GET",
+        url: api,
+        headers: {
+          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+        },
+      });
+
+      await setCity(response.data);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    getCity();
+  }, []);
+
   return (
     <div>
       {/* logout-modal */}
@@ -308,14 +384,29 @@ export default function tambahDestinasi() {
                 {/* <div className="card p-5 bg-light shadow p-3 my-5 bg-white rounded border-0"> */}
                 <div className="card p-3">
                   <h5 className="text-center p-2">Tambah Data Destinasi</h5>
-                  <form>
+                  <form
+                    method="post"
+                    onSubmit={hanleSubmit}
+                    encType={"multipart/form-data"}
+                  >
+                    <div className="col-12 p-2">
+                      <label htmlFor="InputNamaDestinasi">Nama Kota</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        name="displayCity"
+                        defaultValue={city ? city.name : null}
+                        disabled
+                      />
+                    </div>
                     <div className="col-12 p-2">
                       <label htmlFor="InputNamaDestinasi">Nama Destinasi</label>
                       <input
                         type="text"
                         className="form-control"
-                        id="namaDestinasi"
                         placeholder="Masukkan Nama Destinasi"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                       />
                     </div>
                     <div className="col-12 p-2">
@@ -323,8 +414,8 @@ export default function tambahDestinasi() {
                       <input
                         type="file"
                         className="form-control"
-                        id="foto"
                         placeholder="Unggah Foto"
+                        onChange={handleImage}
                       />
                     </div>
                     <div className="col-12 p-2">
@@ -332,10 +423,12 @@ export default function tambahDestinasi() {
                       <select
                         className="form-select"
                         aria-label="Pilih Opsi Rekomendasi"
+                        value={recomendation}
+                        onChange={(e) => setRecomendation(e.target.value)}
                       >
-                        <option selected>Select Option</option>
-                        <option value="1">Yes</option>
-                        <option value="2">No</option>
+                        <option defaultValue>Select Option</option>
+                        <option defaultValue={"Yes"}>Yes</option>
+                        <option defaultValue={"No"}>No</option>
                       </select>
                     </div>
                     <div className="text-center p-4">
@@ -346,11 +439,7 @@ export default function tambahDestinasi() {
                       >
                         Batal
                       </button>
-                      <button
-                        type="submit"
-                        className="btn-orange mr-4"
-                        onClick={simpanHandler}
-                      >
+                      <button type="submit" className="btn-orange mr-4">
                         Selesai
                       </button>
                     </div>

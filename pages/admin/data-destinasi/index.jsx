@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FiMenu,
   FiHome,
@@ -14,6 +14,8 @@ import { useRouter } from "next/router";
 import BlankUser from "../../../public/images/blank-user.png";
 import axios from "axios";
 import Cookies from "js-cookie";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 export default function tambahKota() {
   const [toggle, setToggle] = useState(false);
@@ -32,29 +34,52 @@ export default function tambahKota() {
     router.push("/admin/data-kota");
   };
 
+  const MySwal = withReactContent(Swal);
+
   const [input, setInput] = useState(false);
+  const [cities, setCities] = useState(false);
 
   const handleChange = async (e) => {
     await setInput({ ...input, [e.target.name]: e.target.value });
   };
-  const handleSubmit = async (e) => {
+
+  const handleCity = async (e) => {
     e.preventDefault();
+    if (!input) {
+      MySwal.fire({
+        position: "center",
+        icon: "error",
+        title: `${"Silahkan pilih kota terlebih dahulu"}`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } else {
+      // console.log(input.city);
+      Cookies.set("idCity", input.city);
+      router.push("/admin/data-destinasi/data");
+    }
+  };
+
+  const getCities = async () => {
     const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities`;
 
     try {
       const response = await axios({
+        method: "GET",
         url: api,
-        method: "POST",
         headers: {
           authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
         },
-        data: {
-          name: input.name,
-        },
       });
-      router.push("/admin/data-kota");
+
+      await setCities(response.data);
     } catch (error) {}
   };
+
+  useEffect(() => {
+    getCities();
+  }, []);
+
   return (
     <div>
       {/* logout-modal */}
@@ -331,17 +356,24 @@ export default function tambahKota() {
                 {/* <div className="card p-5 bg-light shadow p-3 my-5 bg-white rounded border-0"> */}
                 <div className="card p-3">
                   <h5 className="text-center p-2">Pilih Data Kota</h5>
-                  <form method="post">
+                  <form method="post" onSubmit={handleCity}>
                     <div className="col-12 p-2">
                       <label htmlFor="selectKotaTujuan">Kota Tujuan</label>
                       <select
                         className="form-select"
                         aria-label="Pilih kota tujuan"
+                        name="city"
+                        onChange={handleChange}
                       >
-                        <option value="DEFAULT">Pilih Kota Tujuan</option>
-                        <option value="1">Bandung</option>
-                        <option value="2">Cirebon</option>
-                        <option value="3">Yogyakarta</option>
+                        <option defaultValue>Pilih Kota Tujuan</option>
+
+                        {cities
+                          ? cities.map((city, index) => (
+                              <option key={index} value={city.id}>
+                                {city.name}
+                              </option>
+                            ))
+                          : null}
                       </select>
                     </div>
                     <div className="text-center p-4">

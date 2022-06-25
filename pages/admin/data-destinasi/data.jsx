@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FiMenu,
   FiHome,
@@ -15,6 +15,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import BlankUser from "../../../public/images/blank-user.png";
+import Cookies from "js-cookie";
+import axios from "axios";
 
 export default function dataDestinasi() {
   const [toggle, setToggle] = useState(false);
@@ -39,7 +41,9 @@ export default function dataDestinasi() {
   const [destinations, setDestinations] = useState(false);
 
   const getDestinations = async () => {
-    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities`;
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${Cookies.get(
+      "idCity"
+    )}/destinations`;
 
     try {
       const response = await axios({
@@ -50,9 +54,11 @@ export default function dataDestinasi() {
         },
       });
 
-      await setCities(response.data);
-      console.log(await response.data);
-    } catch (error) {}
+      await setDestinations(response.data);
+      // console.log(await response.data);
+    } catch (error) {
+      // console.log(error);
+    }
   };
 
   const deleteCity = async (id) => {
@@ -83,7 +89,7 @@ export default function dataDestinasi() {
   };
 
   useEffect(() => {
-    getCities();
+    getDestinations();
   }, []);
   return (
     <div>
@@ -382,75 +388,49 @@ export default function dataDestinasi() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>mdo</td>
-                      <td>
-                        <button
-                          type="button"
-                          className="btn btn-primary mx-1"
-                          data-title="Edit"
-                          onClick={editHandler}
-                        >
-                          <FiEdit size="12" />
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          data-title="Hapus"
-                        >
-                          <FiTrash2 size="12" />
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>fat</td>
-                      <td>
-                        <button
-                          type="button"
-                          className="btn btn-primary mx-1"
-                          data-title="Edit"
-                          onClick={editHandler}
-                        >
-                          <FiEdit size="12" />
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          data-title="Hapus"
-                        >
-                          <FiTrash2 size="12" />
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Larry</td>
-                      <td>Thornton</td>
-                      <td>@twitter</td>
-                      <td>twitter</td>
-                      <td>
-                        <button
-                          type="button"
-                          className="btn btn-primary mx-1"
-                          data-title="Edit"
-                          onClick={editHandler}
-                        >
-                          <FiEdit size="12" />
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          data-title="Hapus"
-                        >
-                          <FiTrash2 size="12" />
-                        </button>
-                      </td>
-                    </tr>
+                    {destinations
+                      ? destinations.map((destination, index) => (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{destination.name}</td>
+                            <td>
+                              {destination.image ? (
+                                <a
+                                  target={"_blank"}
+                                  href={`${
+                                    process.env.NEXT_PUBLIC_ENDPOINT
+                                  }/cities/${Cookies.get(
+                                    "idCity"
+                                  )}/destinations/image/${destination.image}`}
+                                >
+                                  {destination.image}
+                                </a>
+                              ) : null}
+                            </td>
+                            <td>{destination.recomendation}</td>
+                            <td>
+                              <Link
+                                href={`/admin/data-destinasi/${destination.id}`}
+                              >
+                                <button
+                                  type="button"
+                                  className="btn btn-primary mx-1"
+                                  data-title="Edit"
+                                >
+                                  <FiEdit size="12" />
+                                </button>
+                              </Link>
+                              <button
+                                type="button"
+                                className="btn btn-danger"
+                                data-title="Hapus"
+                              >
+                                <FiTrash2 size="12" />
+                              </button>
+                            </td>
+                          </tr>
+                        ))
+                      : null}
                   </tbody>
                 </table>
                 <div className="py-4">
