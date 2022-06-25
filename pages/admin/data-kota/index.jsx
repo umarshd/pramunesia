@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   FiMenu,
   FiHome,
@@ -10,16 +10,16 @@ import {
   FiPlus,
   FiEdit,
   FiTrash2,
-} from "react-icons/fi";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import BlankUser from "../../../public/images/blank-user.png";
-import axios from "axios";
-import Cookies from "js-cookie";
+} from 'react-icons/fi';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import BlankUser from '../../../public/images/blank-user.png';
 
 export default function index() {
   const [toggle, setToggle] = useState(false);
@@ -32,16 +32,16 @@ export default function index() {
     setToggle2(!toggle2);
   };
   const logoutHandler = () => {
-    router.push("/");
+    router.push('/');
   };
   const editHandler = () => {
-    router.push("/admin/data-kota/edit");
+    router.push('/admin/data-kota/edit');
   };
   const tambahHandler = () => {
-    router.push("/admin/data-kota/tambah");
+    router.push('/admin/data-kota/tambah');
   };
   const batalHandler = () => {
-    router.push("/admin/data-kota");
+    router.push('/admin/data-kota');
   };
 
   const [cities, setCities] = useState(false);
@@ -52,15 +52,17 @@ export default function index() {
     try {
       const response = await axios({
         url: api,
-        method: "GET",
+        method: 'GET',
         headers: {
-          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+          authorization: `Bearer ${Cookies.get('pramunesiaAppTokenAdmin')}`,
         },
       });
 
       await setCities(response.data);
-      // console.log(await response.data);
-    } catch (error) {}
+      console.log(await response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const deleteCity = async (id) => {
@@ -68,26 +70,28 @@ export default function index() {
 
     try {
       const result = await Swal.fire({
-        title: "Are you sure?",
+        title: 'Are you sure?',
         text: "You won't be able to revert this!",
-        icon: "warning",
+        icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
       });
       if (result.isConfirmed) {
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
         const response = await axios({
           url: api,
-          method: "DELETE",
+          method: 'DELETE',
           headers: {
-            authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+            authorization: `Bearer ${Cookies.get('pramunesiaAppTokenAdmin')}`,
           },
         });
-        window.location.href = "/admin/data-kota";
+        window.location.href = '/admin/data-kota';
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -168,19 +172,22 @@ export default function index() {
                 )}
               </button>
             </div>
-            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-kota">Data Kota</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -199,15 +206,17 @@ export default function index() {
                 )}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -273,19 +282,22 @@ export default function index() {
                 )}
               </button>
             </div>
-            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-kota">Data Kota</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -304,15 +316,17 @@ export default function index() {
                 )}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -390,28 +404,28 @@ export default function index() {
                   <tbody>
                     {cities
                       ? cities.map((city, index) => (
-                          <tr key={index}>
-                            <td>{index + 1}</td>
-                            <td>{city.name}</td>
-                            <td>
-                              <a
-                                href={`/admin/data-kota/${city.id}`}
-                                className="btn btn-primary mx-1"
-                                data-title="Edit"
-                              >
-                                <FiEdit size="12" />
-                              </a>
-                              <button
-                                type="button"
-                                className="btn btn-danger"
-                                data-title="Hapus"
-                                onClick={(e) => deleteCity(city.id)}
-                              >
-                                <FiTrash2 size="12" />
-                              </button>
-                            </td>
-                          </tr>
-                        ))
+                        <tr key={index}>
+                          <td>{index + 1}</td>
+                          <td>{city.name}</td>
+                          <td>
+                            <a
+                              href={`/admin/data-kota/${city.id}`}
+                              className="btn btn-primary mx-1"
+                              data-title="Edit"
+                            >
+                              <FiEdit size="12" />
+                            </a>
+                            <button
+                              type="button"
+                              className="btn btn-danger"
+                              data-title="Hapus"
+                              onClick={(e) => deleteCity(city.id)}
+                            >
+                              <FiTrash2 size="12" />
+                            </button>
+                          </td>
+                        </tr>
+                      ))
                       : null}
                   </tbody>
                 </table>

@@ -1,14 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Zoom } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
-
-const images = [
-  'https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
-  'https://images.unsplash.com/photo-1506710507565-203b9f24669b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1536&q=80',
-  'https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
-];
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
 export default function Carousel() {
+  const [images, setImages] = useState(false);
   const propertiesImage = {
     duration: 5000,
     transitionDuration: 500,
@@ -17,15 +14,37 @@ export default function Carousel() {
     arrows: false,
     scale: 0.4,
   };
+
+  const getImages = async () => {
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${Cookies.get('idCity')}/images/${Cookies.get('imagename')}`;
+
+    try {
+      const response = await axios({
+        method: 'GET',
+        url: api,
+        headers: {
+          authorization: `Bearer ${Cookies.get('pramunesiaAppToken')}`,
+        },
+      });
+      await setImages(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getImages();
+  }, []);
+
   return (
     <div className="slide-container">
       <Zoom {...propertiesImage}>
-        {images.map((image, index) => (
-          // eslint-disable-next-line react/no-array-index-key
+        {images ? images.map((image, index) => (
           <div key={index}>
             <img src={image} alt="slide" className="rounded image-slide" />
           </div>
-        ))}
+        )) : <div>Loading...</div>}
       </Zoom>
 
     </div>
