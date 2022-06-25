@@ -1,40 +1,40 @@
-import React from "react";
-import { FiUsers } from "react-icons/fi";
-import { useRouter } from "next/router";
-import Carousel from "../../../components/afterlogin/carousel";
-import Card from "../../../components/afterlogin/home-card";
-import Layout from "../../../components/afterlogin/layout";
-import sessionUserLogin from "../../auth/sessionUserLogin";
-import { useState } from "react";
-import Cookies from "js-cookie";
-import axios from "axios";
-import { useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import { FiUsers } from 'react-icons/fi';
+import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
+import axios from 'axios';
+import Carousel from '../../../components/afterlogin/carousel';
+import Card from '../../../components/afterlogin/home-card';
+import Layout from '../../../components/afterlogin/layout';
+import sessionUserLogin from '../../auth/sessionUserLogin';
 
 function UserHomePage() {
   sessionUserLogin();
   const router = useRouter();
   const searchHandler = () => {
-    router.push("/user/search-guide");
+    router.push('/user/search-guide');
   };
 
   const [city, setCity] = useState(false);
 
   const getCity = async () => {
     const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${Cookies.get(
-      "idCity"
+      'idCity',
     )}`;
 
     try {
       const response = await axios({
         url: api,
-        method: "GET",
+        method: 'GET',
         headers: {
-          authorization: `Bearer ${Cookies.get("pramunesiaAppToken")}`,
+          authorization: `Bearer ${Cookies.get('pramunesiaAppToken')}`,
         },
       });
 
       await setCity(response.data);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -44,7 +44,10 @@ function UserHomePage() {
   return (
     <Layout pageTitle="user-home">
       <h3 className="h3 my-3">
-        Rekomendasi Wisata di {city ? city.name : null}{" "}
+        Rekomendasi Wisata di
+        {' '}
+        {city ? city.name : null}
+        {' '}
       </h3>
       <Carousel />
       <div className="my-5">

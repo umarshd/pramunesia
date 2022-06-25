@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   FiMenu,
   FiHome,
@@ -7,13 +7,13 @@ import {
   FiLogOut,
   FiChevronDown,
   FiChevronUp,
-} from "react-icons/fi";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import BlankUser from "../../../public/images/blank-user.png";
-import axios from "axios";
-import Cookies from "js-cookie";
+} from 'react-icons/fi';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import BlankUser from '../../../public/images/blank-user.png';
 
 export default function tambahKota() {
   const [toggle, setToggle] = useState(false);
@@ -26,10 +26,10 @@ export default function tambahKota() {
     setToggle2(!toggle2);
   };
   const logoutHandler = () => {
-    router.push("/");
+    router.push('/');
   };
   const batalHandler = () => {
-    router.push("/admin/data-kota");
+    router.push('/admin/data-kota');
   };
 
   const [input, setInput] = useState(false);
@@ -44,16 +44,18 @@ export default function tambahKota() {
     try {
       const response = await axios({
         url: api,
-        method: "POST",
+        method: 'POST',
         headers: {
-          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+          authorization: `Bearer ${Cookies.get('pramunesiaAppTokenAdmin')}`,
         },
         data: {
           name: input.name,
         },
       });
-      router.push("/admin/data-kota");
-    } catch (error) {}
+      router.push('/admin/data-kota');
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div>
@@ -130,19 +132,22 @@ export default function tambahKota() {
                 )}
               </button>
             </div>
-            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-kota">Data Kota</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -161,15 +166,17 @@ export default function tambahKota() {
                 )}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -235,19 +242,22 @@ export default function tambahKota() {
                 )}
               </button>
             </div>
-            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-kota">Data Kota</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -266,15 +276,17 @@ export default function tambahKota() {
                 )}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>

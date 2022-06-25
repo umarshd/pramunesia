@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import sessionUserLogin from "../../auth/sessionUserLogin";
-import Jumbotron from "../../../components/afterlogin/jumbotron";
-import Layout from "../../../components/afterlogin/layout";
-import axios from "axios";
-import Cookies from "js-cookie";
-import { useRouter } from "next/router";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import Layout from '../../../components/afterlogin/layout';
+import Jumbotron from '../../../components/afterlogin/jumbotron';
+import sessionUserLogin from '../../auth/sessionUserLogin';
 
 export default function index() {
   sessionUserLogin();
@@ -24,16 +24,16 @@ export default function index() {
     e.preventDefault();
     if (!input) {
       MySwal.fire({
-        position: "center",
-        icon: "error",
-        title: `${"Please choose destination"}`,
+        position: 'center',
+        icon: 'error',
+        title: `${'Please choose destination'}`,
         showConfirmButton: false,
         timer: 1500,
       });
     } else {
       console.log(input.city);
-      Cookies.set("idCity", input.city);
-      router.push("/user/home");
+      Cookies.set('idCity', input.city);
+      router.push('/user/home');
     }
   };
 
@@ -42,15 +42,17 @@ export default function index() {
 
     try {
       const response = await axios({
-        method: "GET",
+        method: 'GET',
         url: api,
         headers: {
-          authorization: `Bearer ${Cookies.get("pramunesiaAppToken")}`,
+          authorization: `Bearer ${Cookies.get('pramunesiaAppToken')}`,
         },
       });
 
       await setCities(response.data);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   console.log(input.city);
@@ -61,7 +63,7 @@ export default function index() {
   sessionUserLogin();
   return (
     <Layout pageTitle="Welcome">
-      <div className="" style={{ height: "56vh !important" }}>
+      <div className="">
         <Jumbotron
           cities={cities}
           handleChange={handleChange}

@@ -1,7 +1,6 @@
-import React from "react";
-import Image from "next/image";
-import Heroimg from "../../../public/images/heropic.png";
-import Link from "next/link";
+import React from 'react';
+import Image from 'next/image';
+import Heroimg from '../../../public/images/heropic.png';
 
 function Jumbotron({ cities, handleChange, handleCity }) {
   console.log(cities);
@@ -26,10 +25,10 @@ function Jumbotron({ cities, handleChange, handleCity }) {
                   <option value="DEFAULT">Pilih kota tujuan</option>
                   {cities
                     ? cities.map((city, index) => (
-                        <option key={index} value={city.id}>
-                          {city.name}
-                        </option>
-                      ))
+                      <option key={index} value={city.id}>
+                        {city.name}
+                      </option>
+                    ))
                     : null}
                 </select>
               </div>

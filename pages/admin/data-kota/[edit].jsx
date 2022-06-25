@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   FiMenu,
   FiHome,
@@ -7,13 +7,13 @@ import {
   FiLogOut,
   FiChevronDown,
   FiChevronUp,
-} from "react-icons/fi";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import BlankUser from "../../../public/images/blank-user.png";
-import axios from "axios";
-import Cookies from "js-cookie";
+} from 'react-icons/fi';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import BlankUser from '../../../public/images/blank-user.png';
 
 export default function edit() {
   const router = useRouter();
@@ -27,10 +27,10 @@ export default function edit() {
     setToggle2(!toggle2);
   };
   const logoutHandler = () => {
-    router.push("/");
+    router.push('/');
   };
   const batalHandler = () => {
-    router.push("/admin/data-kota");
+    router.push('/admin/data-kota');
   };
 
   const [city, setCity] = useState(false);
@@ -45,10 +45,10 @@ export default function edit() {
 
     try {
       const response = await axios({
-        method: "GET",
+        method: 'GET',
         url: api,
         headers: {
-          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+          authorization: `Bearer ${Cookies.get('pramunesiaAppTokenAdmin')}`,
         },
       });
 
@@ -63,17 +63,19 @@ export default function edit() {
 
     try {
       const response = await axios({
-        method: "PATCH",
+        method: 'PATCH',
         url: api,
         headers: {
-          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
+          authorization: `Bearer ${Cookies.get('pramunesiaAppTokenAdmin')}`,
         },
         data: {
           name: input.name,
         },
       });
-      router.push("/admin/data-kota");
-    } catch (error) {}
+      router.push('/admin/data-kota');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   console.log(input);
@@ -158,19 +160,22 @@ export default function edit() {
                 )}
               </button>
             </div>
-            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-kota">Data Kota</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -189,15 +194,17 @@ export default function edit() {
                 )}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -263,19 +270,22 @@ export default function edit() {
                 )}
               </button>
             </div>
-            <div className={toggle2 ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle2 ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-pemesanan">Data Pemesanan</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-kota">Data Kota</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-kota">Data Kota</Link>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <Link href="/admin/data-destinasi">Data Destinasi</Link>{" "}
+                  {' '}
+                  <Link href="/admin/data-destinasi">Data Destinasi</Link>
+                  {' '}
                 </li>
               </ul>
             </div>
@@ -294,15 +304,17 @@ export default function edit() {
                 )}
               </button>
             </div>
-            <div className={toggle ? "ms-1 mb-3" : "d-none"}>
+            <div className={toggle ? 'ms-1 mb-3' : 'd-none'}>
               <ul>
                 <li>
-                  {" "}
-                  <a href="/">Wisatawan</a>{" "}
+                  {' '}
+                  <a href="/">Wisatawan</a>
+                  {' '}
                 </li>
                 <li>
-                  {" "}
-                  <a href="/">Pemandu Wisata</a>{" "}
+                  {' '}
+                  <a href="/">Pemandu Wisata</a>
+                  {' '}
                 </li>
               </ul>
             </div>
