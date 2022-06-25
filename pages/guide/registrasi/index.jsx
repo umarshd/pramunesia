@@ -149,16 +149,4 @@ function RegistTourGuide({ data }) {
   );
 }
 
-export async function getStaticProps() {
-  const resp = await fetch(
-    "https://dev.farizdotid.com/api/daerahindonesia/provinsi"
-  );
-  const dataProv = await resp.json();
-  return {
-    props: {
-      data: dataProv.provinsi,
-    },
-  };
-}
-
 export default RegistTourGuide;
