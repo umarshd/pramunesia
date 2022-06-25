@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Logobig from "../../../public/images/logo-big.png";
 
-function RegistTourGuide({ data }) {
+function RegistTourGuide({}) {
   return (
     <div className="row vh-100">
       <div className="col-lg-6 ">
