@@ -15,6 +15,8 @@ import BlankUser from "../../../public/images/blank-user.png";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { useEffect } from "react";
+import Swal from "sweetalert2";
+import logoutUser from "../../auth/logoutUser";
 
 export default function edit() {
   const [toggle, setToggle] = useState(false);
@@ -107,7 +109,14 @@ export default function edit() {
           authorization: `Bearer ${Cookies.get("pramunesiaAppTokenAdmin")}`,
         },
       });
-      console.log(await response);
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: `${"Data berhasil di update"}`,
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      router.push("/admin/data-destinasi/data");
     } catch (error) {
       console.log(error);
     }
@@ -393,7 +402,7 @@ export default function edit() {
                         type="button"
                         className="btn-orange"
                         data-bs-dismiss="modal"
-                        onClick={logoutHandler}
+                        onClick={(e) => logoutUser()}
                       >
                         Ya
                       </button>
