@@ -22,7 +22,7 @@ function Navigation() {
         <span className="navbar-toggler-icon" />
       </button>
       <div className="d-md-none">
-        <h1 className="h1 text-uppercase">Pramunesia</h1>
+        <h1 className="h1 text-uppercase text-orange">Pramunesia</h1>
       </div>
       <div className="dropdown d-md-none ms-1">
         <a
