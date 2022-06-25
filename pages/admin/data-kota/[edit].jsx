@@ -15,7 +15,7 @@ import BlankUser from "../../../public/images/blank-user.png";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-export default function editKota() {
+export default function edit() {
   const router = useRouter();
   const { edit } = router.query;
   const [toggle, setToggle] = useState(false);
