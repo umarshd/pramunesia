@@ -1,7 +1,7 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import Logobig from '../../../public/images/logo-big.png';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Logobig from "../../../public/images/logo-big.png";
 
 function RegistTourGuide({ data }) {
   return (
@@ -17,83 +17,128 @@ function RegistTourGuide({ data }) {
             <div className="text-center mb-5">
               <h6>Registrasi Pemandu Wisata</h6>
               <h3 className="my-4">Buat Akunmu!</h3>
-              <p>
-                Untuk mendapatkan
-                pengalaman terbaik di Pramunesia
-              </p>
+              <p>Untuk mendapatkan pengalaman terbaik di Pramunesia</p>
               <p className="mb-3">
-                Sudah punya akun?
-                {' '}
+                Sudah punya akun?{" "}
                 <span>
-                  <Link href="/guide/login">
-                    Masuk sekarang
-                  </Link>
+                  <Link href="/guide/login">Masuk sekarang</Link>
                 </span>
               </p>
             </div>
             <div className="row px-1">
               <form>
                 <div className="mb-3">
-                  <label htmlFor="lisensi" className="form-label">No. KTA/Lisensi </label>
-                  <input type="text" className="form-control" id="lisensi" placeholder="Masukan No. KTA/Lisensi" />
+                  <label htmlFor="lisensi" className="form-label">
+                    No. KTA/Lisensi{" "}
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="lisensi"
+                    placeholder="Masukan No. KTA/Lisensi"
+                  />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="namaLengkap" className="form-label">Nama Lengkap</label>
-                  <input type="text" className="form-control" id="namaLengkap" placeholder="Masukan Nama Lengkap" />
+                  <label htmlFor="namaLengkap" className="form-label">
+                    Nama Lengkap
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="namaLengkap"
+                    placeholder="Masukan Nama Lengkap"
+                  />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="email" className="form-label">Email</label>
-                  <input type="email" className="form-control" id="email" placeholder="Masukan Email" />
+                  <label htmlFor="email" className="form-label">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    placeholder="Masukan Email"
+                  />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="noTelepon" className="form-label">No Telepon</label>
-                  <input type="text" className="form-control" id="noTelepon" placeholder="Masukan No Telepon" />
+                  <label htmlFor="noTelepon" className="form-label">
+                    No Telepon
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="noTelepon"
+                    placeholder="Masukan No Telepon"
+                  />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="alamat" className="form-label">Alamat</label>
-                  <input type="text" className="form-control" id="alamat" placeholder="Masukan Alamat" />
+                  <label htmlFor="alamat" className="form-label">
+                    Alamat
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="alamat"
+                    placeholder="Masukan Alamat"
+                  />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="provinsi" className="form-label">Provinsi</label>
-                  <select className="form-select" aria-label="Default select example" id="provinsi" defaultValue="DEFAULT">
-                    <option value="DEFAULT" disabled className="text-muted">Masukan Provinsi</option>
-                    {data.map((prov) => (
-                      <option key={prov.id}>{prov.nama}</option>
-                    ))}
+                  <label htmlFor="provinsi" className="form-label">
+                    Provinsi
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="provinsi"
+                    placeholder="Masukan Provinsi"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="kota" className="form-label">
+                    Kota
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="kota"
+                    placeholder="Masukan Kota"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="organization" className="form-label">
+                    Organisasi/Lembaga/Individu
+                  </label>
+                  <select className="form-select" aria-label="Pilih ">
+                    <option value="DEFAULT">Pilih Status</option>
+                    <option value="1">Organisasi</option>
+                    <option value="2">Lembaga</option>
+                    <option value="3">Individu</option>
                   </select>
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="kota" className="form-label">Kota</label>
-                  <select className="form-select" aria-label="Default select example" id="kota" defaultValue="DEFAULT">
-                    <option value="DEFAULT" disabled className="text-muted">Masukan Kota</option>
-                    {data.map((prov) => (
-                      <option key={prov.id}>{prov.nama}</option>
-                    ))}
-                  </select>
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="organization" className="form-label">Organisasi/Lembaga/Individu</label>
-                  <input type="text" className="form-control" id="organization" placeholder="Masukan Organisasi/Lembaga" />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="password" className="form-label">Password</label>
-                  <input type="password" className="form-control" id="password" placeholder="Masukan Email" />
+                  <label htmlFor="password" className="form-label">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    placeholder="Masukan Password"
+                  />
                 </div>
                 <div className="mb-3 mt-5 d-flex justify-content-center">
-                  <button type="submit" className="btn-orange">Registrasi</button>
+                  <button type="submit" className="btn-orange">
+                    Registrasi
+                  </button>
                 </div>
               </form>
             </div>
             <div className="text-center">
               <p>
-                Dengan menekan tombol Registrasi, Anda setuju
-                {' '}
-                <br />
-                {' '}
-                dengan
-                {' '}
-                <span><a href="/">Syarat & Ketentuan</a></span>
-                {' '}
+                Dengan menekan tombol Registrasi, Anda setuju <br /> dengan{" "}
+                <span>
+                  <a href="/">Syarat & Ketentuan</a>
+                </span>{" "}
                 kami
               </p>
             </div>
@@ -105,7 +150,9 @@ function RegistTourGuide({ data }) {
 }
 
 export async function getStaticProps() {
-  const resp = await fetch('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+  const resp = await fetch(
+    "https://dev.farizdotid.com/api/daerahindonesia/provinsi"
+  );
   const dataProv = await resp.json();
   return {
     props: {
