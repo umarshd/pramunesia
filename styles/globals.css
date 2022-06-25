@@ -95,12 +95,6 @@ span>a {
   width: 100%;
 }
 
-/* logo-title */
-h1.h1.text-uppercase.me-auto {
-  color: var(--clr-pumpkin);
-  font-weight: bolder;
-}
-
 .home-inner {
   flex: none;
 }
