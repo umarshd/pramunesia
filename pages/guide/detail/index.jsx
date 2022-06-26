@@ -1,5 +1,6 @@
-import Image from 'next/image';
-import Navigation from '../../../components/afterlogin/navbar';
+import Image from "next/image";
+import Navigation from "../../../components/afterlogin/navbar";
+import { FiPlus } from "react-icons/fi";
 
 function SertifTamuGuide() {
   return (
@@ -14,26 +15,43 @@ function SertifTamuGuide() {
           />
         </div>
         <h4 className="text-center">
-          Leanne Graham
-          {' '}
-          <span className="fw-light">Sincere@april.biz</span>
+          Leanne Graham <span className="fw-light">Sincere@april.biz</span>
         </h4>
         <p>Laki-Laki</p>
         <p>221234567891</p>
         <p>Bandung, Jawa Barat 089678564320</p>
       </div>
       <div className="row gap-0 mt-5">
-        <div className="col-lg-3 col-md-3 col-sm-12 p-0 mb-3">
-          <div className=" d-flex justify-content-center flex-column align-items-center bg-soft-peace soft-shadow rounded h-100 p-4">
-            <h4 className="mb-2">Sertifikat</h4>
-            <div className="d-flex justify-content-center flex-md-column align-items-center gap-2 h-100 w-100 mb-3">
-              <div className="col bg-dark-grey d-flex justify-content-center align-items-center p-1 w-100 rounded mh-12rm">Sertifikat 1</div>
-              <div className="col bg-dark-grey d-flex justify-content-center align-items-center p-1 w-100 rounded mh-12rm">Sertifikat 2</div>
+        <div className="row gap-0 mt-5">
+          <div className="col-10 p-2">
+            <h3 className="mt-2">Data Pemesanan</h3>
+          </div>
+          <div className="col-2 p-3">
+            <button
+              type="button"
+              className="btn-circle btn-sm d-flex align-items-center ms-auto button-shadow"
+            >
+              <FiPlus size="24" />
+            </button>
+          </div>
+          <div className="col-12 p-0 mb-3">
+            <div className=" d-flex justify-content-center flex-column align-items-center bg-soft-peace soft-shadow rounded h-100 p-4">
+              <h4 className="mb-2">Sertifikat</h4>
+              <div className=" d-flex justify-content-center align-items-center gap-2 h-100 w-100">
+                <div className=" bg-dark-grey d-flex justify-content-center align-items-center p-1 w-100 rounded mh-12rm">
+                  Sertifikat 1
+                </div>
+                <div className=" bg-dark-grey d-flex justify-content-center align-items-center p-1 w-100 rounded mh-12rm">
+                  Sertifikat 2
+                </div>
+                <div className=" bg-dark-grey d-flex justify-content-center align-items-center p-1 w-100 rounded mh-12rm">
+                  Sertifikat 3
+                </div>
+              </div>
             </div>
-            <button type="button" className="btn-orange">Unggah</button>
           </div>
         </div>
-        <div className="col-lg-8 col-md-8 col-sm-12 p-0 ms-auto">
+        {/* <div className="col-lg-8 col-md-8 col-sm-12 p-0 ms-auto">
           <div className="d-flex flex-column">
             <div className="bg-white">
               <div className="form-floating mb-3">
@@ -99,7 +117,7 @@ function SertifTamuGuide() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
