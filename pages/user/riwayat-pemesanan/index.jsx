@@ -1,16 +1,16 @@
-import React from 'react';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import Navigation from '../../../components/afterlogin/navbar';
+import React from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import Navigation from "../../../components/afterlogin/navbar";
 
 export default function BookingHistory() {
   const router = useRouter();
   const seeTicketHandler = () => {
-    router.push('/user/riwayat-pemesanan/tiket');
+    router.push("/user/riwayat-pemesanan/tiket");
   };
-  const feedBackHandler = () => {
-    router.push('/user/beri-ulasan');
-  };
+  // const feedBackHandler = () => {
+  //   router.push("/user/beri-ulasan");
+  // };
   return (
     <div className="container mx-auto">
       <Navigation />
@@ -29,7 +29,9 @@ export default function BookingHistory() {
                     />
                   </div>
                 </div>
-                <h6 className="font-weight-bold text-center text-white mb-3">Nama Pemandu Wisata</h6>
+                <h6 className="font-weight-bold text-center text-white mb-3">
+                  Nama Pemandu Wisata
+                </h6>
               </div>
               <div className="mb-5 text-white">
                 <p>Kota Tujuan : Bandung</p>
@@ -37,8 +39,20 @@ export default function BookingHistory() {
                 <p>Tanggal Keberangkatan : 22 Juni 2022</p>
               </div>
               <div className="d-flex justify-content-end mt-2">
-                <button type="button" className="btn-abu fw-bold me-2" onClick={feedBackHandler}>Beri Ulasan</button>
-                <button type="button" className="btn-orange fw-bold" onClick={seeTicketHandler}>Lihat Tiket</button>
+                {/* <button
+                  type="button"
+                  className="btn-abu fw-bold me-2"
+                  onClick={feedBackHandler}
+                >
+                  Beri Ulasan
+                </button> */}
+                <button
+                  type="button"
+                  className="btn-orange fw-bold"
+                  onClick={seeTicketHandler}
+                >
+                  Lihat Tiket
+                </button>
               </div>
             </div>
           </div>
