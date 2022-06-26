@@ -1,9 +1,48 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import Logobig from '../../../public/images/logo-big.png';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Logobig from "../../../public/images/logo-big.png";
+import { useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useRouter } from "next/router";
 
-function RegistTourGuide() {
+export default function index() {
+  const router = useRouter();
+  const [input, setInput] = useState(false);
+
+  const handleChange = async (e) => {
+    await setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/guides`;
+
+    try {
+      const response = await axios({
+        method: "POST",
+        url: api,
+        data: input,
+      });
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "User has been created successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      router.push("/guide/login");
+    } catch (error) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: `${error.response.data.message}`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  };
   return (
     <div className="row vh-100">
       <div className="col-lg-6 ">
@@ -19,25 +58,25 @@ function RegistTourGuide() {
               <h3 className="my-4">Buat Akunmu!</h3>
               <p>Untuk mendapatkan pengalaman terbaik di Pramunesia</p>
               <p className="mb-3">
-                Sudah punya akun?
-                {' '}
+                Sudah punya akun?{" "}
                 <span>
                   <Link href="/guide/login">Masuk sekarang</Link>
                 </span>
               </p>
             </div>
             <div className="row px-1">
-              <form>
+              <form method="post" onSubmit={handleRegister}>
                 <div className="mb-3">
                   <label htmlFor="lisensi" className="form-label">
-                    No. KTA/Lisensi
-                    {' '}
+                    No. KTA/Lisensi{" "}
                   </label>
                   <input
                     type="text"
                     className="form-control"
                     id="lisensi"
                     placeholder="Masukan No. KTA/Lisensi"
+                    name="noKta"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3">
@@ -49,6 +88,8 @@ function RegistTourGuide() {
                     className="form-control"
                     id="namaLengkap"
                     placeholder="Masukan Nama Lengkap"
+                    name="name"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3">
@@ -60,6 +101,8 @@ function RegistTourGuide() {
                     className="form-control"
                     id="email"
                     placeholder="Masukan Email"
+                    name="email"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3">
@@ -71,6 +114,8 @@ function RegistTourGuide() {
                     className="form-control"
                     id="noTelepon"
                     placeholder="Masukan No Telepon"
+                    name="noTelp"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3">
@@ -82,6 +127,8 @@ function RegistTourGuide() {
                     className="form-control"
                     id="alamat"
                     placeholder="Masukan Alamat"
+                    name="alamat"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3">
@@ -93,6 +140,8 @@ function RegistTourGuide() {
                     className="form-control"
                     id="provinsi"
                     placeholder="Masukan Provinsi"
+                    name="province"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3">
@@ -104,17 +153,24 @@ function RegistTourGuide() {
                     className="form-control"
                     id="kota"
                     placeholder="Masukan Kota"
+                    name="city"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="organization" className="form-label">
                     Organisasi/Lembaga/Individu
                   </label>
-                  <select className="form-select" aria-label="Pilih ">
-                    <option value="DEFAULT">Pilih Status</option>
-                    <option value="1">Organisasi</option>
-                    <option value="2">Lembaga</option>
-                    <option value="3">Individu</option>
+                  <select
+                    className="form-select"
+                    aria-label="Pilih "
+                    name="status"
+                    onChange={handleChange}
+                  >
+                    <option>Pilih Status</option>
+                    <option value="Organisasi">Organisasi</option>
+                    <option value="Lembaga">Lembaga</option>
+                    <option value="Individu">Individu</option>
                   </select>
                 </div>
                 <div className="mb-3">
@@ -126,6 +182,8 @@ function RegistTourGuide() {
                     className="form-control"
                     id="password"
                     placeholder="Masukan Password"
+                    name="password"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3 mt-5 d-flex justify-content-center">
@@ -137,16 +195,10 @@ function RegistTourGuide() {
             </div>
             <div className="text-center">
               <p>
-                Dengan menekan tombol Registrasi, Anda setuju
-                {' '}
-                <br />
-                {' '}
-                dengan
-                {' '}
+                Dengan menekan tombol Registrasi, Anda setuju <br /> dengan{" "}
                 <span>
                   <a href="/">Syarat & Ketentuan</a>
-                </span>
-                {' '}
+                </span>{" "}
                 kami
               </p>
             </div>
@@ -156,5 +208,3 @@ function RegistTourGuide() {
     </div>
   );
 }
-
-export default RegistTourGuide;
