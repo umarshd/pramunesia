@@ -1,8 +1,8 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { FiChevronRight } from 'react-icons/fi';
-import Navigation from '../../../components/afterlogin/navbar';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { FiChevronRight } from "react-icons/fi";
+import Navigation from "../../../components/afterlogin/navbar";
 
 function GuideProfile() {
   return (
@@ -21,9 +21,7 @@ function GuideProfile() {
               </div>
               <h4>Halo, Pemandu Wisata</h4>
               <span>
-                <Link href="/">
-                  Lihat Profil
-                </Link>
+                <Link href="/">Lihat Profil</Link>
               </span>
             </div>
           </div>
@@ -34,53 +32,10 @@ function GuideProfile() {
                 <div className="border border-secondary border-start-0 border-end-0 p-4">
                   <Link href="/">
                     <div className="d-flex align-items-center justify-content-between">
-                      <h4>
-                        {' '}
-                        Sertifikat
-                        {' '}
-
-                      </h4>
+                      <h4> Sertifikat </h4>
                       <button
                         type="button"
                         className="btn-circle btn-sm d-flex align-items-center"
-                      >
-                        <FiChevronRight size="1.25rem" color="white" />
-
-                      </button>
-                    </div>
-                  </Link>
-                </div>
-                <div className="border border-secondary border-start-0 border-end-0 border-top-0 p-4">
-                  <Link href="/">
-                    <div className="d-flex align-items-center justify-content-between">
-                      <h4>
-                        {' '}
-                        Pelatihan
-                        {' '}
-
-                      </h4>
-                      <button
-                        type="button"
-                        className="btn-circle btn-sm d-flex align-items-center "
-                      >
-                        <FiChevronRight size="1.25rem" color="white" />
-
-                      </button>
-                    </div>
-                  </Link>
-                </div>
-                <div className="border border-secondary border-start-0 border-end-0 border-top-0 p-4">
-                  <Link href="/">
-                    <div className="d-flex align-items-center justify-content-between">
-                      <h4>
-                        {' '}
-                        Tamu yang Dibawa
-                        {' '}
-
-                      </h4>
-                      <button
-                        type="button"
-                        className="btn-circle btn-sm d-flex align-items-center "
                       >
                         <FiChevronRight size="1.25rem" color="white" />
                       </button>
