@@ -1,9 +1,7 @@
-import React from 'react';
-import {
-  FiCalendar, FiDollarSign, FiBookOpen, FiStar,
-} from 'react-icons/fi';
-import Layout from '../../../components/afterlogin/layout';
-import Card from '../../../components/afterlogin/home-card';
+import React from "react";
+import { FiCalendar, FiBookOpen, FiStar } from "react-icons/fi";
+import Layout from "../../../components/afterlogin/layout";
+import Card from "../../../components/afterlogin/home-card";
 
 function GuideHomePage() {
   return (
@@ -17,14 +15,6 @@ function GuideHomePage() {
               icons={<FiCalendar size="4rem" color="white" />}
               title="Jadwal Bertugas"
               desc="Lihat jadwal bertugasmu
-          disini!"
-            />
-          </div>
-          <div className="col-sm-12 col-md-6 col-lg-6  mb-4">
-            <Card
-              icons={<FiDollarSign size="4rem" color="white" />}
-              title="Pembayaran"
-              desc="Lihat transaksi pembayaran
           disini!"
             />
           </div>
@@ -44,7 +34,6 @@ function GuideHomePage() {
           disini!"
             />
           </div>
-          <div className="col-sm-12 col-md-6 col-lg-6 mb-4" />
         </div>
       </div>
     </Layout>
