@@ -1,9 +1,56 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import Logobig from '../../../public/images/logo-big.png';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Logobig from "../../../public/images/logo-big.png";
+import { useRouter } from "next/router";
+import Swal from "sweetalert2";
+import { useState } from "react";
+import axios from "axios";
+import Cookies from "js-cookie";
 
-function LoginTourGuide() {
+export default function index() {
+  const router = useRouter();
+  const [input, setInput] = useState(false);
+
+  const handleChange = async (e) => {
+    await setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  const hanldeLogin = async (e) => {
+    e.preventDefault();
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/auth/guide`;
+
+    try {
+      const response = await axios({
+        method: "POST",
+        url: api,
+        data: input,
+      });
+
+      await Cookies.set("pramunesiaAppTokenGuide", response.data.token);
+      await Cookies.set("pramunesiaIdUser", response.data.id);
+      await Cookies.set("pramunesiaRole", "guide");
+
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: `${"Login successfully"}`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+      router.replace("/guide/home");
+    } catch (error) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: `${error.response.data.message}`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  };
+
   return (
     <div className="row vh-100 w-100">
       <div className="col-lg-6">
@@ -17,42 +64,54 @@ function LoginTourGuide() {
             <div className="text-center mb-5">
               <h6>Masuk sebagai Pemandu Wisata</h6>
               <h3 className="my-4">Selamat Datang</h3>
-              <p>
-                Masuk Sekarang dan
-                Mulai perjalanan Anda bersama kami
-              </p>
+              <p>Masuk Sekarang dan Mulai perjalanan Anda bersama kami</p>
             </div>
             <div className="row px-1">
-              <form>
+              <form method="post" onSubmit={hanldeLogin}>
                 <div className="mb-3">
-                  <label htmlFor="email" className="form-label">Email</label>
-                  <input type="email" className="form-control" id="email" placeholder="Masukan Email" />
+                  <label htmlFor="email" className="form-label">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    placeholder="Masukan Email"
+                    name="email"
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="password" className="form-label">Password</label>
-                  <input type="password" className="form-control" id="password" placeholder="Masukan Password" />
+                  <label htmlFor="password" className="form-label">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    placeholder="Masukan Password"
+                    name="password"
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="mb-3 mt-5 d-flex justify-content-center">
-                  <button type="submit" className="btn-orange">Masuk</button>
+                  <button type="submit" className="btn-orange">
+                    Masuk
+                  </button>
                 </div>
               </form>
             </div>
             <div className="text-center">
               <p className="my-3">
                 <span>
-                  <Link href="/user/login">
-                    Masuk sebagai Wisatawan
-                  </Link>
+                  <Link href="/user/login">Masuk sebagai Wisatawan</Link>
                 </span>
               </p>
               <p className="mt-4">Belum punya akun?</p>
               <p>
                 <span>
-                  <Link href="/guide/registrasi">
-                    Registrasi Sekarang!
-                  </Link>
+                  <Link href="/guide/registrasi">Registrasi Sekarang!</Link>
                 </span>
-
               </p>
             </div>
           </div>
@@ -61,5 +120,3 @@ function LoginTourGuide() {
     </div>
   );
 }
-
-export default LoginTourGuide;
