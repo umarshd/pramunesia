@@ -1,47 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Navigation from "../../../components/afterlogin/navbar";
+import { useState } from "react";
+import axios from "axios";
+import Cookies from "js-cookie";
 
-export async function getStaticPaths() {
-  const res = await fetch("https://dummyapi.io/data/v1/user", {
-    headers: {
-      "Content-Type": "application/json",
-      "app-id": "62aed33d9e68d01b5b186d7f",
-    },
-  });
-  const dataUsers = await res.json();
-  const { data } = await dataUsers;
-  const paths = data.map((user) => ({
-    params: { id: `${user.id}` },
-  }));
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps(context) {
-  const { id } = context.params;
-  const res = await fetch(`https://dummyapi.io/data/v1/user/${id}`, {
-    headers: {
-      "Content-Type": "application/json",
-      "app-id": "62aed33d9e68d01b5b186d7f",
-    },
-  });
-  const guide = await res.json();
-  return {
-    props: {
-      guide,
-    },
-  };
-}
-
-function DetailTourGuide({ guide }) {
+export default function detail() {
   const router = useRouter();
-  const okButtonHandler = () => {
-    router.push("/user/riwayat-pemesanan");
+  const { detail } = router.query;
+  console.log(detail);
+
+  const [guide, setGuide] = useState(false);
+
+  const getGuide = async (e) => {
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/guides/${detail}`;
+
+    try {
+      const response = await axios({
+        url: api,
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${Cookies.get("pramunesiaAppToken")}`,
+        },
+      });
+      await setGuide(response.data);
+    } catch (error) {}
   };
+
+  console.log(guide);
+
+  useEffect(() => {
+    if (detail) {
+      getGuide();
+    }
+  }, [detail]);
+
   return (
     <div className="container mx-auto">
       <Navigation />
@@ -54,12 +48,12 @@ function DetailTourGuide({ guide }) {
           />
         </div>
         <h4 className="text-center">
-          {guide.firstName} <span className="fw-light">{guide.email}</span>
+          {guide.name} <span className="fw-light">{guide.email}</span>
         </h4>
         <h6>Harga : 300.000/Hari</h6>
-        <p>{guide.phone}</p>
+        <p>{guide.noTelp}</p>
         <p>
-          {guide.location.city}, {guide.location.state} {guide.phone}
+          {guide.alamat}, {guide.city} {guide.province}
         </p>
         <div className="mt-3">
           <button
@@ -120,7 +114,6 @@ function DetailTourGuide({ guide }) {
                   <button
                     type="button"
                     className="btn-orange"
-                    onClick={okButtonHandler}
                     data-bs-dismiss="modal"
                   >
                     OK
@@ -153,5 +146,3 @@ function DetailTourGuide({ guide }) {
     </div>
   );
 }
-
-export default DetailTourGuide;

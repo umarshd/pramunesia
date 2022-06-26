@@ -45,7 +45,6 @@ export default function index() {
       });
       router.replace("/user/choose-destination");
     } catch (error) {
-      console.log(error);
       MySwal.fire({
         position: "center",
         icon: "error",
