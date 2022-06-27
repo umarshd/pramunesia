@@ -37,7 +37,7 @@ export default function index() {
   return (
     <div className="container mx-auto">
       <Navigation />
-      <h2 className="text-center mb-4">Daftar Pemandu Wisata Cirebon</h2>
+      <h2 className="text-center mb-4">Daftar Pemandu Wisata</h2>
       <div className="row">
         {guides
           ? guides.map((guide) => (
