@@ -219,7 +219,22 @@ ul>li>a {
   border-radius: 10px;
 }
 
+.img-container {
+  position: relative;
+  text-align: center;
+}
 
+.centered-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.637);
+  padding: 0.5rem;
+}
 
 @media print {
   @page {
