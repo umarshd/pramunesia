@@ -3,8 +3,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiChevronRight } from "react-icons/fi";
 import Navigation from "../../../components/afterlogin/navbar";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import Cookies from "js-cookie";
+import axios from "axios";
+import { useEffect } from "react";
 
 function GuideProfile() {
+  const router = useRouter();
+
+  const [guide, setGuide] = useState(false);
+
+  const getGuide = async (e) => {
+    const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/guides/${Cookies.get(
+      "pramunesiaIdUser"
+    )}`;
+
+    try {
+      const response = await axios({
+        url: api,
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${Cookies.get("pramunesiaAppTokenGuide")}`,
+        },
+      });
+      await setGuide(response.data);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    getGuide();
+  }, []);
   return (
     <div className="container mx-auto">
       <Navigation />
@@ -19,9 +48,15 @@ function GuideProfile() {
                   height="100"
                 />
               </div>
-              <h4>Halo, Pemandu Wisata</h4>
+              <h4>Halo, {guide ? guide.name : null}</h4>
               <span>
-                <Link href="/">Lihat Profil</Link>
+                <Link
+                  href={
+                    guide ? `/guide/profile/${guide.id}` : `/guide/profile/`
+                  }
+                >
+                  Lihat Profil
+                </Link>
               </span>
             </div>
           </div>
