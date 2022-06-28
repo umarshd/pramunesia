@@ -43,7 +43,7 @@ function UserHomePage() {
     <Layout pageTitle="user-home">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <div className="">
-          <h3 className="h3 my-3">
+          <h3 className="h3">
             Rekomendasi Wisata di
             {' '}
             {city ? city.name : null}
