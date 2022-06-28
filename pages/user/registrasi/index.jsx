@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import Head from 'next/head';
-import axios from 'axios';
-import Router from 'next/router';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
-import Logobig from '../../../public/images/logo-big.png';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Head from "next/head";
+import axios from "axios";
+import Router from "next/router";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import Logobig from "../../../public/images/logo-big.png";
 
 function RegistWisatawan() {
   const MySwal = withReactContent(Swal);
@@ -18,7 +18,7 @@ function RegistWisatawan() {
     try {
       const respnse = await axios({
         url: api,
-        method: 'GET',
+        method: "GET",
       });
       console.log(respnse);
     } catch (error) {
@@ -37,7 +37,7 @@ function RegistWisatawan() {
     try {
       const response = await axios({
         url: api,
-        method: 'POST',
+        method: "POST",
         data: {
           name: input.name,
           email: input.email,
@@ -47,17 +47,17 @@ function RegistWisatawan() {
         },
       });
       MySwal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'User has been created successfully',
+        position: "center",
+        icon: "success",
+        title: "User has been created successfully",
         showConfirmButton: false,
         timer: 1500,
       });
-      Router.push('/');
+      Router.push("/");
     } catch (error) {
       MySwal.fire({
-        position: 'center',
-        icon: 'error',
+        position: "center",
+        icon: "error",
         title: `${error.response.data.message}`,
         showConfirmButton: false,
         timer: 1500,
@@ -73,8 +73,8 @@ function RegistWisatawan() {
       <Head>
         <title>Pramunesia | Registrasi Wisatawan</title>
       </Head>
-      <div className="row vh-100 w-100">
-        <div className="col-lg-6 d-none d-xl-block d-xxl-none d-md-block">
+      <div className="row vh-100">
+        <div className="col-lg-6 ">
           <div className="d-flex justify-content-center align-items-center h-100">
             <Image src={Logobig} width={500} height={450} alt="logo big" />
           </div>
@@ -87,8 +87,7 @@ function RegistWisatawan() {
                 <h3 className="my-4">Buat Akunmu!</h3>
                 <p>Untuk mendapatkan pengalaman terbaik di Pramunesia</p>
                 <p className="mb-3">
-                  Sudah punya akun?
-                  {' '}
+                  Sudah punya akun?{" "}
                   <span>
                     <Link href="/user/login">Masuk sekarang</Link>
                   </span>
@@ -161,7 +160,7 @@ function RegistWisatawan() {
                       onChange={handleChange}
                     />
                   </div>
-                  <div className="mb-3 d-flex justify-content-center">
+                  <div className="mb-3 mt-5 d-flex justify-content-center">
                     <button type="submit" className="btn-orange">
                       Registrasi
                     </button>
@@ -170,16 +169,10 @@ function RegistWisatawan() {
               </div>
               <div className="text-center">
                 <p>
-                  Dengan menekan tombol Registrasi, Anda setuju
-                  {' '}
-                  <br />
-                  {' '}
-                  dengan
-                  {' '}
+                  Dengan menekan tombol Registrasi, Anda setuju <br /> dengan{" "}
                   <span>
                     <a href="/">Syarat & Ketentuan</a>
-                  </span>
-                  {' '}
+                  </span>{" "}
                   kami
                 </p>
               </div>

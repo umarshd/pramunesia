@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
-import axios from 'axios';
-import Cookies from 'js-cookie';
-import Navigation from '../../../components/afterlogin/navbar';
+import axios from "axios";
+import Cookies from "js-cookie";
+import Navigation from "../../../components/afterlogin/navbar";
 
 export default function detail() {
   const router = useRouter();
@@ -19,9 +19,9 @@ export default function detail() {
     try {
       const response = await axios({
         url: api,
-        method: 'GET',
+        method: "GET",
         headers: {
-          authorization: `Bearer ${Cookies.get('pramunesiaAppToken')}`,
+          authorization: `Bearer ${Cookies.get("pramunesiaAppToken")}`,
         },
       });
       await setGuide(response.data);
@@ -41,7 +41,7 @@ export default function detail() {
   return (
     <div className="container mx-auto">
       <Navigation />
-      <div className="d-flex flex-column justify-content-center align-items-center bg-soft-peace p-3 soft-shadow rounded">
+      <div className="d-flex flex-column justify-content-center align-items-center bg-firefly p-3 soft-shadow rounded">
         <div className="rounded-circle overflow-hidden soft-shadow border border-5">
           <Image
             src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
@@ -49,20 +49,13 @@ export default function detail() {
             height="100"
           />
         </div>
-        <h4 className="text-center">
-          {guide.name}
-          {' '}
-          <span className="fw-light">{guide.email}</span>
+        <h4 className="text-center py-2 pt-4 text-white">
+          {guide.name} <span className="fw-light">{guide.email}</span>
         </h4>
-        <h6>Harga : 300.000/Hari</h6>
-        <p>{guide.noTelp}</p>
-        <p>
-          {guide.alamat}
-          ,
-          {' '}
-          {guide.city}
-          {' '}
-          {guide.province}
+        <h6 className="text-center text-white">Harga : 300.000/Hari</h6>
+        <p className="text-center text-white">{guide.noTelp}</p>
+        <p className="text-center text-white">
+          {guide.alamat}, {guide.city} {guide.province}
         </p>
         <div className="mt-3">
           <button
@@ -134,10 +127,10 @@ export default function detail() {
         </div>
         {/* modal */}
       </div>
-      <div className="row gap-0 mt-5">
-        <div className="col-12 p-0 mb-3">
-          <div className=" d-flex justify-content-center flex-column align-items-center bg-soft-peace soft-shadow rounded h-100 p-4">
-            <h4 className="mb-2">Sertifikat</h4>
+      <div className="row gap-0 mt-5 bg-firefly rounded">
+        <div className="col-12 p-0 mb-3 bg-firefly rounded">
+          <div className=" d-flex roundedjustify-content-center flex-column align-items-center bg-firefly soft-shadow rounded h-100 p-4">
+            <h4 className="mb-2 text-white">Sertifikat</h4>
             <div className="d-flex justify-content-center align-items-center gap-2 h-100 w-100">
               <div className=" bg-dark-grey d-flex justify-content-center align-items-center p-1 w-100 rounded mh-12rm">
                 Sertifikat 1
