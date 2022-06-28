@@ -38,7 +38,7 @@ export default function index() {
   return (
     <div className="container mx-auto">
       <Navigation />
-      <div className="d-flex flex-column justify-content-center align-items-center bg-soft-peace p-3 soft-shadow rounded mb-3">
+      <div className="d-flex flex-column justify-content-center align-items-center bg-soft-peace p-3 soft-shadow rounded mb-5">
         <div className="rounded-circle overflow-hidden soft-shadow border border-5">
           <Image
             src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
@@ -62,8 +62,11 @@ export default function index() {
         </p>
       </div>
       <div className="d-flex flex-column">
-        <div className="d-flex align-items-center mb-3">
-          <div className="ms-auto">
+        <div className="d-flex justify-content-between align-items-center mb-4 pt-md-5">
+          <div className="">
+            <h4 className="text-center">Data Sertifikat</h4>
+          </div>
+          <div className="">
             <button
               type="button"
               className="btn-orange"
