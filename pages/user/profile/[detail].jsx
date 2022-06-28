@@ -40,7 +40,7 @@ export default function detail() {
       <h3 className="text-center pb-5">Profil</h3>
       <div className="row">
         <div className="col-lg-6 col-md-6 col-sm-12">
-          <div className="d-flex flex-column justify-content-center align-items-center h-75  bg-soft-peace rounded shadow-custom-2">
+          <div className="d-flex flex-column justify-content-center align-items-center h-75 p-5 bg-soft-peace rounded shadow-custom-2">
             <div className="rounded-circle overflow-hidden">
               <Image
                 src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
@@ -48,7 +48,7 @@ export default function detail() {
                 height="100"
               />
             </div>
-            <h4>{user ? user.name : ""}</h4>
+            <h4 className="pt-3">{user ? user.name : ""}</h4>
             <span>
               <Link href="/">Ubah Foto Profil</Link>
             </span>
