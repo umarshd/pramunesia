@@ -254,7 +254,14 @@ ul>li>a {
 
 
 @media screen and (min-width: 768px) {
-  .image-slide {
+  .img-container {
     height: 25rem;
+  }
+
+  .thumbs-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
   }
 }
