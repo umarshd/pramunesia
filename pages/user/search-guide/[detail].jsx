@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import Navigation from "../../../components/afterlogin/navbar";
-import { useState } from "react";
-import axios from "axios";
-import Cookies from "js-cookie";
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import Navigation from '../../../components/afterlogin/navbar';
 
 export default function detail() {
   const router = useRouter();
@@ -19,13 +19,15 @@ export default function detail() {
     try {
       const response = await axios({
         url: api,
-        method: "GET",
+        method: 'GET',
         headers: {
-          authorization: `Bearer ${Cookies.get("pramunesiaAppToken")}`,
+          authorization: `Bearer ${Cookies.get('pramunesiaAppToken')}`,
         },
       });
       await setGuide(response.data);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   console.log(guide);
@@ -48,12 +50,19 @@ export default function detail() {
           />
         </div>
         <h4 className="text-center">
-          {guide.name} <span className="fw-light">{guide.email}</span>
+          {guide.name}
+          {' '}
+          <span className="fw-light">{guide.email}</span>
         </h4>
         <h6>Harga : 300.000/Hari</h6>
         <p>{guide.noTelp}</p>
         <p>
-          {guide.alamat}, {guide.city} {guide.province}
+          {guide.alamat}
+          ,
+          {' '}
+          {guide.city}
+          {' '}
+          {guide.province}
         </p>
         <div className="mt-3">
           <button
