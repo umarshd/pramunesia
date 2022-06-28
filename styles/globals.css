@@ -75,7 +75,7 @@ body {
 .shadow-card {
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
   border-radius: 16px;
-  background: linear-gradient(45deg, #ff720f, #dd600d);
+  background: linear-gradient(45deg, #205375, #112b3c);
   transition: all 0.2s ease;
   cursor: pointer;
 }
@@ -135,6 +135,10 @@ span>a {
 
 .shadow-custom-2 {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.shadow-custom-3 {
+  box-shadow: #e46e1f 0px 6px;
 }
 
 .border-radius-20-bottom {
