@@ -34,9 +34,10 @@ export default function BookingHistory() {
                 </h6>
               </div>
               <div className="mb-5 text-white">
-                <p>Kota Tujuan : Bandung</p>
-                <p>Tanggal Pemesanan : 15 Juni 2022</p>
+                <p>Kota Tujuan : Cirebon</p>
+                <p>Tanggal Pemesanan : 19 Juni 2022</p>
                 <p>Tanggal Keberangkatan : 22 Juni 2022</p>
+                <p>Tanggal Berakhir : 25 Juni 2022</p>
               </div>
               <div className="d-flex justify-content-end mt-2">
                 {/* <button

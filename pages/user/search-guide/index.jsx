@@ -38,6 +38,16 @@ export default function index() {
     <div className="container mx-auto">
       <Navigation />
       <h2 className="text-center mb-4">Daftar Pemandu Wisata</h2>
+      <div className="row justify-content-center my-5">
+        <div className="col-lg-3">
+          <label htmlFor="">Tanggal Keberangkatan</label>
+          <input type="date" className="form-control" />
+        </div>
+        <div className="col-lg-3">
+          <label htmlFor="">Tanggal Berakhir</label>
+          <input type="date" className="form-control" />
+        </div>
+      </div>
       <div className="row">
         {guides
           ? guides.map((guide) => (
