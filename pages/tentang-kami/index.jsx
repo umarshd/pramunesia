@@ -44,11 +44,11 @@ export default function TentangKami() {
         </div>
         <div className="features d-flex flex-column justify-content-center align-items-center my-5">
           <h2>Bersama Pramunesia</h2>
-          <div className="row mt-5">
+          <div className="row mt-4">
             <div className="col-md-3 col-sm-6">
               <div className="smooth-shadow d-flex flex-column justify-content-center align-items-center p-3 h15 rounded">
                 <FiMapPin size={80} />
-                <p className="text-center">
+                <p className="text-center my-2">
                   Dapat memilih
                   destinasi wisata
                 </p>
@@ -57,7 +57,7 @@ export default function TentangKami() {
             <div className="col-md-3 col-sm-6">
               <div className="smooth-shadow d-flex flex-column justify-content-center align-items-center p-3 h15 rounded">
                 <FiCalendar size={80} />
-                <p className="text-center">
+                <p className="text-center my-2">
                   Dapat memilih
                   waktu untuk
                   berwisata
@@ -68,7 +68,7 @@ export default function TentangKami() {
             <div className="col-md-3 col-sm-6">
               <div className="smooth-shadow d-flex flex-column justify-content-center align-items-center p-3 h15 rounded">
                 <FiUsers size={80} />
-                <p className="text-center">
+                <p className="text-center my-2">
                   Dapat memilih
                   pemandu wisata
                   dengan mudah
@@ -79,7 +79,7 @@ export default function TentangKami() {
             <div className="col-md-3 col-sm-6">
               <div className="smooth-shadow d-flex flex-column justify-content-center align-items-center p-3 h15 rounded">
                 <FiMessageSquare size={80} />
-                <p className="text-center">
+                <p className="text-center my-2">
                   Dapat membuat dan
                   melihat ulasan para
                   wisatawan lainnya
@@ -91,11 +91,11 @@ export default function TentangKami() {
         </div>
         <div className="help d-flex flex-column justify-content-center align-items-center text-white py-4 rounded my-5">
           <div className="row">
-          <h2 className="mb-4 text-center">Butuh Bantuan? Hubungi Kami</h2>
+            <h2 className="mb-4 text-center">Butuh Bantuan? Hubungi Kami</h2>
             <div className="col-md-4 col-sm-12">
               <div className="d-flex flex-column justify-content-center align-items-center p-3">
                 <FiMessageCircle size={80} />
-                <p className="text-center">
+                <p className="text-center my-2">
                   Whatsapp
                   {' '}
                   <br />
@@ -106,8 +106,10 @@ export default function TentangKami() {
             <div className="col-md-4 col-sm-12">
               <div className="d-flex flex-column justify-content-center align-items-center p-3">
                 <FiMail size={80} />
-                <p className="text-center">
+                <p className="text-center my-2">
                   Email
+                  {' '}
+                  <br />
                   pramunesia@gmail.com
                 </p>
               </div>
@@ -115,8 +117,10 @@ export default function TentangKami() {
             <div className="col-md-4 col-sm-12">
               <div className="d-flex flex-column justify-content-center align-items-center p-3">
                 <FiPhoneCall size={80} />
-                <p className="text-center">
+                <p className="text-center my-2">
                   Call Center
+                  {' '}
+                  <br />
                   +62823641873492
                 </p>
               </div>
