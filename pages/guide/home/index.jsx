@@ -40,27 +40,35 @@ function GuideHomePage() {
           </div>
           <div className="col-12 col-xl-4 mb-4 d-flex justify-content-center">
             <div className="card shadow-card" style={{ width: "100%" }}>
-              <div
-                className="row d-flex align-items-center justify-content-center"
-                style={{ height: "8rem" }}
+              <a
+                href="https://forms.gle/HDTQXceAD47qiWNi9"
+                className="nav-link"
               >
-                <div className="col-2">
-                  <FiBookOpen size="4rem" color="white" />
-                </div>
-                <div className="col-10">
-                  <div className="card-body">
-                    <h5 className="card-title text-white">Surat Tugas</h5>
-                    <small className="card-text text-white">
-                      Ajukan permohonan surat tugasmu disini!
-                    </small>
+                <div
+                  className="row d-flex align-items-center justify-content-center"
+                  style={{ height: "8rem" }}
+                >
+                  <div className="col-2">
+                    <FiBookOpen size="4rem" color="white" />
+                  </div>
+                  <div className="col-10">
+                    <div className="card-body">
+                      <h5 className="card-title text-white">Surat Tugas</h5>
+                      <small className="card-text text-white">
+                        Ajukan permohonan surat tugasmu disini!
+                      </small>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
           <div className="col-12 col-xl-4 mb-4 d-flex justify-content-center">
             <div className="card shadow-card" style={{ width: "100%" }}>
-              <a href="" className="nav-link">
+              <a
+                href="https://forms.gle/i6SMZzL9gdWasR7u9"
+                className="nav-link"
+              >
                 <div
                   className="row d-flex align-items-center justify-content-center"
                   style={{ height: "8rem" }}
