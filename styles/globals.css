@@ -84,7 +84,7 @@ body {
   transform: scale(1.01);
 }
 
-span>a {
+span > a {
   text-decoration: none;
   color: var(--clr-pumpkin);
 }
@@ -175,11 +175,11 @@ span>a {
   box-shadow: var(--clr-pumpkin) 0px 1px 2px 0px;
 }
 
-ul>li {
+ul > li {
   list-style: none;
 }
 
-ul>li>a {
+ul > li > a {
   text-decoration: none;
   color: black;
 }
@@ -277,10 +277,11 @@ ul>li>a {
 
 /* spinner */
 
-
 @media screen and (min-width: 768px) {
   .img-container {
     height: 25rem;
+    width: 100%;
+    overflow: hidden;
   }
 
   .thumbs-wrapper {
@@ -289,6 +290,18 @@ ul>li>a {
     justify-content: center;
     margin-top: 1rem;
   }
+
+  .carousel .slider-wrapper ul li {
+    height: 365px !important;
+  }
+}
+
+.carousel .slider-wrapper ul li {
+  height: 260px ;
+}
+
+.img-container {
+  overflow: hidden;
 }
 
 .center-cropped {
@@ -298,4 +311,13 @@ ul>li>a {
   /* Center the image within the element */
   height: 100%;
   width: 100%;
+}
+
+.thumbs {
+  margin: 20px 0px !important;
+}
+
+.thumbs li {
+  height: 50px;
+  overflow: hidden !important;
 }
