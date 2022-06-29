@@ -15,7 +15,7 @@ function GuideHomePage() {
         </div>
       </div>
       <div className="my-1">
-        <h3 className="h3 pt-4 text-center p-3">Pilih sesuai kebutuhanmu</h3>
+        <h3 className="h3 pt-4 text-center p-3">Pilih Sesuai Kebutuhanmu</h3>
         <hr />
         <div className="row my-3">
           <div className="col-12 col-xl-4 mb-4 d-flex justify-content-center">
