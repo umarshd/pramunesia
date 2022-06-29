@@ -252,6 +252,31 @@ ul>li>a {
   }
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25rem;
+}
+
+/* spinner */
+.spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, #f66b0e);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  animation: spinner-load 1s infinite linear;
+}
+
+@keyframes spinner-load {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* spinner */
+
 
 @media screen and (min-width: 768px) {
   .img-container {

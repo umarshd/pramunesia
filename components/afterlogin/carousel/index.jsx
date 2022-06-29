@@ -52,7 +52,9 @@ export default function ComponentCarousel() {
             </div>
           ))
         ) : (
-          <div>Loading...</div>
+          <div className="loader">
+            <div className="spinner" />
+          </div>
         )}
       </Carousel>
     </div>
