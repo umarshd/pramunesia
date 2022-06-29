@@ -44,7 +44,7 @@ export default function Tiket() {
           </small>
         </div>
       </div>
-      <div className="d-flex align-items-center justify-content-center">
+      <div className="d-flex align-items-center justify-content-end me-5">
         <button
           type="button"
           id="printBtn"
