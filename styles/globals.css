@@ -261,11 +261,11 @@ ul>li>a {
 
 /* spinner */
 .spinner {
-  width: 56px;
-  height: 56px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   background: conic-gradient(#0000 10%, #f66b0e);
-  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 11.5px), #000 0);
   animation: spinner-load 1s infinite linear;
 }
 
