@@ -42,7 +42,7 @@ export default function ComponentCarousel() {
                   'idCity',
                 )}/destinations/image/${image.image}`}
                 alt="slide"
-                className="rounded"
+                className="rounded center-cropped"
               />
 
               <div className="centered-caption">
