@@ -17,14 +17,12 @@ export default function Tiket() {
         </div>
         <h1 className="h4 mb-2">Nama Wisatawan</h1>
         <div className="row info-ticket py-3 mb-2">
-          <div className="col-md-6 ps-0">
+          <div className="col-12 ps-0">
             <p>Nama Pemandu Wisata : Harry Potter</p>
+            <p>Kota Tujuan : Bandung</p>
             <p>Tanggal Pemesanan : 15-06-2022</p>
             <p>Tanggal Keberangkatan : 03-07-2022</p>
             <p>Tanggal Berakhir : 06-07-2022</p>
-          </div>
-          <div className="col-md-6 ps-0">
-            <p>Kota Tujuan : Bandung</p>
           </div>
         </div>
         <div className="note mb-4">
@@ -44,7 +42,7 @@ export default function Tiket() {
           </small>
         </div>
       </div>
-      <div className="d-flex align-items-center justify-content-end me-5">
+      <div className="d-flex align-items-center justify-content-end mx-3">
         <button
           type="button"
           id="printBtn"
