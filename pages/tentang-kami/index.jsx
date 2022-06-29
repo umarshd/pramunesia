@@ -25,7 +25,7 @@ export default function TentangKami() {
         </section>
         <div className="soft-shadow bg-soft-peace  my-5 p-3 d-flex flex-column justify-content-center align-items-center rounded shadow-custom-3">
           <h2>Pramunesia!</h2>
-          <small className="text-pumpkin fw-600 my-2">#GuideYoutoAmazingJourney</small>
+          <small className="text-orange fw-600 my-2 fs-5">#GuideYoutoAmazingJourney</small>
           <div className="paragraph mt-3">
             <p className="p mb-3 text-center">
               Merupakan sebuah platform penyedia layanan sewa pemandu wisata untuk
