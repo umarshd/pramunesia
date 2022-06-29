@@ -7,8 +7,6 @@ import Cookies from "js-cookie";
 export default function ComponentCarousel() {
   const [images, setImages] = useState(false);
 
-  const = [name , setName] = useState(null)
-
   const getDestination = async () => {
     const api = `${process.env.NEXT_PUBLIC_ENDPOINT}/cities/${Cookies.get(
       "idCity"
