@@ -18,7 +18,7 @@ function GuideHomePage() {
         <h3 className="h3 pt-4 text-center p-3">Pilih sesuai kebutuhanmu</h3>
         <hr />
         <div className="row my-3">
-          <div className="col-lg-4 mb-4 d-flex justify-content-center">
+          <div className="col-12 col-xl-4 mb-4 d-flex justify-content-center">
             <Card
               icons={<FiCalendar size="4rem" color="white" />}
               title="Jadwal Bertugas"
@@ -26,7 +26,7 @@ function GuideHomePage() {
           disini!"
             />
           </div>
-          <div className="col-lg-4 mb-4 d-flex justify-content-center">
+          <div className="col-12 col-xl-4 mb-4 d-flex justify-content-center">
             <Card
               icons={<FiBookOpen size="4rem" color="white" />}
               title="Surat Tugas"
@@ -34,7 +34,7 @@ function GuideHomePage() {
           disini!"
             />
           </div>
-          <div className="col-lg-4 mb-4 d-flex justify-content-center">
+          <div className="col-12 col-xl-4 mb-4 d-flex justify-content-center">
             <Card
               icons={<FiStar size="4rem" color="white" />}
               title="Surat Rekomendasi Sertifikasi"
