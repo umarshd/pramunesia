@@ -127,21 +127,21 @@ export default function detail() {
         </div>
         {/* modal */}
       </div>
-      <div className="row gap-0 mt-5 bg-firefly rounded">
-        <div className="col-12 p-0 mb-3 bg-firefly rounded">
-          <div className=" d-flex roundedjustify-content-center flex-column align-items-center bg-firefly soft-shadow rounded h-100 p-4">
-            <h4 className="mb-2 text-white">Sertifikat</h4>
-            <div className="d-flex justify-content-center align-items-center gap-2 h-100 w-100">
-              <div className=" bg-dark-grey d-flex justify-content-center align-items-center p-1 w-100 rounded mh-12rm">
-                Sertifikat 1
-              </div>
-              <div className=" bg-dark-grey d-flex justify-content-center align-items-center p-1 w-100 rounded mh-12rm">
-                Sertifikat 2
-              </div>
-              <div className=" bg-dark-grey d-flex justify-content-center align-items-center p-1 w-100 rounded mh-12rm">
-                Sertifikat 3
-              </div>
-            </div>
+      <div className="row gap-0 mt-5 bg-firefly rounded text-center pb-5 mb-5">
+        <h4 className="mb-2 text-white mt-3">Sertifikat</h4>
+        <div className="col-lg-4 mt-3">
+          <div className=" bg-dark-grey d-flex justify-content-center align-items-center p-1 w-100 rounded mh-12rm">
+            Sertifikat 1
+          </div>
+        </div>
+        <div className="col-lg-4 mt-3">
+          <div className=" bg-dark-grey d-flex justify-content-center align-items-center p-1 w-100 rounded mh-12rm">
+            Sertifikat 1
+          </div>
+        </div>
+        <div className="col-lg-4 mt-3">
+          <div className=" bg-dark-grey d-flex justify-content-center align-items-center p-1 w-100 rounded mh-12rm">
+            Sertifikat 1
           </div>
         </div>
       </div>
