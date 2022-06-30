@@ -1,12 +1,12 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import Logobig from "../../../public/images/logo-big.png";
-import { useRouter } from "next/router";
-import Swal from "sweetalert2";
-import { useState } from "react";
-import axios from "axios";
-import Cookies from "js-cookie";
+import React, { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Swal from 'sweetalert2';
+
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import Logobig from '../../../public/images/logo-big.png';
 
 export default function index() {
   const router = useRouter();
@@ -22,28 +22,28 @@ export default function index() {
 
     try {
       const response = await axios({
-        method: "POST",
+        method: 'POST',
         url: api,
         data: input,
       });
 
-      await Cookies.set("pramunesiaAppTokenGuide", response.data.token);
-      await Cookies.set("pramunesiaIdUser", response.data.id);
-      await Cookies.set("pramunesiaRole", "guide");
+      await Cookies.set('pramunesiaAppTokenGuide', response.data.token);
+      await Cookies.set('pramunesiaIdUser', response.data.id);
+      await Cookies.set('pramunesiaRole', 'guide');
 
       Swal.fire({
-        position: "center",
-        icon: "success",
-        title: `${"Login successfully"}`,
+        position: 'center',
+        icon: 'success',
+        title: `${'Login successfully'}`,
         showConfirmButton: false,
         timer: 1500,
       });
 
-      router.replace("/guide/home");
+      router.replace('/guide/home');
     } catch (error) {
       Swal.fire({
-        position: "center",
-        icon: "error",
+        position: 'center',
+        icon: 'error',
         title: `${error.response.data.message}`,
         showConfirmButton: false,
         timer: 1500,
@@ -55,10 +55,10 @@ export default function index() {
     <div className="row vh-100 w-100">
       <div className="col-lg-6">
         <div className="d-flex justify-content-center align-items-center h-100">
-          <Image src={Logobig} width={500} height={450} alt="logo big" />
+          <Image src={Logobig} width={500} height={450} alt="logo big" priority />
         </div>
       </div>
-      <div className="col-lg-6 bg-firefly py-4 px-5">
+      <div className="col-lg-6 bg-firefly py-4 px-md-4 px-sm-0">
         <div className="d-flex justify-content-center align-items-center">
           <div className="content text-white">
             <div className="text-center mb-5">
